@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    tools:context=".MainActivity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@mipmap/ic_launcher">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/crear_cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
+        android:text="Crear Cuenta"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/nombre_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/crear_cuenta"
+        android:hint="Nombre de Usuario"
+        android:layout_margin="20dp"
+        ></TextView>
+
+
+    <TextView
+        android:id="@+id/contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/nombre_usuario"
+        android:hint="Contraseña"
+        android:layout_margin="20dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/contraseña"
+        android:hint="Email"
+        android:layout_margin="20dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:hint="Nombre"
+        android:layout_margin="20dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/celular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre"
+        android:hint="Celular"
+        android:layout_margin="20dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/pais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/celular"
+        android:hint="Pais"
+        android:layout_margin="20dp"
+        ></TextView>
+
+    <Button
+        android:id="@+id/boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pais"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Crear"
+        android:textSize="30dp"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+
+        ></Button>
+</androidx.constraintlayout.widget.ConstraintLayout>

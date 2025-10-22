@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/flecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_margin="10dp"
+        ></ImageView>
+
+
+    <TextView
+        android:id="@+id/user_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/flecha"
+        android:text="Perfil de Usuario"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_margin="10dp"
+        ></TextView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fondo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/flecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@android:color/holo_blue_dark"
+        >
+
+        <ImageView
+            android:id="@+id/perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_launcher_foreground"
+            >
+        </ImageView>
+        <TextView
+            android:id="@+id/Id_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/fondo"
+            app:layout_constraintStart_toEndOf="@+id/perfil"
+            android:text="ID_Usuario"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_margin="25dp"
+            ></TextView>
+        <TextView
+            android:id="@+id/gmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/Id_usuario"
+            app:layout_constraintStart_toEndOf="@+id/perfil"
+            android:text="Useracount@gmail.com"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            ></TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/fondo"
+        android:text="Nombre"
+        android:layout_margin="10dp"
+        ></TextView>
+    <TextView
+        android:id="@+id/Nombre1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre"
+        android:text="Josefo Gallardo Hernandez"
+        android:layout_margin="10dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre1"
+        android:text="Email"
+        android:layout_margin="10dp"
+        ></TextView>
+    <TextView
+        android:id="@+id/Email1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Email"
+        android:text="UserAccount@gmail.com"
+        android:layout_margin="10dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Email1"
+        android:text="Contraseña"
+        android:layout_margin="10dp"
+        ></TextView>
+    <TextView
+        android:id="@+id/Password1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Password"
+        android:text="******"
+        android:layout_margin="10dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/Celular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Password1"
+        android:text="Celular"
+        android:layout_margin="10dp"
+        ></TextView>
+    <TextView
+        android:id="@+id/Celular1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Celular"
+        android:text="74583493"
+        android:layout_margin="10dp"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/Pais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Celular1"
+        android:text="Pais"
+        android:layout_margin="10dp"
+        ></TextView>
+    <TextView
+        android:id="@+id/Pais1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Pais"
+        android:text="Pakestan"
+        android:layout_margin="10dp"
+        ></TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fondo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Pais1"
+        android:background="@android:color/holo_blue_dark"
+        >
+        <Button
+            android:id="@+id/boton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Cambiar Información"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/fondo1"
+            ></Button>
+
+        <Button
+            android:id="@+id/boton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Cerrar Sesion"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/boton"
+
+            ></Button>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
