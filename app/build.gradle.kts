@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.ponchos_rojos"
-        minSdk = 24
+        minSdk = 22
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
