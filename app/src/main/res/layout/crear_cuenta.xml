@@ -5,17 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@color/deepBlue"
     tools:context=".MainActivity">
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_margin="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@mipmap/ic_launcher">
+        android:src="@drawable/group_73">
 
     </ImageView>
 
@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/crear_cuenta"
         android:hint="Nombre de Usuario"
+        android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
         ></TextView>
 
@@ -48,6 +49,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/nombre_usuario"
         android:hint="Contraseña"
+        android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
         ></TextView>
 
@@ -57,6 +59,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/contraseña"
         android:hint="Email"
+        android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
         ></TextView>
 
@@ -66,6 +69,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/email"
         android:hint="Nombre"
+        android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
         ></TextView>
 
@@ -75,6 +79,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/Nombre"
         android:hint="Celular"
+        android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
         ></TextView>
 
@@ -84,8 +89,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/celular"
         android:hint="Pais"
+        android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
         ></TextView>
+
 
     <Button
         android:id="@+id/boton"
@@ -97,6 +104,6 @@
         android:textSize="30dp"
         android:layout_margin="20dp"
         android:textColor="@color/white"
-
+        android:background="@android:color/holo_blue_dark"
         ></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
