@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- ACA HABILITAMOS LOS PERMISOS QUE REQUQERIRA LA APLICACION COMO BLUETHOIOTH GPS ETC -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ponchos_Rojos">
         <activity
-            android:name=".activity_login"
+            android:name=".activity_gameInfo"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity_login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>
