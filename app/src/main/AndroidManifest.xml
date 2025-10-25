@@ -14,9 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ponchos_Rojos">
-        <activity
-            android:name=".activity_gameInfo"
-            android:exported="false" />
+
         <activity
             android:name=".activity_login"
             android:exported="true">
@@ -28,7 +26,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>
