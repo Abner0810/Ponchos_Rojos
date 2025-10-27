@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grayBlue"
+    tools:context=".TiendaActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/grayBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/textview1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="25dp"
+            android:autofillHints="null"
+            android:background="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:gravity="center_vertical|start"
+            android:hint="@string/Buscar"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/deepBlue"
+            android:textColorHint="@color/deepBlue"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imageview2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageview1"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/search"
+            app:layout_constraintBottom_toBottomOf="@id/textview1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/textview1"
+            app:layout_constraintTop_toTopOf="@id/textview1" />
+
+        <ImageView
+            android:id="@+id/imageview2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/generic_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textview1"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/deepBlue"
+        app:layout_constraintBottom_toTopOf="@+id/bottombar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/nestedlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/LeftGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="25dp"></androidx.constraintlayout.widget.Guideline>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/RightGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="25dp"></androidx.constraintlayout.widget.Guideline>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/nestedtext1"
+                android:layout_width="105dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="25dp"
+                app:cardBackgroundColor="@color/grayWhite"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintStart_toStartOf="@id/LeftGuideline"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableEnd="@drawable/triangle"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:gravity="center|left"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="7dp"
+                    android:text="@string/sort_by"
+                    android:textColor="@color/deepBlue"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/FeaturedNestedText"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_pro_bold"
+                android:text="FEATURED"
+                android:textColor="@color/grayWhite"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/nestedtext1"
+                app:layout_constraintTop_toBottomOf="@id/nestedtext1" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/game1"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@id/RightGuideline"
+                app:layout_constraintStart_toStartOf="@id/LeftGuideline"
+                app:layout_constraintTop_toBottomOf="@id/FeaturedNestedText">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher_background" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/game2"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@id/game1"
+                app:layout_constraintStart_toStartOf="@id/game1"
+                app:layout_constraintTop_toBottomOf="@id/game1">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher_background" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/game3"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@id/game2"
+                app:layout_constraintStart_toStartOf="@id/game2"
+                app:layout_constraintTop_toBottomOf="@id/game2">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher_background" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/game4"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@id/game3"
+                app:layout_constraintStart_toStartOf="@id/game3"
+                app:layout_constraintTop_toBottomOf="@id/game3">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher_background" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/grayBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageview3"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/carrito"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageview4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/squares_four_fill_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageview5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/tag_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imageview3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
