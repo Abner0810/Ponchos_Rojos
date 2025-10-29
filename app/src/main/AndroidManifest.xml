@@ -24,7 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity_gameInfo"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".activity_library"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".TiendaActivity"
             android:exported="false">
 
         </activity>
