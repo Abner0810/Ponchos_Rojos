@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ponchos_Rojos</string>
+    <string name="Buscar">Buscar...</string>
+    <string name="sort_by">SORT BY</string>
 </resources>

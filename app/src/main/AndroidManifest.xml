@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ponchos_Rojos">
-
         <activity
             android:name=".activity_login"
             android:exported="true">
