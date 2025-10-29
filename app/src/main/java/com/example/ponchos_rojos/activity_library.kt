@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ponchos_rojos.adapters.AdapterRecyclerLibrary
 import com.example.ponchos_rojos.databinding.ActivityGameInfoBinding
 import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
@@ -40,7 +41,7 @@ class activity_library : AppCompatActivity() {
             )
         val adapter = AdapterRecyclerLibrary(images)
 binding.recyclerGames.setHasFixedSize(true)
-        binding.recyclerGames.layoutManager = GridLayoutManager(this, 3) // o LinearLayoutManager
+        binding.recyclerGames.layoutManager = LinearLayoutManager(this) // o LinearLayoutManager
         binding.recyclerGames.adapter = adapter
     }
 

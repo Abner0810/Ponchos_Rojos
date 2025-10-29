@@ -69,7 +69,7 @@ class activity_login : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
-        val intentPantallaPrincipal = Intent(context, MainActivity::class.java)
+        val intentPantallaPrincipal = Intent(context, TiendaActivity::class.java)
         startActivity(intentPantallaPrincipal)
         //reload()
         }
@@ -88,7 +88,7 @@ class activity_login : AppCompatActivity() {
 //                    updateUI(user)
 
                     //almacenar los datos
-                    val intentLogin = Intent(context,MainActivity::class.java)
+                    val intentLogin = Intent(context, TiendaActivity::class.java)
                     startActivity(intentLogin)
                 } else {
 //                    // If sign in fails, display a message to the user.
