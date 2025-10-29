@@ -31,11 +31,23 @@ class activity_library : AppCompatActivity() {
 
         val images = listOf(
             R.drawable.beyond_two_souls,
-            R.drawable.beyond_two_souls,
-            R.drawable.beyond_two_souls,
+            R.drawable.heavy_rain,
             R.drawable.detroit_become_human,
-            R.drawable.detroit_become_human,
-            R.drawable.detroit_become_human
+            R.drawable.hollow_knigth,
+            R.drawable.neva_game,
+            R.drawable.celeste_game,
+            R.drawable.plague_tale_requiem,
+            R.drawable.cup_head,
+            R.drawable.control_game,
+
+
+
+
+
+
+
+
+
 
 
             )
