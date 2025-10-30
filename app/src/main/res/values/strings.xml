@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Ponchos_Rojos</string>
+    <string name="Buscar">Buscar...</string>
+    <string name="filter_by">FILTER BY</string>
     <string-array name="pagos">
         <item>JCB</item>
         <item>VISA</item>

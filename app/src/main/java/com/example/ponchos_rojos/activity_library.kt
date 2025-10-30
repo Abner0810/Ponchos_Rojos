@@ -1,0 +1,61 @@
+package com.example.ponchos_rojos
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ponchos_rojos.adapters.AdapterRecyclerLibrary
+import com.example.ponchos_rojos.databinding.ActivityGameInfoBinding
+import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
+
+class activity_library : AppCompatActivity() {
+
+    private lateinit var binding: ActivityLibraryBinding
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding= ActivityLibraryBinding.inflate(layoutInflater)
+
+        enableEdgeToEdge()
+        setContentView(binding.root)
+        //setContentView(R.layout.activity_library)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        val images = listOf(
+            R.drawable.beyond_two_souls,
+            R.drawable.heavy_rain,
+            R.drawable.detroit_become_human,
+            R.drawable.hollow_knigth,
+            R.drawable.neva_game,
+            R.drawable.celeste_game,
+            R.drawable.plague_tale_requiem,
+            R.drawable.cup_head,
+            R.drawable.control_game,
+
+
+
+
+
+
+
+
+
+
+
+            )
+        val adapter = AdapterRecyclerLibrary(images)
+binding.recyclerGames.setHasFixedSize(true)
+        binding.recyclerGames.layoutManager = LinearLayoutManager(this) // o LinearLayoutManager
+        binding.recyclerGames.adapter = adapter
+    }
+
+
+}
