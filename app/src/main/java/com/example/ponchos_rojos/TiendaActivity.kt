@@ -1,60 +1,149 @@
 package com.example.ponchos_rojos
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.AdapterView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.widget.ImageView
 import androidx.core.view.isVisible
+import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.ponchos_rojos.databinding.ActivityTiendaBinding
 import org.json.JSONArray
-import java.io.IOException
 
 class TiendaActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityTiendaBinding
+    private lateinit var gameAdapter: GameAdapter
+    private var gameList: List<GameInfo> = listOf()
+    private val FEATURED_TAG = "Featured"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_tienda)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        // Activamos el binding inflando los elementos del xml
+        binding = ActivityTiendaBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // FUNCION PARA QUE SE MUESTRE O OCULTE LA LUPA EN LA BARRA DE BUSQUEDA
+        setupSearchIconVisibility()
+        // CREACION DE RECYCLER VIEW USANDO EL JSON DE GAMES Y CARGANDO TODOS AL PRINCIPIO
+        gameList = loadGamesFromJson()
+        gameAdapter = GameAdapter(this, gameList)
+        binding.gamesRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.gamesRecyclerView.adapter = gameAdapter
+        // FUNCION PARA FILTRAR LOS JUEGOS POR TAG
+        setupTagSpinner()
+        // FUNCION PARA BUSCAR CON NOMBRE DE JUEGO TOMANDO EN CUENTA LOS TAGS
+        setupSearchByText()
+    }
 
-        // ESTO ES PARA LA SEARCH BAR QUE SE OCULTE CUANDO ESCRIBAS
-        val searchEditText = findViewById<EditText>(R.id.textview1)
-        val searchIcon = findViewById<ImageView>(R.id.imageview1)
-        searchEditText.addTextChangedListener(object : TextWatcher {
+    private fun setupSearchIconVisibility() {
+        binding.edittext1.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
                 if (s.isNullOrEmpty()) {
-                    searchIcon.isVisible = true
+                    binding.imageview1.isVisible = true
                 } else {
-                    searchIcon.isVisible = false
+                    binding.imageview1.isVisible = false
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {
             }
         })
+    }
 
-        val gamesRecyclerView = findViewById<RecyclerView>(R.id.gamesRecyclerView)
-        gamesRecyclerView.layoutManager = LinearLayoutManager(this)
+    private fun setupSearchByText() {
+        binding.edittext1.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
+                val searchQuery = v.text.toString()
 
-        val gameList = loadGamesFromJson()
-        if (gameList.isNotEmpty()) {
-            val gameAdapter = GameAdapter(this, gameList)
-            gamesRecyclerView.adapter = gameAdapter
+                val filteredList = if (searchQuery.isBlank()) {
+                    gameList
+                } else {
+                    gameList.filter { game ->
+                        game.name.startsWith(searchQuery, ignoreCase = true)
+                    }
+                }
+                gameAdapter.updateList(filteredList)
+
+                if (searchQuery.isNotEmpty()) {
+                    binding.FeaturedNestedText.text = "RESULTS FOR: ${searchQuery.uppercase()}"
+                } else {
+                    binding.FeaturedNestedText.text = FEATURED_TAG.uppercase()
+                }
+
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+
+                return@setOnEditorActionListener true
+            }
+            return@setOnEditorActionListener false
         }
     }
+
+    private fun setupTagSpinner() {
+        val allTags = gameList
+            .flatMap { it.tags }
+            .distinct()
+            .sorted()
+
+        val spinnerOptions = mutableListOf(FEATURED_TAG)
+        spinnerOptions.addAll(allTags)
+
+        val spinnerAdapter = TagSpinnerAdapter(this, spinnerOptions)
+
+        binding.tagSpinner.adapter = spinnerAdapter
+
+        binding.tagSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+
+                val selectedTag = parent?.getItemAtPosition(position).toString()
+
+                filterGamesByTag(selectedTag)
+
+                if (selectedTag == FEATURED_TAG) {
+                    binding.FeaturedNestedText.text = "FEATURED"
+                    return
+                } else {
+                    binding.FeaturedNestedText.text = "FILTERED BY: ${selectedTag.uppercase()}"
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+    }
+
+    private fun filterGamesByTag(tag: String) {
+        val filteredList = if (tag == FEATURED_TAG) {
+            gameList
+        } else {
+            gameList.filter { game ->
+                game.tags.contains(tag)
+            }
+        }
+        gameAdapter.updateList(filteredList)
+    }
+
     private fun loadGamesFromJson(): List<GameInfo> {
         val gameList = mutableListOf<GameInfo>()
         val jsonString: String
@@ -64,7 +153,6 @@ class TiendaActivity : AppCompatActivity() {
 
         for (i in 0 until jsonArray.length()) {
             val jsonObject = jsonArray.getJSONObject(i)
-
             val tagsJsonArray = jsonObject.getJSONArray("tags")
             val tagsList = mutableListOf<String>()
             for (j in 0 until tagsJsonArray.length()) {
@@ -74,6 +162,7 @@ class TiendaActivity : AppCompatActivity() {
             val game = GameInfo(
                 id = jsonObject.getInt("id"),
                 name = jsonObject.getString("name"),
+                price = jsonObject.getDouble("price"),
                 imageName = jsonObject.getString("imageName"),
                 tags = tagsList
             )
@@ -81,4 +170,6 @@ class TiendaActivity : AppCompatActivity() {
         }
         return gameList
     }
+
+
 }

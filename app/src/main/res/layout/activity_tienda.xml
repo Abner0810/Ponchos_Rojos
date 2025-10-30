@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/textview1"
+            android:id="@+id/edittext1"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
@@ -48,10 +48,10 @@
             android:layout_height="0dp"
             android:layout_marginRight="5dp"
             android:src="@drawable/search"
-            app:layout_constraintBottom_toBottomOf="@id/textview1"
+            app:layout_constraintBottom_toBottomOf="@id/edittext1"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="@id/textview1"
-            app:layout_constraintTop_toTopOf="@id/textview1" />
+            app:layout_constraintEnd_toEndOf="@id/edittext1"
+            app:layout_constraintTop_toTopOf="@id/edittext1" />
 
         <ImageView
             android:id="@+id/imageview2"
@@ -63,7 +63,7 @@
             android:src="@drawable/generic_avatar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/textview1"
+            app:layout_constraintStart_toEndOf="@id/edittext1"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -99,39 +99,30 @@
                 app:layout_constraintGuide_end="25dp">
             </androidx.constraintlayout.widget.Guideline>
 
-            <Button
-                android:id="@+id/nestedtext1"
-                android:layout_width="115dp"
-                android:layout_height="36dp"
+            <Spinner
+                android:id="@+id/tagSpinner"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/grayWhite"
-                android:text="@string/filter_by"
-                android:textColor="@color/deepBlue"
-                android:textSize="14dp"
-                android:paddingRight="8dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:drawableRight="@drawable/triangle"
-                android:fontFamily="@font/sf_pro_bold"
-                android:textAlignment="center"
-                android:drawablePadding="20dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 app:layout_constraintStart_toStartOf="@id/LeftGuideline"
-                app:layout_constraintTop_toTopOf="@id/nestedlayout1"/>
+                app:layout_constraintTop_toTopOf="@id/nestedlayout1" />
 
             <TextView
                 android:id="@+id/FeaturedNestedText"
-                android:layout_width="90dp"
+                android:layout_width="250dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/sf_pro_bold"
-                android:text="FEATURED"
+                android:text="@string/featured"
                 android:textColor="@color/grayWhite"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/nestedtext1"
-                app:layout_constraintTop_toBottomOf="@id/nestedtext1"
+                app:layout_constraintStart_toStartOf="@id/tagSpinner"
+                app:layout_constraintTop_toBottomOf="@id/tagSpinner"
                 app:layout_constraintBottom_toTopOf="@id/gamesRecyclerView"/>
 
             <androidx.recyclerview.widget.RecyclerView

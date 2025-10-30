@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Cyberpunk 2077",
+    "price": "59.99",
     "tags": [
       "RPG",
       "Action",
@@ -12,6 +13,7 @@
   {
     "id": 2,
     "name": "The Witcher 3",
+    "price": "59.99",
     "tags": [
       "RPG",
       "Fantasy",
@@ -22,16 +24,7 @@
   {
     "id": 3,
     "name": "Elden Ring",
-    "tags": [
-      "Action",
-      "Souls-like",
-      "Fantasy"
-    ],
-    "imageName": "elden_ring_image"
-  },
-  {
-    "id": 3,
-    "name": "Elden Ring",
+    "price": "29.99",
     "tags": [
       "Action",
       "Souls-like",
