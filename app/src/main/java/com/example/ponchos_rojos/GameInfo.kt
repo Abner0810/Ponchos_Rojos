@@ -6,5 +6,6 @@ data class GameInfo(
     val price: Double = 0.0,
     val description: String = "",
     val tags: List<String>,
-    val imageName: String
+    val imageName: String,
+    val price: String
 )

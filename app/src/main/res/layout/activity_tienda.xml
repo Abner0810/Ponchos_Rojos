@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="90dp"
         android:background="@color/grayBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.11"
@@ -141,7 +141,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottombar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="90dp"
         android:background="@color/grayBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,35 +149,33 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/imageview3"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:paddingRight="10dp"
-            android:src="@drawable/carrito"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:id="@+id/image_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shopping_cart"
+            app:layout_constraintTop_toTopOf="@id/bottombar"
+            app:layout_constraintBottom_toBottomOf="@id/bottombar"
+            app:layout_constraintStart_toStartOf="@id/bottombar"
+            app:layout_constraintEnd_toEndOf="@id/bottombar"/>
         <ImageView
-            android:id="@+id/imageview4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/squares_four_fill_1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageview3"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:id="@+id/image_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tag_vector"
+            app:layout_constraintTop_toTopOf="@id/bottombar"
+            app:layout_constraintBottom_toBottomOf="@id/bottombar"
+            app:layout_constraintEnd_toStartOf="@id/image_cart"
+            app:layout_constraintStart_toStartOf="@id/bottombar"
+             />
         <ImageView
-            android:id="@+id/imageview5"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/tag_1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/imageview3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/library_vector"
+            app:layout_constraintStart_toEndOf="@id/image_cart"
+            app:layout_constraintEnd_toEndOf="@id/bottombar"
+            app:layout_constraintTop_toTopOf="@id/bottombar"
+            app:layout_constraintBottom_toBottomOf="@id/bottombar"
+             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

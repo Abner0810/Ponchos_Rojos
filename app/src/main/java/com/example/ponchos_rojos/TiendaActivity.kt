@@ -164,7 +164,8 @@ class TiendaActivity : AppCompatActivity() {
                 name = jsonObject.getString("name"),
                 price = jsonObject.getDouble("price"),
                 imageName = jsonObject.getString("imageName"),
-                tags = tagsList
+                tags = tagsList,
+                price = jsonObject.getString("price")
             )
             gameList.add(game)
         }

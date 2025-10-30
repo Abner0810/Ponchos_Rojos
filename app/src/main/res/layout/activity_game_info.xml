@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/grayBlue"
                 app:layout_constraintTop_toBottomOf="@id/eldenring_title_text"
-                app:layout_constraintBottom_toTopOf="@id/eldenring_video"
+                app:layout_constraintBottom_toTopOf="@id/game_video"
                 app:layout_constraintStart_toStartOf="@id/container_infoGames"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -182,7 +182,7 @@
                 android:id="@+id/tags_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/eldenring_video"
+                app:layout_constraintTop_toBottomOf="@id/game_video"
                 app:layout_constraintBottom_toTopOf="@id/minimum_requirements_text"
                 app:layout_constraintStart_toStartOf="@id/container_infoGames"
                 app:layout_constraintEnd_toEndOf="@id/container_infoGames"
@@ -259,7 +259,7 @@
 
 
             <VideoView
-                android:id="@+id/eldenring_video"
+                android:id="@+id/game_video"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginTop="44dp"
@@ -276,10 +276,10 @@
                 android:src="@drawable/play_button"
                 android:background="@android:color/transparent"
                 android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/eldenring_video"
-                app:layout_constraintBottom_toBottomOf="@id/eldenring_video"
-                app:layout_constraintStart_toStartOf="@id/eldenring_video"
-                app:layout_constraintEnd_toEndOf="@id/eldenring_video"/>
+                app:layout_constraintTop_toTopOf="@id/game_video"
+                app:layout_constraintBottom_toBottomOf="@id/game_video"
+                app:layout_constraintStart_toStartOf="@id/game_video"
+                app:layout_constraintEnd_toEndOf="@id/game_video"/>
             <ImageButton
                 android:id="@+id/pause_button"
                 android:layout_width="wrap_content"
@@ -288,10 +288,10 @@
                 android:background="@android:color/transparent"
                 android:visibility="gone"
 
-                app:layout_constraintTop_toTopOf="@id/eldenring_video"
-                app:layout_constraintBottom_toBottomOf="@id/eldenring_video"
-                app:layout_constraintStart_toStartOf="@id/eldenring_video"
-                app:layout_constraintEnd_toEndOf="@id/eldenring_video"/>
+                app:layout_constraintTop_toTopOf="@id/game_video"
+                app:layout_constraintBottom_toBottomOf="@id/game_video"
+                app:layout_constraintStart_toStartOf="@id/game_video"
+                app:layout_constraintEnd_toEndOf="@id/game_video"/>
 
             <TextView
                 android:id="@+id/minimum_requirements_text"
