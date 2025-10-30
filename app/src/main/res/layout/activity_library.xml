@@ -110,6 +110,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
             app:layout_constraintTop_toBottomOf="@id/filterby_button"
             app:layout_constraintStart_toStartOf="@id/library_recycler_games_container"
@@ -134,29 +135,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
+        <ImageButton
             android:id="@+id/image_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/shopping_cart"
+            android:background="@android:color/transparent"
+
             app:layout_constraintTop_toTopOf="@id/bottom_bar"
             app:layout_constraintBottom_toBottomOf="@id/bottom_bar"
             app:layout_constraintStart_toStartOf="@id/bottom_bar"
             app:layout_constraintEnd_toEndOf="@id/bottom_bar"/>
-        <ImageView
+        <ImageButton
             android:id="@+id/image_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/tag_vector"
+            android:background="@android:color/transparent"
+
             app:layout_constraintTop_toTopOf="@id/bottom_bar"
             app:layout_constraintBottom_toBottomOf="@id/bottom_bar"
             app:layout_constraintEnd_toStartOf="@id/image_cart"
             app:layout_constraintStart_toStartOf="@id/bottom_bar"
             app:tint="@color/grayWhite" />
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/library_vector"
+            android:background="@android:color/transparent"
             app:layout_constraintStart_toEndOf="@id/image_cart"
             app:layout_constraintEnd_toEndOf="@id/bottom_bar"
             app:layout_constraintTop_toTopOf="@id/bottom_bar"

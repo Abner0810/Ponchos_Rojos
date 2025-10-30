@@ -30,20 +30,18 @@ class activity_library : AppCompatActivity() {
         }
 
         val images = listOf(
-            R.drawable.beyond_two_souls,
-            R.drawable.heavy_rain,
-            R.drawable.detroit_become_human,
-            R.drawable.hollow_knigth,
+            R.drawable.beyond_two_souls_image,
+            R.drawable.heavy_rain_image,
+            R.drawable.detroit_become_human_image,
+            R.drawable.hollow_knigth_image,
             R.drawable.neva_game,
-            R.drawable.celeste_game,
-            R.drawable.plague_tale_requiem,
-            R.drawable.cup_head,
-            R.drawable.control_game,
-
-
-
-
-
+            R.drawable.celeste_image,
+            R.drawable.aplague_tale_requiem_image,
+            R.drawable.cup_head_image,
+            R.drawable.control_image,
+            R.drawable.cyberpunk_image,
+            R.drawable.eldenring,
+            R.drawable.witcher_image
 
 
 
