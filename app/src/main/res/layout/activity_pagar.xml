@@ -67,13 +67,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
+            <Spinner
                 android:id="@+id/menu_pago"
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:src="@drawable/group_62"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/selecmetodo_pago"
@@ -122,24 +121,22 @@
                 app:layout_constraintStart_toEndOf="@id/Fecha_expiracion"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_tarjeta" />
 
-            <ImageButton
-                android:id="@+id/fecha_mes"
+            <Spinner
+                android:id="@+id/fechaMes"
                 android:layout_width="80dp"
                 android:layout_height="20dp"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:src="@drawable/rectangle_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Fecha_expiracion" />
 
-            <ImageButton
-                android:id="@+id/fecha_año"
+            <Spinner
+                android:id="@+id/fechaAnio"
                 android:layout_width="80dp"
                 android:layout_height="20dp"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:src="@drawable/frame_35"
-                app:layout_constraintStart_toEndOf="@id/fecha_mes"
+                app:layout_constraintStart_toEndOf="@id/fechaMes"
                 app:layout_constraintTop_toBottomOf="@id/Fecha_expiracion" />
 
             <EditText
@@ -149,7 +146,7 @@
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
                 android:text="            "
-                app:layout_constraintStart_toEndOf="@id/fecha_año"
+                app:layout_constraintStart_toEndOf="@id/fechaAnio"
                 app:layout_constraintTop_toBottomOf="@id/Cdg_seguridad" />
 
             <TextView
@@ -365,6 +362,7 @@
 
 
             <Button
+                android:id="@+id/btnPagar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
