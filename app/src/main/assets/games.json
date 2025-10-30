@@ -7,7 +7,9 @@
       "Action",
       "Sci-Fi"
     ],
-    "imageName": "cyberpunk_image"
+    "imageName": "detroit_become_human",
+    "price": "44.99"
+
   },
   {
     "id": 2,
@@ -17,7 +19,9 @@
       "Fantasy",
       "Open World"
     ],
-    "imageName": "witcher_image"
+    "imageName": "nine_sols",
+    "price": "29.99"
+
   },
   {
     "id": 3,
@@ -27,16 +31,7 @@
       "Souls-like",
       "Fantasy"
     ],
-    "imageName": "elden_ring_image"
-  },
-  {
-    "id": 3,
-    "name": "Elden Ring",
-    "tags": [
-      "Action",
-      "Souls-like",
-      "Fantasy"
-    ],
-    "imageName": "elden_ring_image"
+    "imageName": "nine_sols",
+    "price": "47.99"
   }
 ]

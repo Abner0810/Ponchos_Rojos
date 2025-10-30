@@ -1,61 +1,68 @@
 package com.example.ponchos_rojos
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.EditText
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.widget.ImageView
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ponchos_rojos.adapters.AdapterRecyclerCart
+import com.example.ponchos_rojos.databinding.ActivityCartBinding
+import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
 import org.json.JSONArray
-import java.io.IOException
 
-class TiendaActivity : AppCompatActivity() {
+class activity_cart : AppCompatActivity() {
+
+    private lateinit var binding: ActivityCartBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding= ActivityCartBinding.inflate(layoutInflater)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_tienda)
+
+        setContentView(binding.root)
+
+        //setContentView(R.layout.activity_cart)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // ESTO ES PARA LA SEARCH BAR QUE SE OCULTE CUANDO ESCRIBAS
-        val searchEditText = findViewById<EditText>(R.id.textview1)
-        val searchIcon = findViewById<ImageView>(R.id.imageview1)
-        searchEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
-                if (s.isNullOrEmpty()) {
-                    searchIcon.isVisible = true
-                } else {
-                    searchIcon.isVisible = false
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-            }
-        })
-
-        val gamesRecyclerView = findViewById<RecyclerView>(R.id.gamesRecyclerView)
-        gamesRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerCartGames.layoutManager = LinearLayoutManager(this)
 
         val gameList = loadGamesFromJson()
         if (gameList.isNotEmpty()) {
-            val gameAdapter = GameAdapter(this, gameList)
-            gamesRecyclerView.adapter = gameAdapter
+            val AdapterRecyclerCart = AdapterRecyclerCart(this, gameList,binding.yourcartIsemptyTitle,binding.priceText,binding.payButton)
+            binding.recyclerCartGames.adapter = AdapterRecyclerCart
+
+            var suma:Double = 0.0
+            if(!gameList.isEmpty()){
+                // suma de precio total
+                for(i in 0 until  gameList.size){
+                    suma += gameList[i].price.toDouble()
+                }
+
+                //si la lista no esta vacia puedes comprar
+                binding.payButton.visibility = View.VISIBLE
+
+            }else{
+                //si no hay nada en la lista no puedes comprar nada
+                binding.payButton.visibility = View.GONE
+            }
+
+            val totalString: String = suma.toString()
+            binding.priceText.text = "$$totalString"
         }
     }
-    private fun loadGamesFromJson(): List<GameInfo> {
+
+    private fun loadGamesFromJson(): MutableList<GameInfo> {
         val gameList = mutableListOf<GameInfo>()
         val jsonString: String
         jsonString = assets.open("games.json").bufferedReader().use { it.readText() }

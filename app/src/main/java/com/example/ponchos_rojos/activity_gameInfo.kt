@@ -3,6 +3,8 @@ package com.example.ponchos_rojos
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.widget.ImageButton
 import android.widget.MediaController
 import androidx.activity.enableEdgeToEdge
@@ -45,12 +47,17 @@ class activity_gameInfo : AppCompatActivity() {
             }, hideDelay)
         }
 
+//        val webView : WebView = binding.video
+//        val video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/E3Huy2cdih0?si=5T9R98C6-UAudOCU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+//webView.loadData(video,"text/html","utf-8")
+//        webView.settings.javaScriptEnabled = true
+//        webView.webChromeClient = WebChromeClient()
         val uri = Uri.parse("android.resource://" + "com.example.ponchos_rojos" + "/" + R.raw.elden_ring_compressed)
-        binding.eldenringVideo.setVideoURI(uri)
+        binding.gameVideo.setVideoURI(uri)
         //binding.eldenringVideo.setMediaController(mediaController)
         // Play button
                 binding.playButton.setOnClickListener {
-                    binding.eldenringVideo.start()
+                    binding.gameVideo.start()
                     binding.playButton.visibility = View.GONE      // se oculta inmediatamente
                     binding.pauseButton.visibility = View.VISIBLE  // aparece pause
                     showButtonTemporarily(binding.pauseButton)     // desaparece después de hideDelay
@@ -58,15 +65,15 @@ class activity_gameInfo : AppCompatActivity() {
 
 // Pause button
         binding.pauseButton.setOnClickListener {
-            binding.eldenringVideo.pause()
+            binding.gameVideo.pause()
             binding.pauseButton.visibility = View.GONE     // se oculta inmediatamente
             binding.playButton.visibility = View.VISIBLE   // aparece play
             showButtonTemporarily(binding.playButton)      // desaparece después de hideDelay
         }
 
-        binding.eldenringVideo.setOnTouchListener { v, _ ->
+        binding.gameVideo.setOnTouchListener { v, _ ->
             v.performClick()
-            if (binding.eldenringVideo.isPlaying) {
+            if (binding.gameVideo.isPlaying) {
                 // Si está reproduciendo, mostramos el botón de pausa
                 binding.pauseButton.visibility = View.VISIBLE
                 binding.playButton.visibility = View.GONE

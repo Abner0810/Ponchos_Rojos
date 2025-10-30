@@ -15,29 +15,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ponchos_Rojos">
         <activity
-            android:name=".activity_login"
-            android:exported="true">
+            android:name=".activity_cart"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity_login"
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".activity_gameInfo"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".activity_library"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".TiendaActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>
