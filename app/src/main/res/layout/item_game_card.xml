@@ -37,7 +37,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:text="Game Name"
+            android:text="@string/game_name"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -53,13 +53,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:text="Tag1, Tag2, Tag3"
+            android:text="@string/tagsgamecard"
             android:textColor="@android:color/white"
             android:layout_marginTop="2dp"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/game_name"
             app:layout_constraintStart_toStartOf="@id/game_name"
             app:layout_constraintEnd_toEndOf="@id/game_name"/>
+
+        <TextView
+            android:id="@+id/game_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:text="@string/price"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            app:layout_constraintTop_toTopOf="@id/gradient"
+            app:layout_constraintBottom_toBottomOf="@id/gradient"
+            app:layout_constraintEnd_toEndOf="@id/gradient"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
