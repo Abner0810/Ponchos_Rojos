@@ -1,5 +1,7 @@
 package com.example.ponchos_rojos
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,14 +14,25 @@ import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ponchos_rojos.databinding.ActivityCartBinding
+import com.example.ponchos_rojos.databinding.TiendaActivityBinding
 import org.json.JSONArray
 import java.io.IOException
 
 class TiendaActivity : AppCompatActivity() {
+
+    private val context: Context = this
+    private lateinit var binding: TiendaActivityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_tienda)
+
+        binding= TiendaActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        //setContentView(R.layout.activity_tienda)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -54,6 +67,25 @@ class TiendaActivity : AppCompatActivity() {
             val gameAdapter = GameAdapter(this, gameList)
             gamesRecyclerView.adapter = gameAdapter
         }
+
+
+        //intent pantalla a carrito
+        binding.buttonimageCart.setOnClickListener {
+
+            val intent = Intent(context, activity_cart::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
+
+       binding.buttonimageLibrary.setOnClickListener {
+           val intent = Intent(context, activity_library::class.java)
+           // intent.putExtra("gameData", game) // enviamos el objeto completo
+           context.startActivity(intent)
+       }
+
+
+
+
     }
     private fun loadGamesFromJson(): List<GameInfo> {
         val gameList = mutableListOf<GameInfo>()
@@ -74,10 +106,23 @@ class TiendaActivity : AppCompatActivity() {
             val game = GameInfo(
                 id = jsonObject.getInt("id"),
                 name = jsonObject.getString("name"),
-                imageName = jsonObject.getString("imageName"),
+                developer = jsonObject.getString("developer"),
+                releasedDate = jsonObject.getString("releasedDate"),
+                description = jsonObject.getString("description"),
+                url = jsonObject.getString("url"),
                 tags = tagsList,
-                price = jsonObject.getString("price")
-            )
+                imageName = jsonObject.getString("imageName"),
+                price = jsonObject.getString("price"),
+                so = jsonObject.getString("so"),
+                processor = jsonObject.getString("processor"),
+                memory = jsonObject.getString("memory"),
+                graphics = jsonObject.getString("graphics"),
+                storage = jsonObject.getString("storage")
+
+
+
+
+                )
             gameList.add(game)
         }
         return gameList

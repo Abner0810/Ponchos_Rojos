@@ -1,6 +1,7 @@
 package com.example.ponchos_rojos
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,12 @@ class GameAdapter(private val context: Context, private val gameList: List<GameI
         )
         if (imageId != 0) {
             holder.gameImageView.setImageResource(imageId)
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, activity_gameInfo::class.java)
+            intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
         }
     }
 

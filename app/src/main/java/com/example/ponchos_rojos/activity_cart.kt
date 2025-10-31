@@ -1,5 +1,7 @@
 package com.example.ponchos_rojos
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -16,7 +18,7 @@ import org.json.JSONArray
 class activity_cart : AppCompatActivity() {
 
     private lateinit var binding: ActivityCartBinding
-
+    private val context: Context = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -60,6 +62,24 @@ class activity_cart : AppCompatActivity() {
             val totalString: String = suma.toString()
             binding.priceText.text = "$$totalString"
         }
+
+
+
+
+        //intents
+
+        binding.buttonimageTag.setOnClickListener {
+
+            val intent = Intent(context, TiendaActivity::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
+
+        binding.buttonimageLibrary.setOnClickListener {
+            val intent = Intent(context, activity_library::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
     }
 
     private fun loadGamesFromJson(): MutableList<GameInfo> {
@@ -81,9 +101,19 @@ class activity_cart : AppCompatActivity() {
             val game = GameInfo(
                 id = jsonObject.getInt("id"),
                 name = jsonObject.getString("name"),
-                imageName = jsonObject.getString("imageName"),
+                developer = jsonObject.getString("developer"),
+                releasedDate = jsonObject.getString("releasedDate"),
+                description = jsonObject.getString("description"),
+                url = jsonObject.getString("url"),
                 tags = tagsList,
-                price = jsonObject.getString("price")
+                imageName = jsonObject.getString("imageName"),
+                price = jsonObject.getString("price"),
+                so = jsonObject.getString("so"),
+                processor = jsonObject.getString("processor"),
+                memory = jsonObject.getString("memory"),
+                graphics = jsonObject.getString("graphics"),
+                storage = jsonObject.getString("storage")
+
             )
             gameList.add(game)
         }

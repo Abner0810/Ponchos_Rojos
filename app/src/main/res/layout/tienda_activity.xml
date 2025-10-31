@@ -157,30 +157,36 @@
         app:layout_constraintHeight_percent="0.15"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/image_cart"
+        <ImageButton
+            android:id="@+id/buttonimage_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/shopping_cart"
+            android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="@id/bottombar"
             app:layout_constraintBottom_toBottomOf="@id/bottombar"
             app:layout_constraintStart_toStartOf="@id/bottombar"
             app:layout_constraintEnd_toEndOf="@id/bottombar"/>
-        <ImageView
-            android:id="@+id/image_tag"
+        <ImageButton
+            android:id="@+id/buttonimage_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/tag_vector"
+            android:background="@android:color/transparent"
+
             app:layout_constraintTop_toTopOf="@id/bottombar"
             app:layout_constraintBottom_toBottomOf="@id/bottombar"
-            app:layout_constraintEnd_toStartOf="@id/image_cart"
+            app:layout_constraintEnd_toStartOf="@id/buttonimage_cart"
             app:layout_constraintStart_toStartOf="@id/bottombar"
              />
-        <ImageView
+        <ImageButton
+            android:id="@+id/buttonimage_library"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/library_vector"
-            app:layout_constraintStart_toEndOf="@id/image_cart"
+            android:background="@android:color/transparent"
+
+            app:layout_constraintStart_toEndOf="@id/buttonimage_cart"
             app:layout_constraintEnd_toEndOf="@id/bottombar"
             app:layout_constraintTop_toTopOf="@id/bottombar"
             app:layout_constraintBottom_toBottomOf="@id/bottombar"

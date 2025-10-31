@@ -1,5 +1,7 @@
 package com.example.ponchos_rojos
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +16,7 @@ import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
 class activity_library : AppCompatActivity() {
 
     private lateinit var binding: ActivityLibraryBinding
-
+    private val context: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +55,24 @@ class activity_library : AppCompatActivity() {
 binding.recyclerGames.setHasFixedSize(true)
         binding.recyclerGames.layoutManager = LinearLayoutManager(this) // o LinearLayoutManager
         binding.recyclerGames.adapter = adapter
+
+
+
+
+        //intents
+
+        binding.buttonimageTag.setOnClickListener {
+
+            val intent = Intent(context, TiendaActivity::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
+
+        binding.buttonimageCart.setOnClickListener {
+            val intent = Intent(context, activity_cart::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
     }
 
 

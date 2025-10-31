@@ -136,7 +136,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <ImageButton
-            android:id="@+id/image_cart"
+            android:id="@+id/buttonimage_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/shopping_cart"
@@ -147,7 +147,7 @@
             app:layout_constraintStart_toStartOf="@id/bottom_bar"
             app:layout_constraintEnd_toEndOf="@id/bottom_bar"/>
         <ImageButton
-            android:id="@+id/image_tag"
+            android:id="@+id/buttonimage_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/tag_vector"
@@ -155,15 +155,16 @@
 
             app:layout_constraintTop_toTopOf="@id/bottom_bar"
             app:layout_constraintBottom_toBottomOf="@id/bottom_bar"
-            app:layout_constraintEnd_toStartOf="@id/image_cart"
+            app:layout_constraintEnd_toStartOf="@id/buttonimage_cart"
             app:layout_constraintStart_toStartOf="@id/bottom_bar"
             app:tint="@color/grayWhite" />
         <ImageButton
+            android:id="@+id/buttonimage_library"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/library_vector"
             android:background="@android:color/transparent"
-            app:layout_constraintStart_toEndOf="@id/image_cart"
+            app:layout_constraintStart_toEndOf="@id/buttonimage_cart"
             app:layout_constraintEnd_toEndOf="@id/bottom_bar"
             app:layout_constraintTop_toTopOf="@id/bottom_bar"
             app:layout_constraintBottom_toBottomOf="@id/bottom_bar"
