@@ -74,7 +74,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/eldenring_portrait"
+                android:id="@+id/game_portrait"
                 android:layout_width="wrap_content"
                 android:layout_height="235dp"
                 android:src="@drawable/eldenring"
@@ -83,10 +83,10 @@
                 />
 
             <TextView
-                android:id="@+id/eldenring_title_text"
+                android:id="@+id/game_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/eldenring_portrait"
+                app:layout_constraintTop_toBottomOf="@id/game_portrait"
                 app:layout_constraintStart_toStartOf="@id/container_infoGames"
                 app:layout_constraintEnd_toEndOf="@id/container_infoGames"
                 android:layout_marginStart="10dp"
@@ -101,14 +101,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/grayBlue"
-                app:layout_constraintTop_toBottomOf="@id/eldenring_title_text"
-                app:layout_constraintBottom_toTopOf="@id/eldenring_video"
+                app:layout_constraintTop_toBottomOf="@id/game_title_text"
+                app:layout_constraintBottom_toTopOf="@id/game_video"
                 app:layout_constraintStart_toStartOf="@id/container_infoGames"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="15dp">
                 <TextView
-                    android:id="@+id/eldenring_developer_text"
+                    android:id="@+id/game_developer_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/description_container"
@@ -120,10 +120,10 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/sf_pro_bold"/>
                 <TextView
-                    android:id="@+id/eldenring_release_text"
+                    android:id="@+id/game_release_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_developer_text"
+                    app:layout_constraintTop_toBottomOf="@id/game_developer_title"
                     app:layout_constraintStart_toStartOf="@id/description_container"
                     android:layout_marginStart="20dp"
                     android:text="In"
@@ -131,11 +131,11 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/sf_pro_bold"/>
                 <TextView
-                    android:id="@+id/eldenring_fromsoftware_text"
+                    android:id="@+id/game_developer_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/description_container"
-                    app:layout_constraintStart_toEndOf="@id/eldenring_developer_text"
+                    app:layout_constraintStart_toEndOf="@id/game_developer_title"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
                     android:text="FromSoftware, Inc."
@@ -143,11 +143,11 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/sf_pro_bold"/>
                 <TextView
-                    android:id="@+id/eldenring_date_text"
+                    android:id="@+id/game_date_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_fromsoftware_text"
-                    app:layout_constraintStart_toEndOf="@id/eldenring_release_text"
+                    app:layout_constraintTop_toBottomOf="@id/game_developer_info"
+                    app:layout_constraintStart_toEndOf="@id/game_release_title"
                     android:layout_marginStart="10dp"
                     android:text="24 Feb, 2022"
                     android:textColor="@color/skyBlue"
@@ -156,10 +156,10 @@
 
 
                 <TextView
-                    android:id="@+id/eldenring_description"
+                    android:id="@+id/game_description"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_release_text"
+                    app:layout_constraintTop_toBottomOf="@id/game_release_title"
                     app:layout_constraintStart_toStartOf="@id/description_container"
                     app:layout_constraintEnd_toEndOf="@id/description_container"
                     android:layout_marginTop="20dp"
@@ -173,7 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" "
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_description"
+                    app:layout_constraintTop_toBottomOf="@id/game_description"
                     app:layout_constraintStart_toStartOf="@id/description_container"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -182,7 +182,7 @@
                 android:id="@+id/tags_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/eldenring_video"
+                app:layout_constraintTop_toBottomOf="@id/game_video"
                 app:layout_constraintBottom_toTopOf="@id/minimum_requirements_text"
                 app:layout_constraintStart_toStartOf="@id/container_infoGames"
                 app:layout_constraintEnd_toEndOf="@id/container_infoGames"
@@ -191,7 +191,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/grayBlue">
                 <TextView
-                    android:id="@+id/eldenring_tag_text"
+                    android:id="@+id/game_tag_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/tags_container"
@@ -204,52 +204,63 @@
                     android:textColor="@color/grayWhite"
                     android:textSize="20sp"
                     android:fontFamily="@font/sf_pro_bold"/>
-                <Button
-                    android:id="@+id/eldenring_soulsLike_tag_button"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_tags_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"
-                    app:layout_constraintEnd_toStartOf="@id/eldenring_openWorld_tag_button"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/grayWhite"
-                    android:text="Souls-Like"
-                    android:textSize="18sp"
-                    android:textColor="@color/grayBlue"
-                    android:padding = "5dp"/>
-                <Button
-                    android:id="@+id/eldenring_openWorld_tag_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"
+
+                    app:layout_constraintTop_toBottomOf="@id/game_tag_text"
                     app:layout_constraintStart_toStartOf="@id/tags_container"
                     app:layout_constraintEnd_toEndOf="@id/tags_container"
+                    app:layout_constraintBottom_toBottomOf="@id/tags_container"/>
 
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/grayWhite"
-                    android:text="Open World"
-                    android:textSize="18sp"
-                    android:textColor="@color/grayBlue"
-                    android:padding = "5dp"/>
-                <Button
-                    android:id="@+id/eldenring_RPG_tag_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"
-                    app:layout_constraintStart_toEndOf="@id/eldenring_openWorld_tag_button"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/grayWhite"
-                    android:text="RPG"
-                    android:textSize="18sp"
-                    android:textColor="@color/grayBlue"
-                    android:padding="1dp"/>
+<!--                <Button-->
+<!--                    android:id="@+id/eldenring_soulsLike_tag_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"-->
+<!--                    app:layout_constraintEnd_toStartOf="@id/eldenring_openWorld_tag_button"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:backgroundTint="@color/grayWhite"-->
+<!--                    android:text="Souls-Like"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/grayBlue"-->
+<!--                    android:padding = "5dp"/>-->
+<!--                <Button-->
+<!--                    android:id="@+id/eldenring_openWorld_tag_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/tags_container"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/tags_container"-->
+
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:backgroundTint="@color/grayWhite"-->
+<!--                    android:text="Open World"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/grayBlue"-->
+<!--                    android:padding = "5dp"/>-->
+<!--                <Button-->
+<!--                    android:id="@+id/eldenring_RPG_tag_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/eldenring_openWorld_tag_button"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:backgroundTint="@color/grayWhite"-->
+<!--                    android:text="RPG"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/grayBlue"-->
+<!--                    android:padding="1dp"/>-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" "
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_openWorld_tag_button"
+                    app:layout_constraintTop_toBottomOf="@id/recycler_tags_button"
                     app:layout_constraintStart_toStartOf="@id/tags_container"
                     android:textSize="10sp"/>
 
@@ -258,11 +269,12 @@
 
 
 
-            <VideoView
-                android:id="@+id/eldenring_video"
+            <ImageView
+                android:id="@+id/game_video"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="250dp"
                 android:layout_marginTop="44dp"
+                android:src="@drawable/eldenring"
                 app:layout_constraintEnd_toEndOf="@id/container_infoGames"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@id/container_infoGames"
@@ -275,23 +287,11 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/play_button"
                 android:background="@android:color/transparent"
-                android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/eldenring_video"
-                app:layout_constraintBottom_toBottomOf="@id/eldenring_video"
-                app:layout_constraintStart_toStartOf="@id/eldenring_video"
-                app:layout_constraintEnd_toEndOf="@id/eldenring_video"/>
-            <ImageButton
-                android:id="@+id/pause_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/pause_button"
-                android:background="@android:color/transparent"
-                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@id/game_video"
+                app:layout_constraintBottom_toBottomOf="@id/game_video"
+                app:layout_constraintStart_toStartOf="@id/game_video"
+                app:layout_constraintEnd_toEndOf="@id/game_video"/>
 
-                app:layout_constraintTop_toTopOf="@id/eldenring_video"
-                app:layout_constraintBottom_toBottomOf="@id/eldenring_video"
-                app:layout_constraintStart_toStartOf="@id/eldenring_video"
-                app:layout_constraintEnd_toEndOf="@id/eldenring_video"/>
 
             <TextView
                 android:id="@+id/minimum_requirements_text"
@@ -486,7 +486,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/eldenring_buy_text"
+                    android:id="@+id/game_buy_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/card_addToCart"
@@ -503,7 +503,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/card_addToCart"
-                    app:layout_constraintStart_toEndOf="@id/eldenring_buy_text"
+                    app:layout_constraintStart_toEndOf="@id/game_buy_text"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
 
@@ -529,7 +529,7 @@
                     android:id="@+id/addToCart_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/eldenring_buy_text"
+                    app:layout_constraintTop_toBottomOf="@id/game_buy_text"
                     app:layout_constraintStart_toStartOf="@id/card_addToCart"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
@@ -539,6 +539,21 @@
                     android:textColor="@color/grayBlue"
                     android:fontFamily="@font/sf_pro_bold"
                     android:padding="5dp"/>
+                <Button
+                    android:id="@+id/addedToCart_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/game_buy_text"
+                    app:layout_constraintStart_toStartOf="@id/card_addToCart"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:backgroundTint="@color/skyBlue"
+                    android:text="Added to your cart"
+                    android:textSize="20dp"
+                    android:textColor="@color/grayBlue"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:padding="5dp"
+                    android:visibility="gone"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -576,29 +591,35 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.88" />
-        <ImageView
-            android:id="@+id/image_cart"
+        <ImageButton
+            android:id="@+id/buttonimage_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/shopping_cart"
+            android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="@id/guideline_bottom_gameInfo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-        <ImageView
-            android:id="@+id/image_tag"
+        <ImageButton
+            android:id="@+id/buttonimage_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/tag_vector"
+            android:background="@android:color/transparent"
+
             app:layout_constraintTop_toBottomOf="@id/guideline_bottom_gameInfo"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_cart"
+            app:layout_constraintEnd_toStartOf="@id/buttonimage_cart"
             app:layout_constraintStart_toStartOf="parent"/>
-    <ImageView
+    <ImageButton
+        android:id="@+id/buttonimage_library"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/library_vector"
-        app:layout_constraintStart_toEndOf="@id/image_cart"
+        android:background="@android:color/transparent"
+
+        app:layout_constraintStart_toEndOf="@id/buttonimage_cart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline_bottom_gameInfo"
         app:layout_constraintBottom_toBottomOf="parent"/>

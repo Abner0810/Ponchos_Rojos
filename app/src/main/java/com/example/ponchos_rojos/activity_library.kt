@@ -1,5 +1,7 @@
 package com.example.ponchos_rojos
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +16,7 @@ import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
 class activity_library : AppCompatActivity() {
 
     private lateinit var binding: ActivityLibraryBinding
-
+    private val context: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,20 +32,18 @@ class activity_library : AppCompatActivity() {
         }
 
         val images = listOf(
-            R.drawable.beyond_two_souls,
-            R.drawable.heavy_rain,
-            R.drawable.detroit_become_human,
-            R.drawable.hollow_knigth,
+            R.drawable.beyond_two_souls_image,
+            R.drawable.heavy_rain_image,
+            R.drawable.detroit_become_human_image,
+            R.drawable.hollow_knigth_image,
             R.drawable.neva_game,
-            R.drawable.celeste_game,
-            R.drawable.plague_tale_requiem,
-            R.drawable.cup_head,
-            R.drawable.control_game,
-
-
-
-
-
+            R.drawable.celeste_image,
+            R.drawable.aplague_tale_requiem_image,
+            R.drawable.cup_head_image,
+            R.drawable.control_image,
+            R.drawable.cyberpunk_image,
+            R.drawable.eldenring,
+            R.drawable.witcher_image
 
 
 
@@ -55,6 +55,24 @@ class activity_library : AppCompatActivity() {
 binding.recyclerGames.setHasFixedSize(true)
         binding.recyclerGames.layoutManager = LinearLayoutManager(this) // o LinearLayoutManager
         binding.recyclerGames.adapter = adapter
+
+
+
+
+        //intents
+
+        binding.buttonimageTag.setOnClickListener {
+
+            val intent = Intent(context, TiendaActivity::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
+
+        binding.buttonimageCart.setOnClickListener {
+            val intent = Intent(context, activity_cart::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
     }
 
 

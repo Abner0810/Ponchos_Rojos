@@ -2,41 +2,245 @@
   {
     "id": 1,
     "name": "Cyberpunk 2077",
+    "developer": "CD PROJEKT RED",
+    "releasedDate": "9 DIC 2020",
+    "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.",
+    "url": "https://youtu.be/qIcTM8WXFjk?si=08dV4REHvBwVR6S1",
     "tags": [
       "RPG",
       "Action",
       "Sci-Fi"
     ],
-    "imageName": "cyberpunk_image"
+    "imageName": "cyberpunk_image",
+    "price": "44.99",
+    "so": "Windows 10 64-bit",
+    "processor": "Intel Core i5-8400 or AMD Ryzen 3 3300X",
+    "memory": "12 GB RAM",
+    "graphics": "NVIDIA GeForce GTX 1060 3 GB or AMD Radeon RX 580 4 GB",
+    "storage": "60 GB available space"
+
   },
   {
     "id": 2,
     "name": "The Witcher 3",
+    "developer": "CD PROJEKT RED",
+    "releasedDate": "18 May, 2015",
+    "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will. Your current contract? Tracking down Ciri — the Child of Prophecy, a living weapon that can alter the shape of the world.",
+    "url": "https://youtu.be/c0i88t0Kacs?si=Zwe9s92yHDuTbU9S",
     "tags": [
       "RPG",
       "Fantasy",
       "Open World"
     ],
-    "imageName": "witcher_image"
+    "imageName": "witcher_image",
+    "price": "29.99",
+    "so": "Windows 7/8/10 64-bit",
+    "processor": "Intel Core i5-2500K 3.3GHz or AMD Phenom II X4 940",
+    "memory": "6 GB RAM",
+    "graphics": "NVIDIA GeForce GTX 660 or AMD Radeon HD 7870 (2 GB VRAM)",
+    "storage": "35 GB available space"
+
   },
   {
     "id": 3,
     "name": "Elden Ring",
+    "developer": "FromSoftware, Inc.",
+    "releasedDate": "24 FEB 2022",
+    "description": "THE NEW FANTASY ACTION RPG. Rise, Lightless One, and may grace guide you to embrace the power of the Elden Circle and rise as Circle Lord in the Lands Between.",
+    "url": "https://youtu.be/E3Huy2cdih0?si=Qc0TBNH9h0PFDsI8",
     "tags": [
       "Action",
       "Souls-like",
       "Fantasy"
     ],
-    "imageName": "elden_ring_image"
+    "imageName": "eldenring",
+    "price": "47.99",
+    "so": "Windows 10 64-bit",
+    "processor": "Intel Core i5-8400 or AMD Ryzen 3 3300X",
+    "memory": "12 GB RAM",
+    "graphics": "NVIDIA GeForce GTX 1060 3 GB or AMD Radeon RX 580 4 GB",
+    "storage": "60 GB available space"
+
+  },
+
+  {
+    "id": 4,
+    "name": "Beyond: Two Souls",
+    "developer": "Quantic Dream",
+    "releasedDate": "18 Jun 2020",
+    "description": "A unique psychological action thriller delivered by A-list Hollywood performances by Elliot Page and Willem Dafoe. Take on the remarkable life of Jodie Holmes, linked since birth to a mysterious entity called Aiden. Your actions determine her fate across extraordinary challenges around the globe.",
+    "url": "https://youtu.be/uYxM0ULt2Js?si=rXJOUW3Z21OLYZYT",
+    "tags": ["Action", "Adventure", "Narrative"],
+    "imageName": "beyond_two_souls_image",
+    "price": "19.99",
+    "so": "Windows 7 or later (64-bit)",
+    "processor": "Intel Core i5-4430 @ 3.0 GHz or AMD FX-6300 @ 3.5 GHz",
+    "memory": "4 GB RAM",
+    "graphics": "NVIDIA GeForce GTX 660 with 2GB VRAM or AMD Radeon HD 7870 with 2GB VRAM",
+    "storage": "49 GB available space"
   },
   {
-    "id": 3,
-    "name": "Elden Ring",
-    "tags": [
-      "Action",
-      "Souls-like",
-      "Fantasy"
-    ],
-    "imageName": "elden_ring_image"
+    "id": 5,
+    "name": "Nine Sols",
+    "developer": "Red Candle Games",
+    "releasedDate": "29 May 2024",
+    "description": "Nine Sols is a lore-rich, hand-drawn 2D action-platformer featuring Sekiro-inspired deflection focused combat. Explore the land once home to an ancient alien race and slay the 9 Sols.",
+    "url": "https://youtu.be/_JQ_XO9Acuc?si=IHKpWVoqaFgNSSma",
+    "tags": ["Action", "Platform", "Indie"],
+    "imageName": "nine_sols",
+    "price": "29.99",
+    "so": "Windows 10 (64bit)",
+    "processor": "AMD Athlon X4 | Intel Core i5-4460",
+    "memory": "8 GB RAM",
+    "graphics": "NVIDIA GTX 950 | AMD R7 370",
+    "storage": "15 GB available space"
+  },
+
+
+  {
+    "id": 6,
+    "name": "Heavy Rain",
+    "developer": "Quantic Dream",
+    "releasedDate": "18 Jun 2020",
+    "description": "Experience a gripping psychological thriller filled with innumerable twists and turns. The hunt is on for a murderer known only as the Origami Killer. Four characters, each following their own leads, must take part in a desperate attempt to prevent the killer from claiming a new victim.",
+    "url": "https://youtu.be/tDt1lDvfttg?si=EzKBISOBx_bKGjmU",
+    "tags": ["Interactive Fiction", "Adventure", "Thriller", "Mystery"],
+    "imageName": "heavy_rain_image",
+    "price": "15.99",
+    "so": "Windows 7 or later (64-bit)",
+    "processor": "Intel Core i5-4430 @ 3.0 GHz or AMD FX-6300 @ 3.5 GHz",
+    "memory": "4 GB RAM",
+    "graphics": "Nvidia GeForce GTX 660 with 2GB VRAM or AMD Radeon HD 7870 with 2GB VRAM",
+    "storage": "35 GB available space"
+  },
+  {
+    "id": 7,
+    "name": "Detroit: Become Human",
+    "developer": "Quantic Dream",
+    "releasedDate": "18 Jun 2020",
+    "description": "Detroit: Become Human puts the destiny of both mankind and androids in your hands, taking you to a near future where machines have become more intelligent than humans. Every choice you make affects the outcome of the game, with one of the most intricately branching narratives ever created.",
+    "url": "https://youtu.be/LAnCOqNXeqE?si=rItPkGrBclIzzKWa",
+    "tags": ["Futuristic", "Sci-Fi", "Choices Matter", "Narrative", "Adventure"],
+    "imageName": "detroit_become_human_image",
+    "price": "31.99",
+    "so": "Windows 10 (64 bit)",
+    "processor": "Intel Core i5-2300 @ 2.8 GHz or AMD Ryzen 3 1200 @ 3.1GHz or AMD FX-8350 @ 4.2GHz",
+    "memory": "8 GB RAM",
+    "graphics": "Nvidia GeForce GTX 780 or AMD HD 7950 with 3GB VRAM (Vulkan 1.1 support required)",
+    "storage": "55 GB available space"
+  },
+  {
+    "id": 8,
+    "name": "Celeste",
+    "developer": "Extremely OK Games, Ltd.",
+    "releasedDate": "25 Jan 2018",
+    "description": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain.",
+    "url": "https://youtu.be/70d9irlxiB4?si=wAtDxIGbfq2Z59EC",
+    "tags": ["Platformer", "Indie", "Adventure", "Retro"],
+    "imageName": "celeste_image",
+    "price": "10.49",
+    "so": "Windows 7 or newer",
+    "processor": "Intel Core i3 M380",
+    "memory": "2 GB RAM",
+    "graphics": "Intel HD 4000",
+    "storage": "1.2 GB available space"
+  },
+  {
+    "id": 9,
+    "name": "Hollow Knight",
+    "developer": "Team Cherry",
+    "releasedDate": "24 Feb 2017",
+    "description": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
+    "url": "https://youtu.be/UAO2urG23S4?si=RmFSMMGHTmlG3TQq",
+    "tags": ["Action", "Adventure", "Metroidvania"],
+    "imageName": "hollow_knigth_image",
+    "price": "4.99",
+    "so": "Windows 7 (64-bit) or later",
+    "processor": "Intel Core 2 Duo E5200",
+    "memory": "4 GB RAM",
+    "graphics": "GeForce 9800GTX+ (1 GB VRAM)",
+    "storage": "9 GB available space"
+  },
+  {
+    "id": 10,
+    "name": "A Plague Tale: Requiem",
+    "developer": "Asobo Studio",
+    "releasedDate": "17 Oct 2022",
+    "description": "Embark on a heartrending journey into a brutal, breathtaking world, and discover the cost of saving those you love in a desperate struggle for survival. Strike from the shadows or unleash hell with a variety of weapons, tools and unearthly powers.",
+    "url": "https://youtu.be/qIbzwb8vzNI?si=G-it8XCMfkwxF78u",
+    "tags": ["Action", "Adventure", "Narrative"],
+    "imageName": "aplague_tale_requiem_image",
+    "price": "29.99",
+    "so": "Windows 10 (20H1 64-bit)",
+    "processor": "Intel Core i5-4690K / AMD FX-8300",
+    "memory": "16 GB RAM",
+    "graphics": "GeForce GTX 970 / Radeon RX 590 (4 GB VRAM)",
+    "storage": "55 GB available space"
+  },
+  {
+    "id": 11,
+    "name": "Control Ultimate Edition",
+    "developer": "Remedy Entertainment",
+    "releasedDate": "27 Aug 2019",
+    "description": "Winner of over 80 awards, Control is a visually stunning third-person action-adventure that will keep you on the edge of your seat.",
+    "url": "https://youtu.be/PT5yMfC9LQM?si=Gwdkboj-rkh-ZGLK",
+    "tags": ["Action", "Shooter", "Supernatural"],
+    "imageName": "control_image",
+    "price": "18.99",
+    "so": "Windows 7 (64-bit)",
+    "processor": "Intel Core i5-4690 / AMD FX-4350",
+    "memory": "8 GB RAM",
+    "graphics": "NVIDIA GeForce GTX 780 / AMD Radeon R9 280X",
+    "storage": "42 GB available space"
+  },
+  {
+    "id": 12,
+    "name": "Hollow Knight: Silksong",
+    "developer": "Team Cherry",
+    "releasedDate": "4 Sep, 2025",
+    "description": "Discover a vast, haunted kingdom in Hollow Knight: Silksong! Explore, fight and survive as you ascend to the peak of a land ruled by silk and song.",
+    "url": "https://youtu.be/6XGeJwsUP9c?si=FqyTyfnIiVFGvIE5",
+    "tags": ["Action", "Adventure", "Metroidvania"],
+    "imageName": "silksong_image",
+    "price": "6.99",
+    "so": "Windows 10 version 21H1 (build 19043) or newer",
+    "processor": "Intel Core i3-3240 / AMD FX-4300",
+    "memory": "4 GB RAM",
+    "graphics": "GeForce GTX 560 Ti (1 GB) / Radeon HD 7750 (1 GB)",
+    "storage": "8 GB available space"
+  },
+  {
+    "id": 13,
+    "name": "Cuphead",
+    "developer": "Studio MDHR",
+    "releasedDate": "29 Sep 2017",
+    "description": "Cuphead is a classic run and gun action game heavily focused on boss battles. Inspired by cartoons of the 1930s, the visuals and audio are painstakingly created with the same techniques of the era, i.e. traditional hand drawn cel animation, watercolor backgrounds, and original jazz recordings.",
+    "url": "https://youtu.be/3jDZfREYppk?si=jfElA5-Q5ImEcnLK",
+    "tags": ["Run & Gun", "Boss Battle", "Indie"],
+    "imageName": "cup_head_image",
+    "price": "19.99",
+    "so": "Windows 7 (64-bit)",
+    "processor": "Intel Core2 Duo E8400 / AMD Athlon 64 X2 6000+ (3.0 GHz)",
+    "memory": "2–3 GB RAM",
+    "graphics": "GeForce 9600 GT / AMD HD 3870 (512-MB VRAM)",
+    "storage": "4 GB available space"
+  },
+
+  {
+    "id": 14,
+    "name": "Neva",
+    "developer": "Nomada Studio",
+    "releasedDate": "15 Oct 2024",
+    "description": "Experience the moving tale of a young woman and her lifelong bond with a magnificent wolf as they embark on a thrilling adventure through a rapidly dying world.",
+    "url": "https://youtu.be/q7qpQuCNgQo?si=vTal6RWpfbZ5i1D-",
+    "tags": ["Platformer", "Puzzle", "Indie"],
+    "imageName": "neva_game",
+    "price": "10.49",
+    "so": "Windows 10 x64",
+    "processor": "Intel Core i5-4570T / AMD FX-4350",
+    "memory": "8 GB RAM",
+    "graphics": "GeForce GTX 650 / Radeon HD 7750 (1 GB VRAM)",
+    "storage": "15 GB available space"
   }
+
 ]
