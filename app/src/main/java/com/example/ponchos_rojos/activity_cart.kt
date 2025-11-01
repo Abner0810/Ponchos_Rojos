@@ -2,6 +2,7 @@ package com.example.ponchos_rojos
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -13,12 +14,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ponchos_rojos.adapters.AdapterRecyclerCart
 import com.example.ponchos_rojos.databinding.ActivityCartBinding
 import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
+import kotlinx.serialization.json.Json
 import org.json.JSONArray
 
 class activity_cart : AppCompatActivity() {
 
     private lateinit var binding: ActivityCartBinding
     private val context: Context = this
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +31,7 @@ class activity_cart : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContentView(binding.root)
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         //setContentView(R.layout.activity_cart)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -35,20 +40,31 @@ class activity_cart : AppCompatActivity() {
             insets
         }
 
-
+//////////IMPLEMENTACION DEL RECYCLER PARA LAS TARJETAS DE CARRITO Y DE SHARED PREFERENCES PARA LA PERDURACION DE DATOS
 
         binding.recyclerCartGames.layoutManager = LinearLayoutManager(this)
 
-        val gameList = loadGamesFromJson()
-        if (gameList.isNotEmpty()) {
-            val AdapterRecyclerCart = AdapterRecyclerCart(this, gameList,binding.yourcartIsemptyTitle,binding.priceText,binding.payButton)
+        val gameEntireList = loadGamesFromJson()
+
+        ////CREAMOS OTRA LISTA PARA PONER LOS JUEGOS QUE SE INGRESARON EN SHARED PREFERENCES DESDE LA PANTALLA DE INFO GAMES CON EL BOTON ADDTOCART
+        val selectedListGames: MutableList<GameInfo> = mutableListOf()
+        ////LLENAMOS LA NUEVA LISTA DE SELECTEDLISTGAMES COMPARANDO LAS CLAVES DE SHARED PREFERENCES CON LAS DE NUESTRA LISTA TOTAL DE JUEGOS
+        for(i in 0 until gameEntireList.size){
+            if(sharedPreferences.contains("idGame_${gameEntireList[i].name}")){
+                selectedListGames.add(gameEntireList[i])
+            }
+        }
+
+        //LOGICA DE PRECIOS E IMPLEMENTACION DEL ADAPTER
+        if (selectedListGames.isNotEmpty()) {
+            val AdapterRecyclerCart = AdapterRecyclerCart(this, selectedListGames,binding.yourcartIsemptyTitle,binding.priceText,binding.payButton)
             binding.recyclerCartGames.adapter = AdapterRecyclerCart
 
             var suma:Double = 0.0
-            if(!gameList.isEmpty()){
+            if(!selectedListGames.isEmpty()){
                 // suma de precio total
-                for(i in 0 until  gameList.size){
-                    suma += gameList[i].price.toDouble()
+                for(i in 0 until  selectedListGames.size){
+                    suma += selectedListGames[i].price.toDouble()
                 }
 
                 //si la lista no esta vacia puedes comprar
@@ -61,12 +77,19 @@ class activity_cart : AppCompatActivity() {
 
             val totalString: String = suma.toString()
             binding.priceText.text = "$$totalString"
+
+            ///
+
+            binding.yourcartIsemptyTitle.visibility = View.GONE
+
+        }else{
+            binding.yourcartIsemptyTitle.visibility = View.VISIBLE
         }
 
 
 
 
-        //intents
+        //INTENTS ENTRE PANTALLAS PRINCIPALES
 
         binding.buttonimageTag.setOnClickListener {
 
@@ -80,6 +103,32 @@ class activity_cart : AppCompatActivity() {
             // intent.putExtra("gameData", game) // enviamos el objeto completo
             context.startActivity(intent)
         }
+    }
+
+
+    private fun guardarDataClass(proyecto: GameInfo) {
+        val asdfgh: String = Json.encodeToString(proyecto)
+        val editor = sharedPreferences.edit()
+        editor.putString("datosProyecto", asdfgh)
+        editor.apply()
+    }
+
+    private fun obtenerDataClass(): GameInfo? {
+        val datoGuardado: String = sharedPreferences.getString("datosProyecto", null) ?: ""
+       // binding.textViewDatosSharedPrefs.text = datoGuardado
+        if (!datoGuardado.isEmpty()) {
+            val objetoGuardado = Json.decodeFromString<GameInfo>(datoGuardado)
+            return objetoGuardado
+        }
+        return null
+    }
+
+    private fun obtenerDataDeFile(): GameInfo? {
+        val fileString: String =
+            applicationContext.assets.open("games.json").bufferedReader().use { it.readText() }
+       // binding.textViewDatosLocalFile.text = fileString
+        val objetoGuardado = Json.decodeFromString<GameInfo>(fileString)
+        return objetoGuardado
     }
 
     private fun loadGamesFromJson(): MutableList<GameInfo> {

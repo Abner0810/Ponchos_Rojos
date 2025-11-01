@@ -2,7 +2,7 @@ package com.example.ponchos_rojos
 
 import java.io.Serializable
 
-
+@kotlinx.serialization.Serializable
 data class GameInfo(
     val id: Int,
     val name: String,
