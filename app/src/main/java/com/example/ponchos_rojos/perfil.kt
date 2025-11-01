@@ -1,4 +1,5 @@
 package com.example.ponchos_rojos
+
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -7,24 +8,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ponchos_rojos.databinding.ActivityMainPerfilBinding
 
-object UserSession {
-    var nombre: String = ""
-    var email: String = ""
-    var contraseña: String = ""
-    var celular: String = ""
-    var pais: String = ""
-    fun clear() {
-        nombre = ""
-        email = ""
-        contraseña = ""
-        celular = ""
-        pais = ""
-    }
-}
-
 class MainPerfilActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainPerfilBinding
-    //actualizar datos si se uso guardar
+    private lateinit var storage: ProfileStorage
+
     private val editLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -42,6 +29,15 @@ class MainPerfilActivity : AppCompatActivity() {
                     if (!celular.isNullOrEmpty()) binding.celular1.setText(celular)
                     if (!pais.isNullOrEmpty()) binding.pais1.setText(pais)
 
+                    val perfil = UserProfile(
+                        nombre = binding.nombre1.text.toString(),
+                        email = binding.email1.text.toString(),
+                        contraseña = binding.password1.text.toString(),
+                        celular = binding.celular1.text.toString(),
+                        pais = binding.pais1.text.toString()
+                    )
+                    storage.save(perfil)
+
                     Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -51,14 +47,20 @@ class MainPerfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //Volver
-        binding.flecha.setOnClickListener {
-            finish()
-        }
-        //Cambiar
-        binding.boton.setOnClickListener {
+
+        storage = ProfileStorage(this)
+
+        val perfil = storage.load()
+        binding.nombre1.setText(perfil.nombre)
+        binding.email1.setText(perfil.email)
+        binding.password1.setText(perfil.contraseña)
+        binding.celular1.setText(perfil.celular)
+        binding.pais1.setText(perfil.pais)
+
+        binding.flecha.setOnClickListener { finish() }
+
+        binding.botoncambiar.setOnClickListener {
             val intent = Intent(this, EditarPerfilActivity::class.java).apply {
-                // Enviamos los valores actuales para que el editor los muestre
                 putExtra("nombre", binding.nombre1.text.toString())
                 putExtra("email", binding.email1.text.toString())
                 putExtra("contraseña", binding.password1.text.toString())
@@ -68,11 +70,16 @@ class MainPerfilActivity : AppCompatActivity() {
             editLauncher.launch(intent)
         }
 
-        //Cerrar
-        binding.boton1.setOnClickListener {
+        binding.botoncerrar.setOnClickListener {
             Toast.makeText(this, "Cerrando sesión...", Toast.LENGTH_SHORT).show()
-            // Ejemplo: redirigir a LoginActivity
-            // startActivity(Intent(this, LoginActivity::class.java))
+            storage.clear()
+            val intent = Intent(this, activity_login::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            startActivity(intent)
         }
     }
+
+
 }
+

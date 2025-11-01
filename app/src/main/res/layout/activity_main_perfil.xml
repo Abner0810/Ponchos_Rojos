@@ -168,7 +168,7 @@
         android:background="@color/azul_oscuro">
 
         <Button
-            android:id="@+id/boton"
+            android:id="@+id/botoncambiar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -179,7 +179,7 @@
             app:layout_constraintTop_toTopOf="@id/fondo1" />
 
         <Button
-            android:id="@+id/boton1"
+            android:id="@+id/botoncerrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -187,7 +187,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"
             android:background="@color/grayWhite"
-            app:layout_constraintTop_toBottomOf="@id/boton" />
+            app:layout_constraintTop_toBottomOf="@id/botoncambiar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

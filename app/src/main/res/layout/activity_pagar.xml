@@ -38,6 +38,7 @@
         android:src="@drawable/generic_avatar"
         android:layout_margin="10dp"
         android:scaleType="centerCrop"
+        android:background="@android:color/transparent"
         android:padding="10dp" />
 
     <ScrollView
@@ -95,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                                                 "
+                android:hint="rellenar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Nro_tarjeta" />
 
@@ -145,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="            "
+                android:hint="rellenar"
                 app:layout_constraintStart_toEndOf="@id/fechaAnio"
                 app:layout_constraintTop_toBottomOf="@id/Cdg_seguridad" />
 
@@ -177,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                     "
+                android:hint="rellenar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/nombre" />
 
@@ -198,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                      "
+                android:hint="rellenar"
                 app:layout_constraintStart_toEndOf="@id/rellenar_nombre"
                 app:layout_constraintTop_toBottomOf="@id/nombre" />
 
@@ -219,7 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                                              "
+                android:hint="rellenar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/direccion" />
 
@@ -240,7 +241,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                                                 "
+                android:hint="rellenar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ciudad" />
 
@@ -261,7 +262,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                                                 "
+                android:hint="rellenar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/codigo_postal" />
 
@@ -282,7 +283,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                                                 "
+                android:hint="rellenar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Pais_text" />
 
@@ -303,7 +304,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:text="                                                 "
+                android:hint="rellenar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/celular_text" />
 

@@ -1,9 +1,11 @@
 package com.example.ponchos_rojos
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -74,10 +76,44 @@ class PagarActivity : AppCompatActivity() {
         }
 
         binding.btnPagar.setOnClickListener {
+            if (!areAllFieldsFilled()) {
+                return@setOnClickListener
+            }
             Toast.makeText(
                 this@PagarActivity, "Pago realizado correctamente", Toast.LENGTH_SHORT
             ).show()
-        finish()
+            finish()
+
         }
+        binding.avatarBtn.setOnClickListener {
+            startActivity(Intent(this@PagarActivity, MainPerfilActivity::class.java))
+        }
+
+
     }
+
+    private fun areAllFieldsFilled(): Boolean {
+        val fields = listOf<EditText>(
+            binding.rellenarTarjeta,
+            binding.codigoSegRellenar,
+            binding.rellenarNombre,
+            binding.rellenarApellido,
+            binding.rellenarDireccion,
+            binding.rellenarCiudad,
+            binding.rellenarCodigoPostal,
+            binding.rellenarPais,
+            binding.rellenarCelular
+        )
+
+        for (field in fields) {
+            val text = field.text.toString().trim()
+            if (text.isEmpty()) {
+                field.requestFocus()
+                Toast.makeText(this@PagarActivity, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
+                return false
+            }
+        }
+        return true
+    }
+
 }
