@@ -1,6 +1,7 @@
 package com.example.ponchos_rojos.adapters
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,20 +21,25 @@ class AdapterRecyclerCart(private val context: Context,
                           private val payButton: Button
 ) : RecyclerView.Adapter<AdapterRecyclerCart.CardCartViewHolder>() {
 
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     // ViewHolder
     inner class CardCartViewHolder(private val binding: AdapterRecyclerCartBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: GameInfo) {
-            binding.titleGameCartSection.text = item.name
-            binding.priceGameCartSection.text = "$"+item.price
+            sharedPreferences = binding.root.context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
-            val imageId = binding.root.context.resources.getIdentifier(
-                item.imageName, "drawable", binding.root.context.packageName
-            )
-            if (imageId != 0) {
-                binding.imageGameCart.setImageResource(imageId)
+            if(sharedPreferences.contains("idGame_${item.name}")) {
+                binding.titleGameCartSection.text = item.name
+                binding.priceGameCartSection.text = "$" + item.price
+
+                val imageId = binding.root.context.resources.getIdentifier(
+                    item.imageName, "drawable", binding.root.context.packageName
+                )
+                if (imageId != 0) {
+                    binding.imageGameCart.setImageResource(imageId)
+                }
             }
 
 
@@ -42,6 +48,7 @@ class AdapterRecyclerCart(private val context: Context,
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     cartList.removeAt(position)
+
                     notifyItemRemoved(position)
 
                     val totalPrice: Double = sumaPrecios(cartList)
@@ -82,6 +89,7 @@ class AdapterRecyclerCart(private val context: Context,
 
     override fun onBindViewHolder(holder: CardCartViewHolder, position: Int) {
        holder.bind(cartList[position])
+
     }
 
     override fun getItemCount(): Int = cartList.size

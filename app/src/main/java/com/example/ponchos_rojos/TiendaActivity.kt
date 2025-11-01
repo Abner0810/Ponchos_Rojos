@@ -17,14 +17,14 @@ import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ponchos_rojos.databinding.ActivityCartBinding
-import com.example.ponchos_rojos.databinding.TiendaActivityBinding
+import com.example.ponchos_rojos.databinding.ActivityTiendaBinding
 //import com.example.ponchos_rojos.databinding.ActivityTiendaBinding
 import org.json.JSONArray
 
 class TiendaActivity : AppCompatActivity() {
 
     private val context: Context = this
-    private lateinit var binding: TiendaActivityBinding
+    private lateinit var binding: ActivityTiendaBinding
 
 
     //private lateinit var binding: ActivityTiendaBinding
@@ -36,7 +36,7 @@ class TiendaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        binding= TiendaActivityBinding.inflate(layoutInflater)
+        binding= ActivityTiendaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
