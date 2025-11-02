@@ -29,6 +29,10 @@ class activity_gameInfo : AppCompatActivity() {
     private lateinit var binding: ActivityGameInfoBinding
     private val context: Context = this
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesButton: SharedPreferences
+    private lateinit var sharedPreferencesLibrary: SharedPreferences
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +44,9 @@ class activity_gameInfo : AppCompatActivity() {
 
         ////TIENES QUE TENER ESTO SIOSI EN CUALQUIER CLASE/ADAPTADOR EN EL QUE QUIERAS LLAMAR A SHARED PREFERENCES
         ////SI NO LA APP CRASHEA
-        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("JuegosCarrito", Context.MODE_PRIVATE)
+        sharedPreferencesButton = getSharedPreferences("logicButton", Context.MODE_PRIVATE)
+        sharedPreferencesLibrary = getSharedPreferences("JuegosLibrary", Context.MODE_PRIVATE)
 
 
         //setContentView(R.layout.activity_game_info)
@@ -119,7 +125,7 @@ class activity_gameInfo : AppCompatActivity() {
             binding.gameDeveloperInfo.text = game.developer
             binding.gameDateInfo.text = game.releasedDate
             binding.gameDescription.text = game.description
-            binding.priceGameText.text = game.price
+            binding.priceGameText.text = "$"+game.price
             binding.soInfoText.text = game.so
             binding.processorInfoText.text = game.processor
             binding.memoryInfoText.text = game.memory
@@ -164,11 +170,16 @@ class activity_gameInfo : AppCompatActivity() {
         if (gameList.isNotEmpty()) {
             val listaTags: List<String> = game?.tags ?: emptyList()
             //  val listaTags = listOf("Action", "Adventure", "Fantasy", "Open World")
-            val adapterRecyclerTags = AdapterRecyclerTagsButton(this, game?.tags ?: emptyList())
+            val adapterRecyclerTags = AdapterRecyclerTagsButton(this, listaTags)
             binding.recyclerTagsButton.adapter = adapterRecyclerTags
         }
 
         //intents
+        binding.buttonimageTag.setOnClickListener {
+            val intent = Intent(context, TiendaActivity::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
         binding.buttonimageCart.setOnClickListener {
 
             val intent = Intent(context, activity_cart::class.java)
@@ -182,16 +193,22 @@ class activity_gameInfo : AppCompatActivity() {
             context.startActivity(intent)
         }
 
+        // INTENT PERFIL USUARIO
+        binding.imageProfile.setOnClickListener {
+            startActivity(Intent(context, MainPerfilActivity::class.java))
+        }
+
 
         // AGREGADO Y REMOCION DE JUEGOS DEL CARRITO CON SHARED PREFERENCES
 
         // HABILITAMOS Y GUARDAMOS EL EDITOR EN UNA VARIABLE
         val editor = sharedPreferences.edit()
+        val editorButton = sharedPreferencesButton.edit()
 
         //VERIFICACION DEL BOTON DE ADDTOCART PARA QUE SEA PERDURABLE
         // A PESAR DE QUE PARECE QUE LO DECLARAMOS EN FALSE CADA QUE SE LO LLAMA SIMPLEMENTE ES SU VALOR PREDETERMINADO EN CASO DE QUE NUNCA
         // SE HAYA CREADO DENTRO DE SHARED PREFERENCES LA CLAVE:VALOR
-        val botonFuePresionado = sharedPreferences.getBoolean("boton_presionado_${game!!.name}", false)
+        val botonFuePresionado = sharedPreferencesButton.getBoolean("boton_presionado_${game!!.name}", false)
 
 
         // ESTE IF DETEMRINA CUAL DE LOS DOS BOTONES APARECERA AL ABRIR LA APLICACION
@@ -206,22 +223,23 @@ class activity_gameInfo : AppCompatActivity() {
         }
 
         binding.addToCartButton.setOnClickListener {
-            editor.putBoolean("boton_presionado_${game.name}", true)
+            editorButton.putBoolean("boton_presionado_${game.name}", true)
             binding.addToCartButton.visibility = View.GONE      // se oculta inmediatamente
             binding.addedToCartButton.visibility = View.VISIBLE  // aparece pause
 
 
             // EL SIGNO !! ES PARA DECIRLE QUE ESTAMOS SEGUROS DE QUE LO QUE ESTAMOS RECIBIENDO NO ESTA VACIO
-            val idGame = game!!.id.toString()
+            val idGame = game.id.toString()
 
             // COLOCAR DENTRO DEL CARRITO
             editor.putString("idGame_${game.name}", idGame)
             editor.apply()
+            editorButton.apply()
         }
 
         // Pause button
         binding.addedToCartButton.setOnClickListener {
-            editor.putBoolean("boton_presionado_${game.name}", false)
+            editorButton.putBoolean("boton_presionado_${game.name}", false)
 
             binding.addedToCartButton.visibility = View.GONE     // se oculta inmediatamente
             binding.addToCartButton.visibility = View.VISIBLE   // aparece play
@@ -229,6 +247,26 @@ class activity_gameInfo : AppCompatActivity() {
             //LO QUITAMOS DEL CARRITO
             //IGUAL EXISTE OTRA FUNCION PARA QUITAR TOOD DENTRO DE SHARED PREFERENCES
             editor.remove("idGame_${game.name}").apply()
+editorButton.apply()
+        }
+
+
+
+
+
+
+        ///////JUEGOS COMPRADOS
+
+
+        val botuttonGamePurchased = sharedPreferencesButton.getBoolean("button_gameBuyed_${game.name}", false)
+
+
+        // ESTE IF DETEMRINA CUAL DE LOS DOS BOTONES APARECERA AL ABRIR LA APLICACION
+        if (botuttonGamePurchased) {
+            binding.addToCartButton.visibility = View.GONE      // se oculta inmediatamente
+            binding.addedToCartButton.visibility = View.GONE
+            binding.onYourLibraryText.visibility = View.VISIBLE
+
 
         }
 

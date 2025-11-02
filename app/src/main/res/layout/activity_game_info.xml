@@ -37,10 +37,11 @@
         android:background="@color/gray"
 
 
-        android:hint="Search"
+        android:hint="@string/hint_search"
         android:textColorHint="@color/deepBlue"
         android:fontFamily="@font/sf_pro_bold"
         android:paddingStart="15dp"
+        android:paddingEnd="15dp"
 
 
         app:layout_constraintEnd_toStartOf="@id/image_profile"
@@ -76,7 +77,7 @@
             <ImageView
                 android:id="@+id/game_portrait"
                 android:layout_width="wrap_content"
-                android:layout_height="235dp"
+                android:layout_height="245dp"
                 android:src="@drawable/eldenring"
                 app:layout_constraintStart_toStartOf="@id/container_infoGames"
                 app:layout_constraintTop_toTopOf="@id/container_infoGames"
@@ -91,7 +92,7 @@
                 app:layout_constraintEnd_toEndOf="@id/container_infoGames"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="ELDEN RING"
+                android:text="@string/game_title_elden_ring"
                 android:textColor="@color/grayWhite"
                 android:textSize="30sp"
                 android:fontFamily="@font/sf_pro_bold"/>
@@ -115,32 +116,33 @@
                     app:layout_constraintStart_toStartOf="@id/description_container"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="15dp"
-                    android:text="Released by"
+                    android:text="@string/released_by"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:fontFamily="@font/sf_pro_bold"/>
                 <TextView
                     android:id="@+id/game_release_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/game_developer_title"
+                    app:layout_constraintTop_toTopOf="@id/game_date_info"
                     app:layout_constraintStart_toStartOf="@id/description_container"
                     android:layout_marginStart="20dp"
-                    android:text="In"
+                    android:text="@string/in_text"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:fontFamily="@font/sf_pro_bold"/>
                 <TextView
                     android:id="@+id/game_developer_info"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/description_container"
                     app:layout_constraintStart_toEndOf="@id/game_developer_title"
+                    app:layout_constraintEnd_toEndOf="@id/description_container"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
-                    android:text="FromSoftware, Inc."
+                    android:text="@string/developer_name"
                     android:textColor="@color/skyBlue"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:fontFamily="@font/sf_pro_bold"/>
                 <TextView
                     android:id="@+id/game_date_info"
@@ -149,9 +151,9 @@
                     app:layout_constraintTop_toBottomOf="@id/game_developer_info"
                     app:layout_constraintStart_toEndOf="@id/game_release_title"
                     android:layout_marginStart="10dp"
-                    android:text="24 Feb, 2022"
+                    android:text="@string/release_date"
                     android:textColor="@color/skyBlue"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:fontFamily="@font/sf_pro_bold"/>
 
 
@@ -162,19 +164,15 @@
                     app:layout_constraintTop_toBottomOf="@id/game_release_title"
                     app:layout_constraintStart_toStartOf="@id/description_container"
                     app:layout_constraintEnd_toEndOf="@id/description_container"
+                    app:layout_constraintBottom_toBottomOf="@id/description_container"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="THE NEW FANTASY ACTION RPG. Rise, Lightless One, and may grace guide you to embrace the power of the Elden Circle and rise as Circle Lord in the Lands Between."
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/game_description_text"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:fontFamily="@font/sf_pro_bold"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" "
-                    app:layout_constraintTop_toBottomOf="@id/game_description"
-                    app:layout_constraintStart_toStartOf="@id/description_container"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -200,7 +198,7 @@
                     android:gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
-                    android:text="TAGS"
+                    android:text="@string/tags_text"
                     android:textColor="@color/grayWhite"
                     android:textSize="20sp"
                     android:fontFamily="@font/sf_pro_bold"/>
@@ -213,56 +211,11 @@
                     app:layout_constraintTop_toBottomOf="@id/game_tag_text"
                     app:layout_constraintStart_toStartOf="@id/tags_container"
                     app:layout_constraintEnd_toEndOf="@id/tags_container"
-                    app:layout_constraintBottom_toBottomOf="@id/tags_container"/>
+                    app:layout_constraintBottom_toBottomOf="@id/tags_container"
+                    android:layout_marginBottom="15dp"/>
 
-<!--                <Button-->
-<!--                    android:id="@+id/eldenring_soulsLike_tag_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"-->
-<!--                    app:layout_constraintEnd_toStartOf="@id/eldenring_openWorld_tag_button"-->
-<!--                    android:layout_marginEnd="10dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:backgroundTint="@color/grayWhite"-->
-<!--                    android:text="Souls-Like"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:textColor="@color/grayBlue"-->
-<!--                    android:padding = "5dp"/>-->
-<!--                <Button-->
-<!--                    android:id="@+id/eldenring_openWorld_tag_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/tags_container"-->
-<!--                    app:layout_constraintEnd_toEndOf="@id/tags_container"-->
 
-<!--                    android:layout_marginStart="10dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:backgroundTint="@color/grayWhite"-->
-<!--                    android:text="Open World"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:textColor="@color/grayBlue"-->
-<!--                    android:padding = "5dp"/>-->
-<!--                <Button-->
-<!--                    android:id="@+id/eldenring_RPG_tag_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/eldenring_tag_text"-->
-<!--                    app:layout_constraintStart_toEndOf="@id/eldenring_openWorld_tag_button"-->
-<!--                    android:layout_marginStart="10dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:backgroundTint="@color/grayWhite"-->
-<!--                    android:text="RPG"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:textColor="@color/grayBlue"-->
-<!--                    android:padding="1dp"/>-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" "
-                    app:layout_constraintTop_toBottomOf="@id/recycler_tags_button"
-                    app:layout_constraintStart_toStartOf="@id/tags_container"
-                    android:textSize="10sp"/>
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -273,7 +226,7 @@
                 android:id="@+id/game_video"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/eldenring"
                 app:layout_constraintEnd_toEndOf="@id/container_infoGames"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -297,7 +250,7 @@
                 android:id="@+id/minimum_requirements_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minimum Requirements"
+                android:text="@string/minimum_requirements"
                 android:fontFamily="@font/sf_pro_bold"
                 android:textSize="25sp"
                 android:textColor="@color/grayWhite"
@@ -325,8 +278,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
-                    android:textSize="20sp"
-                    android:text="SO: "
+                    android:textSize="18sp"
+                    android:text="@string/so_title"
                     app:layout_constraintTop_toTopOf="@id/minimum_requirements_card"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
                     android:layout_marginStart="10dp"
@@ -338,7 +291,7 @@
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
                     android:textSize="20sp"
-                    android:text="Processor:"
+                    android:text="@string/processor_title"
                     app:layout_constraintTop_toBottomOf="@id/so_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
                     app:layout_constraintTop_toTopOf="@id/processor_info_text"
@@ -351,7 +304,7 @@
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
                     android:textSize="20sp"
-                    android:text="Memory:"
+                    android:text="@string/memory_title"
                     app:layout_constraintTop_toBottomOf="@id/processor_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
                     app:layout_constraintTop_toTopOf="@id/memory_info_text"
@@ -364,7 +317,7 @@
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
                     android:textSize="20sp"
-                    android:text="Graphics:"
+                    android:text="@string/graphics_title"
                     app:layout_constraintTop_toBottomOf="@id/memory_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
                     app:layout_constraintTop_toTopOf="@id/graphics_info_text"
@@ -378,7 +331,7 @@
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
                     android:textSize="20sp"
-                    android:text="Storage:"
+                    android:text="@string/storage_title"
                     app:layout_constraintTop_toBottomOf="@id/graphics_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
                     app:layout_constraintTop_toTopOf="@id/storage_info_text"
@@ -397,8 +350,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
-                    android:text="Windows 10"
+                    android:textSize="18sp"
+                    android:text="@string/so_info"
                     app:layout_constraintTop_toTopOf="@id/minimum_requirements_card"
                     app:layout_constraintStart_toEndOf="@id/so_title_text"
                     android:layout_marginStart="10dp"
@@ -409,8 +362,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
-                    android:text="INTEL CORE I5-8400 or AMD RYZEN 3 3300X"
+                    android:textSize="18sp"
+                    android:text="@string/processor_info"
                     app:layout_constraintTop_toBottomOf="@id/so_info_text"
                     app:layout_constraintStart_toEndOf="@id/processor_title_text"
                     app:layout_constraintEnd_toEndOf="@id/minimum_requirements_card"
@@ -418,14 +371,16 @@
                     android:layout_marginTop="10dp"/>
                 <TextView
                     android:id="@+id/memory_info_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
-                    android:text="12 GB de RAM "
+                    android:textSize="18sp"
+                    android:text="@string/memory_info"
                     app:layout_constraintTop_toBottomOf="@id/processor_info_text"
                     app:layout_constraintStart_toEndOf="@id/memory_title_text"
+                    app:layout_constraintEnd_toEndOf="@id/minimum_requirements_card"
+
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"/>
                 <TextView
@@ -434,8 +389,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
-                    android:text="NVIDIA GEFORCE GTX 1060 3 GB or AMD RADEON RX 580 4 GB"
+                    android:textSize="18sp"
+                    android:text="@string/graphics_info"
                     app:layout_constraintTop_toBottomOf="@id/memory_info_text"
                     app:layout_constraintStart_toEndOf="@id/graphics_title_text"
                     app:layout_constraintEnd_toEndOf="@id/minimum_requirements_card"
@@ -447,18 +402,14 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/grayWhite"
-                    android:textSize="20sp"
-                    android:text="60 GB"
+                    android:textSize="18sp"
+                    android:text="@string/storage_info"
                     app:layout_constraintTop_toBottomOf="@id/graphics_info_text"
                     app:layout_constraintStart_toEndOf="@id/storage_title_text"
+                    app:layout_constraintBottom_toBottomOf="@id/minimum_requirements_card"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" "
-                    app:layout_constraintTop_toBottomOf="@id/storage_title_text"
-                    app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"/>
 
 
 
@@ -482,6 +433,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@color/grayBlue"
                 app:layout_constraintTop_toBottomOf="@id/minimum_requirements_card"
+                app:layout_constraintBottom_toBottomOf="@id/container_infoGames"
 
                 >
 
@@ -494,23 +446,24 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
 
-                    android:text="Buy"
+                    android:text="@string/buy_text"
                     android:textColor="@color/grayWhite"
                     android:fontFamily="@font/sf_pro_bold"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
                 <TextView
                     android:id="@+id/nameGame_toAddCart_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/card_addToCart"
                     app:layout_constraintStart_toEndOf="@id/game_buy_text"
+                    app:layout_constraintEnd_toStartOf="@id/priceGame_text"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
 
-                    android:text="ELDEN RING"
+                    android:text="@string/game_title_elden_ring"
                     android:textColor="@color/grayWhite"
                     android:fontFamily="@font/sf_pro_bold"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
                 <TextView
                     android:id="@+id/priceGame_text"
                     android:layout_width="wrap_content"
@@ -520,22 +473,24 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="15dp"
 
-                    android:text="$47.99"
+                    android:text="@string/price_elden_ring"
                     android:textColor="@color/grayWhite"
                     android:fontFamily="@font/sf_pro_bold"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
 
                 <Button
                     android:id="@+id/addToCart_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/game_buy_text"
+                    app:layout_constraintTop_toBottomOf="@id/nameGame_toAddCart_text"
                     app:layout_constraintStart_toStartOf="@id/card_addToCart"
+                    app:layout_constraintBottom_toBottomOf="@id/card_addToCart"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginBottom="15dp"
                     android:backgroundTint="@color/grayWhite"
-                    android:text="Add to Cart"
-                    android:textSize="20dp"
+                    android:text="@string/add_to_cart"
+                    android:textSize="20sp"
                     android:textColor="@color/grayBlue"
                     android:fontFamily="@font/sf_pro_bold"
                     android:padding="5dp"/>
@@ -543,37 +498,42 @@
                     android:id="@+id/addedToCart_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/game_buy_text"
+                    app:layout_constraintTop_toBottomOf="@id/nameGame_toAddCart_text"
                     app:layout_constraintStart_toStartOf="@id/card_addToCart"
+                    app:layout_constraintBottom_toBottomOf="@id/card_addToCart"
+
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginBottom="15dp"
                     android:backgroundTint="@color/skyBlue"
-                    android:text="Added to your cart"
-                    android:textSize="20dp"
+                    android:text="@string/added_to_cart"
+                    android:textSize="20sp"
                     android:textColor="@color/grayBlue"
                     android:fontFamily="@font/sf_pro_bold"
                     android:padding="5dp"
                     android:visibility="gone"/>
                 <TextView
+                    android:id="@+id/on_your_library_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text ="    "
-                    android:textSize="15sp"
-                    android:layout_marginBottom="15sp"
-                    app:layout_constraintTop_toBottomOf="@id/addToCart_button"
-                    app:layout_constraintStart_toStartOf="@id/card_addToCart"/>
+                    app:layout_constraintTop_toBottomOf="@id/nameGame_toAddCart_text"
+                    app:layout_constraintStart_toStartOf="@id/card_addToCart"
+                    app:layout_constraintBottom_toBottomOf="@id/card_addToCart"
+
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/already_on_library"
+                    android:textSize="20sp"
+                    android:textColor="@color/skyBlue"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:visibility="gone"/>
 
 
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/card_addToCart"
-    app:layout_constraintStart_toStartOf="@id/container_infoGames"
-    android:text=" "/>
 
 
 
@@ -611,7 +571,8 @@
             app:layout_constraintTop_toBottomOf="@id/guideline_bottom_gameInfo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/buttonimage_cart"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/grayWhite" />
     <ImageButton
         android:id="@+id/buttonimage_library"
         android:layout_width="wrap_content"

@@ -5,46 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/deepBlue">
+    android:background="@color/deepBlue"
+    android:fitsSystemWindows="true"
+    >
 
-    <ImageView
-        android:id="@+id/flecha"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/superior_bar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/grayBlue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/left_arrow_svgrepo_com_1__1_"
-        android:layout_margin="10dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/metodo_pago"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/flecha"
-        android:text="Metodo de pago"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:layout_margin="10dp"
-        />
+        <ImageView
+            android:id="@+id/flecha"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/superior_bar"
+            android:src="@drawable/left_arrow_svgrepo_com_1__1_"
+            android:layout_margin="10dp" />
 
-    <ImageButton
-        android:id="@+id/avatarBtn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/generic_avatar"
-        android:layout_margin="10dp"
-        android:scaleType="centerCrop"
-        android:background="@android:color/transparent"
-        android:padding="10dp" />
+        <TextView
+            android:id="@+id/user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/flecha"
+            app:layout_constraintBottom_toBottomOf="@id/superior_bar"
+            android:text="@string/payment_title"
+            android:textSize="25sp"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_margin="10dp" />
+        <ImageButton
+            android:id="@+id/avatarBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/generic_avatar"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="@id/superior_bar"
+            app:layout_constraintTop_toTopOf="@id/superior_bar"
+            app:layout_constraintBottom_toBottomOf="@id/superior_bar"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/avatarBtn"
+        app:layout_constraintTop_toBottomOf="@id/superior_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +67,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/info_payment_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
@@ -62,11 +77,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Seleccionar metodo de pago"
+                android:text="@string/seleccionar_metodo_de_pago_title"
                 android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_bold"
                 android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
+                app:layout_constraintTop_toTopOf="@id/info_payment_container" />
 
             <Spinner
                 android:id="@+id/menu_pago"
@@ -74,8 +90,8 @@
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/grayBlue"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/selecmetodo_pago"
                 />
 
@@ -84,10 +100,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Numero de tarjeta"
+                android:text="@string/numero_de_tarjeta_title"
                 android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_bold"
                 android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/menu_pago" />
 
             <EditText
@@ -95,9 +112,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:minWidth="150dp"
+                android:textColor="@color/grayBlue"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/hint_rellenar"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/Nro_tarjeta" />
 
             <TextView
@@ -105,21 +124,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Fecha de expiración"
+                android:text="@string/fecha_de_expiracion_title"
                 android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_bold"
                 android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_tarjeta" />
 
             <TextView
                 android:id="@+id/Cdg_seguridad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Codigo de Seguridad"
+                android:layout_marginTop="10dp"
+                android:text="@string/codigo_de_seguridad_title"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toEndOf="@id/Fecha_expiracion"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/codigo_seg_rellenar"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_tarjeta" />
 
             <Spinner
@@ -128,7 +149,7 @@
                 android:layout_height="20dp"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/Fecha_expiracion" />
 
             <Spinner
@@ -144,9 +165,11 @@
                 android:id="@+id/codigo_seg_rellenar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/grayBlue"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
+                android:hint="@string/hint_rellenar"
                 app:layout_constraintStart_toEndOf="@id/fechaAnio"
                 app:layout_constraintTop_toBottomOf="@id/Cdg_seguridad" />
 
@@ -155,10 +178,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Informacion factura"
+                android:text="@string/informacion_factura"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/codigo_seg_rellenar" />
 
             <TextView
@@ -166,52 +190,64 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Nombre"
+                android:text="@string/nombre_payment_title"
                 android:textColor="@color/white"
+                android:fontFamily="@font/sf_pro_bold"
                 android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/factura" />
 
             <EditText
                 android:id="@+id/rellenar_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/grayBlue"
+                android:minWidth="150dp"
+                android:maxWidth="150dp"
+                android:hint="@string/hint_rellenar"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/nombre" />
 
             <TextView
                 android:id="@+id/apellido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Apellido"
+                android:layout_marginTop="10dp"
+                android:text="@string/apellido_title"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toEndOf="@id/nombre"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/rellenar_apellido"
                 app:layout_constraintTop_toBottomOf="@id/factura" />
 
             <EditText
                 android:id="@+id/rellenar_apellido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:minWidth="150dp"
+                android:maxWidth="150dp"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
+                android:textColor="@color/grayBlue"
+                android:hint="@string/hint_rellenar"
                 app:layout_constraintStart_toEndOf="@id/rellenar_nombre"
-                app:layout_constraintTop_toBottomOf="@id/nombre" />
+                app:layout_constraintTop_toBottomOf="@id/nombre"
+                />
 
             <TextView
                 android:id="@+id/direccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Direccion de la cuenta "
+                android:text="@string/direccion_de_la_cuenta_title"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_nombre" />
 
             <EditText
@@ -220,8 +256,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:minWidth="150dp"
+                android:hint="@string/hint_rellenar"
+                android:textColor="@color/grayBlue"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/direccion" />
 
             <TextView
@@ -229,10 +267,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Ciudad"
+                android:text="@string/ciudad_payment_title"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_direccion" />
 
             <EditText
@@ -241,8 +280,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:minWidth="150dp"
+                android:hint="@string/hint_rellenar"
+                android:textColor="@color/grayBlue"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/ciudad" />
 
             <TextView
@@ -250,10 +291,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Codigo Postal"
+                android:text="@string/codigo_postal_title"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_ciudad" />
 
             <EditText
@@ -262,8 +304,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/hint_rellenar"
+                android:textColor="@color/grayBlue"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/codigo_postal" />
 
             <TextView
@@ -271,10 +314,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Pais"
+                android:text="@string/pais_title"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_codigo_postal" />
 
             <EditText
@@ -283,8 +327,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/hint_rellenar"
+                android:textColor="@color/grayBlue"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/Pais_text" />
 
             <TextView
@@ -292,10 +337,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Celular"
+                android:text="@string/celular_title"
                 android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/sf_pro_bold"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/rellenar_Pais" />
 
             <EditText
@@ -304,19 +350,26 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
-                android:hint="rellenar"
-                app:layout_constraintStart_toStartOf="parent"
+                android:minWidth="150dp"
+                android:inputType="text"
+                android:hint="@string/hint_rellenar"
+                android:textColor="@color/grayBlue"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/celular_text" />
 
             <TextView
                 android:id="@+id/metodo_pago_imagen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Metodo de pago"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/metodo_de_pago_title"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rellenar_celular" />
+                android:textSize="20sp"
+                android:fontFamily="@font/sf_pro_bold"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
+                app:layout_constraintTop_toBottomOf="@id/rellenar_celular"
+                />
 
             <LinearLayout
                 android:id="@+id/payment_logos_layout"
@@ -326,8 +379,9 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="@id/info_payment_container"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/metodo_pago_imagen">
 
                 <ImageView
@@ -366,11 +420,13 @@
                 android:id="@+id/btnPagar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/gris_claro"
-                android:text="Pagar"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/gris_claro"
+                android:text="@string/pagar_button_title"
+                android:textSize="20sp"
+                android:textColor="@color/grayBlue"
+                app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/payment_logos_layout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

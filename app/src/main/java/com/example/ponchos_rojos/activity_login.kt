@@ -42,7 +42,7 @@ class activity_login : AppCompatActivity() {
             val pass = binding.enterPassword.text.toString()
 
             if(correo!= "" && pass != ""){
-                crearUsuario(correo,pass)
+                //crearUsuario(correo,pass)
                 loginValidation(correo,pass)
             }else{
                 Toast.makeText(
@@ -119,6 +119,8 @@ class activity_login : AppCompatActivity() {
         auth.signInWithEmailAndPassword(correo,pass).addOnCompleteListener{ task->
             if(task.isSuccessful){
                 //usuario logeado correctamente
+                val intentLogin = Intent(context, TiendaActivity::class.java)
+                startActivity(intentLogin)
             }else{
                 //el usuario no se pudo logear
                 Toast.makeText(

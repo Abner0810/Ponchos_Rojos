@@ -158,6 +158,10 @@ class TiendaActivity : AppCompatActivity() {
            context.startActivity(intent)
        }
 
+        // INTENT PERFIL USUARIO
+        binding.imageview2.setOnClickListener {
+            startActivity(Intent(context, MainPerfilActivity::class.java))
+        }
 
 
 

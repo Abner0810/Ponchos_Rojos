@@ -5,34 +5,48 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@color/deepBlue"
     tools:context=".MainPerfilActivity">
 
-    <ImageView
-        android:id="@+id/flecha"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/superior_bar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/grayBlue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/left_arrow_svgrepo_com_1__1_"
-        android:layout_margin="10dp" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/user_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/flecha"
-        android:text="Perfil de Usuario"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:layout_margin="10dp" />
+        <ImageView
+            android:id="@+id/flecha"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/superior_bar"
+            android:src="@drawable/left_arrow_svgrepo_com_1__1_"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/flecha"
+            app:layout_constraintBottom_toBottomOf="@id/superior_bar"
+            android:text="@string/user_profile_title"
+            android:textSize="25sp"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_margin="10dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fondo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/flecha"
+        app:layout_constraintTop_toBottomOf="@id/superior_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/azul_oscuro">
@@ -52,22 +66,23 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@+id/fondo"
             app:layout_constraintStart_toEndOf="@+id/perfil"
-            android:text="ID_Usuario"
+            android:text="@string/user_id_label"
             android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_margin="25dp" />
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="25dp"/>
 
         <TextView
             android:id="@+id/gmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/id_usuario"
-            app:layout_constraintStart_toEndOf="@+id/perfil"
-            android:text="useraccount@gmail.com"
+            app:layout_constraintStart_toStartOf="@+id/id_usuario"
+            android:text="@string/user_email_sample"
             android:textSize="15sp"
-            android:textColor="@color/white"
-            android:layout_margin="10dp" />
-
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -75,26 +90,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/fondo"
-        android:text="Nombre"
-        android:textColor="@color/white"
-        android:layout_margin="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/label_name"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/nombre1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/nombre_label"
-        android:text="Josefo Gallardo Hernandez"
-        android:textColor="@color/white"
-        android:layout_margin="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/user_name_sample"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:id="@+id/email_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/nombre1"
-        android:text="Email"
-        android:textColor="@color/white"
+        android:text="@string/label_email"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
         android:layout_margin="10dp" />
 
     <TextView
@@ -102,17 +124,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/email_label"
-        android:text="useraccount@gmail.com"
-        android:textColor="@color/white"
-        android:layout_margin="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/user_email_sample"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:id="@+id/password_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/email1"
-        android:text="Contraseña"
-        android:textColor="@color/white"
+        android:text="@string/label_password"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
         android:layout_margin="10dp" />
 
     <TextView
@@ -120,17 +146,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/password_label"
-        android:text="******"
-        android:textColor="@color/white"
-        android:layout_margin="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/user_password_sample"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:id="@+id/celular_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/password1"
-        android:text="Celular"
-        android:textColor="@color/white"
+        android:text="@string/label_phone"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
         android:layout_margin="10dp" />
 
     <TextView
@@ -138,17 +168,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/celular_label"
-        android:text="74583493"
-        android:textColor="@color/white"
-        android:layout_margin="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/user_phone_sample"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:id="@+id/pais_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/celular1"
-        android:text="País"
-        android:textColor="@color/white"
+        android:text="@string/label_country"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
         android:layout_margin="10dp" />
 
     <TextView
@@ -156,9 +190,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/pais_label"
-        android:text="Pakestan"
-        android:textColor="@color/white"
-        android:layout_margin="10dp" />
+        android:text="@string/user_country_sample"
+        android:textColor="@color/grayWhite"
+        android:fontFamily="@font/sf_pro_bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fondo1"
@@ -171,23 +207,29 @@
             android:id="@+id/botoncambiar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Cambiar Información"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/button_change_info"
             android:textSize="20sp"
-            android:textColor="@color/black"
-            android:background="@color/grayWhite"
-            app:layout_constraintTop_toTopOf="@id/fondo1" />
+            android:textColor="@color/grayBlue"
+            android:fontFamily="@font/sf_pro_bold"
+            android:backgroundTint="@color/grayWhite"
+            app:layout_constraintTop_toTopOf="@id/fondo1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
             android:id="@+id/botoncerrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Cerrar Sesion"
+            android:text="@string/button_logout"
             android:textSize="20sp"
-            android:textColor="@color/black"
-            android:background="@color/grayWhite"
+            android:textColor="@color/grayBlue"
+            android:fontFamily="@font/sf_pro_bold"
+            android:backgroundTint="@color/grayWhite"
             app:layout_constraintTop_toBottomOf="@id/botoncambiar" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
