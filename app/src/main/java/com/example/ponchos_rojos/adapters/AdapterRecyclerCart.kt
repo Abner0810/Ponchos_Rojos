@@ -1,6 +1,7 @@
 package com.example.ponchos_rojos.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ponchos_rojos.GameInfo
+import com.example.ponchos_rojos.activity_gameInfo
 import com.example.ponchos_rojos.adapters.AdapterRecyclerCart.CardCartViewHolder
 import com.example.ponchos_rojos.databinding.AdapterRecyclerCartBinding
 import com.example.ponchos_rojos.databinding.AdapterRecyclerLibraryBinding
@@ -49,15 +51,16 @@ class AdapterRecyclerCart(private val context: Context,
                 }
 
 
-            if(cartList.isEmpty()){
-                yourCartIsEmpty.visibility = View.VISIBLE
-
-                payButton.visibility = View.GONE
-            }else{
-                yourCartIsEmpty.visibility = View.GONE
-
-                payButton.visibility = View.VISIBLE
-            }
+//            if(cartList.isEmpty()){
+//                yourCartIsEmpty.visibility = View.VISIBLE
+//
+//                payButton.visibility = View.GONE
+//
+//            }else{
+//                yourCartIsEmpty.visibility = View.GONE
+//
+//                payButton.visibility = View.VISIBLE
+//            }
 
 
 
@@ -91,6 +94,12 @@ class AdapterRecyclerCart(private val context: Context,
                 }
 
             }
+
+//            binding.imageGameCart.setOnClickListener {
+//                val intent = Intent(context, activity_gameInfo::class.java)
+//                intent.putExtra("gameData", item) // enviamos el objeto completo
+//                context.startActivity(intent)
+//            }
         }
 
         fun sumaPrecios(cartList: MutableList<GameInfo>):Double{

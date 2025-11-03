@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ponchos_rojos.adapters.AdapterRecyclerCart
@@ -93,6 +94,7 @@ class activity_cart : AppCompatActivity() {
 
         }else{
             binding.yourcartIsemptyTitle.visibility = View.VISIBLE
+
         }
 
 

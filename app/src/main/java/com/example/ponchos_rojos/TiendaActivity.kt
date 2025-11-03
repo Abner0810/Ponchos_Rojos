@@ -105,6 +105,26 @@ class TiendaActivity : AppCompatActivity() {
             }
             return@setOnEditorActionListener false
         }
+
+
+        //intent pantalla a carrito
+        binding.buttonimageCart.setOnClickListener {
+
+            val intent = Intent(context, activity_cart::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
+
+        binding.buttonimageLibrary.setOnClickListener {
+            val intent = Intent(context, activity_library::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
+
+        // INTENT PERFIL USUARIO
+        binding.imageview2.setOnClickListener {
+            startActivity(Intent(context, MainPerfilActivity::class.java))
+        }
     }
 
     private fun setupTagSpinner() {
@@ -144,24 +164,7 @@ class TiendaActivity : AppCompatActivity() {
         }
 
 
-        //intent pantalla a carrito
-        binding.buttonimageCart.setOnClickListener {
 
-            val intent = Intent(context, activity_cart::class.java)
-            // intent.putExtra("gameData", game) // enviamos el objeto completo
-            context.startActivity(intent)
-        }
-
-       binding.buttonimageLibrary.setOnClickListener {
-           val intent = Intent(context, activity_library::class.java)
-           // intent.putExtra("gameData", game) // enviamos el objeto completo
-           context.startActivity(intent)
-       }
-
-        // INTENT PERFIL USUARIO
-        binding.imageview2.setOnClickListener {
-            startActivity(Intent(context, MainPerfilActivity::class.java))
-        }
 
 
 
