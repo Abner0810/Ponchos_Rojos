@@ -8,15 +8,16 @@
 
     <TextView
         android:id="@+id/game_title_library"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/juego_library_title_card"
         android:fontFamily="@font/sf_pro_bold"
         android:textColor="@color/grayWhite"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

@@ -40,10 +40,6 @@ class GameAdapter(private val context: Context, private var gameList: List<GameI
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
         holder.bind(gameList[position])
-
-
-
-
     }
 
     override fun getItemCount(): Int {

@@ -5,29 +5,30 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ponchos_rojos.adapters.AdapterRecyclerTags
 import com.example.ponchos_rojos.databinding.ActivityGameInfoBinding
 import kotlinx.serialization.json.Json
+import android.view.inputmethod.InputMethodManager
 import org.json.JSONArray
 
 class activity_gameInfo : AppCompatActivity() {
-
     private lateinit var binding: ActivityGameInfoBinding
     private val context: Context = this
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var sharedPreferencesButton: SharedPreferences
     private lateinit var sharedPreferencesLibrary: SharedPreferences
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -241,11 +242,8 @@ class activity_gameInfo : AppCompatActivity() {
             //LO QUITAMOS DEL CARRITO
             //IGUAL EXISTE OTRA FUNCION PARA QUITAR TOOD DENTRO DE SHARED PREFERENCES
             editor.remove("idGame_${game.name}").apply()
-editorButton.apply()
+            editorButton.apply()
         }
-
-
-
 
 
 
@@ -264,7 +262,47 @@ editorButton.apply()
 
         }
 
+        setupSearchIconVisibility()
+        setupSearchRedirect()
+    }
+    private fun setupSearchIconVisibility() {
+        binding.searchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+                if (s.isNullOrEmpty()) {
+                    binding.searchIcon.isVisible = true
+                } else {
+                    binding.searchIcon.isVisible = false
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+    }
+
+    private fun setupSearchRedirect() {
+        binding.searchBar.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
+                val searchQuery = v.text.toString()
+                if (searchQuery.isNotBlank()) {
+                    val intent = Intent(context, TiendaActivity::class.java)
+
+                    intent.putExtra("SEARCH_QUERY", searchQuery)
+
+                    startActivity(intent)
+
+                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(v.windowToken, 0)
+
+                    return@setOnEditorActionListener true
+                }
+            }
+            return@setOnEditorActionListener false
+        }
     }
 
 

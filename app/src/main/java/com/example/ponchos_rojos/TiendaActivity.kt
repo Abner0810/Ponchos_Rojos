@@ -32,21 +32,34 @@ class TiendaActivity : AppCompatActivity() {
     private lateinit var gameAdapter: GameAdapter
     private var gameList: List<GameInfo> = listOf()
     private val FEATURED_TAG = "- - - - -"
+    private var spinnerOptions = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         binding= ActivityTiendaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        //setContentView(R.layout.activity_tienda)
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // REVISAMOS SI TENEMOS INFORMACION DE TAG DE OTRAS ACTIVITIES Y HACEMOS LA VARIABLE NULLEABLE POR SI NO HAY
+        var initialTagToSelect: String? = null
+        if (intent.hasExtra("TAG_FILTER")) {
+            initialTagToSelect = intent.getStringExtra("TAG_FILTER")
+        }
+        // REVISAMOS SI TENEMOS LA ACTIVIDAD INICIADA CON UNA CONSULTA DE BUSQUEDA DE OTRA ACTIVIDAD
+        if (intent.hasExtra("SEARCH_QUERY")) {
+            // Obtenemos texto
+            val queryFromIntent = intent.getStringExtra("SEARCH_QUERY")
+            if (!queryFromIntent.isNullOrEmpty()) {
+                binding.edittext1.setText(queryFromIntent)
+                currentSearchQuery = queryFromIntent
+            }
+        }
+
         // FUNCION PARA QUE SE MUESTRE O OCULTE LA LUPA EN LA BARRA DE BUSQUEDA
         setupSearchIconVisibility()
         // CREACION DE RECYCLER VIEW USANDO EL JSON DE GAMES Y CARGANDO TODOS AL PRINCIPIO
@@ -60,6 +73,21 @@ class TiendaActivity : AppCompatActivity() {
         setupSearchByText()
         // FUNCION PARA LOS INTENTS
         setUpIntents()
+
+        // SI TENEMOS INFORMACION DE TAGS DE OTRAS ACTIVITIES LO BUSCAMOS EN LAS SPINNER OPTIONS Y APLICAMOS EL FILTRO
+        var selectionApplied = false
+        if (initialTagToSelect != null) {
+            val positionToSelect = spinnerOptions.indexOf(initialTagToSelect)
+            if (positionToSelect != -1) {
+                binding.tagSpinner.setSelection(positionToSelect, true)
+                selectionApplied = true
+            }
+        }
+        // SI NO HAY INFORMACION DE TAGS DE OTRAS ACTIVITIES APLICAMOS LA SELECCION PREDETERMINADA DE FILTRO
+        // DE ESA FORMA PERMITIENDONOS BUSCAR EL NOMBRE DE OTRA ACTIVITY SI HUBIERA
+        if (!selectionApplied) {
+            binding.tagSpinner.setSelection(0, true)
+        }
     }
 
     private fun setupSearchIconVisibility() {
@@ -123,12 +151,14 @@ class TiendaActivity : AppCompatActivity() {
     }
 
     private fun setupTagSpinner() {
+        spinnerOptions.clear()
+
         val allTags = gameList
             .flatMap { it.tags }
             .distinct()
             .sorted()
 
-        val spinnerOptions = mutableListOf(FEATURED_TAG)
+        spinnerOptions = mutableListOf(FEATURED_TAG)
         spinnerOptions.addAll(allTags)
 
         val spinnerAdapter = TagSpinnerAdapter(this, spinnerOptions)
