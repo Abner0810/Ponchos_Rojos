@@ -2,19 +2,17 @@ package com.example.ponchos_rojos.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ponchos_rojos.GameInfo
-import com.example.ponchos_rojos.databinding.AdapterRecyclerTagsButtonsBinding
+import com.example.ponchos_rojos.databinding.AdapterRecyclerTagsBinding
 
-class AdapterRecyclerTagsButton(private val context: Context,
-private val tagsList: List<String>): RecyclerView.Adapter<AdapterRecyclerTagsButton.TagsButtonViewHolder>()  {
+class AdapterRecyclerTags(private val context: Context,
+                          private val tagsList: List<String>): RecyclerView.Adapter<AdapterRecyclerTags.TagsButtonViewHolder>()  {
     // ViewHolder
-    inner class TagsButtonViewHolder(private val binding: AdapterRecyclerTagsButtonsBinding) :
+    inner class TagsButtonViewHolder(private val binding: AdapterRecyclerTagsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(tag: String) {
-            binding.recyclerTagButton.text = tag
+            binding.recyclerTag.text = tag
 
         }
 
@@ -24,7 +22,7 @@ private val tagsList: List<String>): RecyclerView.Adapter<AdapterRecyclerTagsBut
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagsButtonViewHolder {
         //context = parent.context
         return TagsButtonViewHolder(
-            AdapterRecyclerTagsButtonsBinding.inflate(
+            AdapterRecyclerTagsBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )

@@ -14,6 +14,8 @@
 
     </string-array>
 
+
+
     <string-array name="meses">
         <item>Enero</item>
         <item>Febrero</item>
@@ -40,4 +42,116 @@
 
     </string-array>
 
+<!--string resources for activity cart-->
+    <string name="cart_title">YOUR CART</string>
+    <string name="cart_empty_message">Your cart is empty!</string>
+    <string name="total_label">Total</string>
+    <string name="price_label">price</string>
+    <string name="pay_button_label">PAY</string>
+    <string name="empty_space">  </string>
+
+<!--    string resources editar perfil-->
+    <string name="profile_edit_title">Editar Perfil de Usuario</string>
+    <string name="profile_user_id">ID_Usuario</string>
+    <string name="profile_email_example">useraccount@gmail.com</string>
+    <string name="profile_name_label">Nombre</string>
+    <string name="profile_name_hint">User name</string>
+    <string name="profile_email_label">Email</string>
+    <string name="profile_email_hint">UserAccount@gmail.com</string>
+    <string name="profile_password_label">Contraseña</string>
+    <string name="profile_password_hint">******</string>
+    <string name="profile_phone_label">Celular</string>
+    <string name="profile_phone_hint">74583493</string>
+    <string name="profile_country_label">Pais</string>
+    <string name="profile_country_hint">Pakestan</string>
+    <string name="profile_save_button">Guardar</string>
+
+<!--    string resources activity games info-->
+
+    <string name="hint_search">Search</string>
+    <string name="game_title_elden_ring">ELDEN RING</string>
+    <string name="released_by">Released by</string>
+    <string name="in_text">In</string>
+    <string name="developer_name">FromSoftware, Inc.</string>
+    <string name="release_date">24 Feb, 2022</string>
+    <string name="game_description_text">THE NEW FANTASY ACTION RPG. Rise, Lightless One, and may grace guide you to embrace the power of the Elden Circle and rise as Circle Lord in the Lands Between.</string>
+    <string name="tags_text">TAGS</string>
+    <string name="minimum_requirements">Minimum Requirements</string>
+    <string name="so_title">SO:</string>
+    <string name="processor_title">Processor:</string>
+    <string name="memory_title">Memory:</string>
+    <string name="graphics_title">Graphics:</string>
+    <string name="storage_title">Storage:</string>
+    <string name="so_info">Windows 10</string>
+    <string name="processor_info">INTEL CORE I5-8400 or AMD RYZEN 3 3300X</string>
+    <string name="memory_info">12 GB de RAM</string>
+    <string name="graphics_info">NVIDIA GEFORCE GTX 1060 3 GB or AMD RADEON RX 580 4 GB</string>
+    <string name="storage_info">60 GB</string>
+    <string name="buy_text">Buy</string>
+    <string name="price_elden_ring">$47.99</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="added_to_cart">Added to your cart</string>
+    <string name="already_on_library">Already on your library!</string>
+
+<!--login resources-->
+
+    <string name="sign_title_text">Sign In to Haze</string>
+    <string name="sign_message_text">Enter your email and password</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="button_login">LogIn</string>
+    <string name="register_message_text">Don\'t have an account?</string>
+    <string name="register_button_text">ClickHere</string>
+
+<!--    main perfil resources-->
+
+    <string name="user_profile_title">Perfil de Usuario</string>
+    <string name="user_id_label">ID_Usuario</string>
+    <string name="user_email_sample">useraccount@gmail.com</string>
+    <string name="label_name">Nombre</string>
+    <string name="user_name_sample">User Name </string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Contraseña</string>
+    <string name="user_password_sample">******</string>
+    <string name="label_phone">Celular</string>
+    <string name="user_phone_sample">74583493</string>
+    <string name="label_country">País</string>
+    <string name="user_country_sample">Pakistan</string>
+    <string name="button_change_info">Cambiar Información</string>
+    <string name="button_logout">Cerrar Sesión</string>
+
+
+    <!--    perfil de usuario resource-->
+    <string name="payment_title">Payment</string>
+    <string name="seleccionar_metodo_de_pago_title">Seleccionar metodo de pago</string>
+    <string name="numero_de_tarjeta_title">Numero de tarjeta</string>
+    <string name="hint_rellenar">rellenar</string>
+    <string name="fecha_de_expiracion_title">Fecha de expiración</string>
+    <string name="codigo_de_seguridad_title">Codigo de Seguridad</string>
+    <string name="informacion_factura">Informacion factura</string>
+    <string name="nombre_payment_title">Nombre</string>
+    <string name="apellido_title">Apellido</string>
+    <string name="direccion_de_la_cuenta_title">Direccion de la cuenta</string>
+    <string name="ciudad_payment_title">Ciudad</string>
+    <string name="codigo_postal_title">Codigo Postal</string>
+    <string name="pais_title">Pais</string>
+    <string name="celular_title">Celular</string>
+    <string name="metodo_de_pago_title">Metodo de pago</string>
+    <string name="pagar_button_title">Pagar</string>
+
+<!--    cartCard layout resource-->
+    <string name="name_game_title_forCart">Name game</string>
+    <string name="price_title_forCart">Price</string>
+    <string name="remove_text_button_forCart">Remove</string>
+    <string name="juego_library_title_card">juego</string>
+    <string name="taginfo_text_recycler">tagInfo</string>
+    <string name="crear_cuenta_register_title">Crear Cuenta</string>
+    <string name="email_register_title">Email</string>
+    <string name="password_register_title">Contraseña</string>
+    <string name="nombre_register_text">Nombre</string>
+    <string name="celular_register_text">Celular</string>
+    <string name="pais_register_text">Pais</string>
+    <string name="crear_register_text">Crear</string>
+    <string name="nombre_de_usuario_register_hint">Nombre de Usuario</string>
+    <string name="your_library_is_empty_title">Your library is empty!</string>
 </resources>

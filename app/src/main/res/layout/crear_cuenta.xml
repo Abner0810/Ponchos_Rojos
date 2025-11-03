@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/deepBlue"
-    tools:context=".MainActivity">
+    >
     <ImageView
         android:id="@+id/logo"
         android:layout_width="200dp"
@@ -26,72 +26,79 @@
         app:layout_constraintTop_toBottomOf="@+id/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/sf_pro_bold"
         android:layout_margin="20dp"
-        android:text="Crear Cuenta"
+        android:text="@string/crear_cuenta_register_title"
         android:textColor="@color/white"
-        android:textSize="30dp"
-        ></TextView>
+        android:textSize="30sp"
+       />
 
     <EditText
         android:id="@+id/nombre_usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/crear_cuenta"
-        android:hint="Nombre de Usuario"
+        android:fontFamily="@font/sf_pro_bold"
+        android:hint="@string/nombre_de_usuario_register_hint"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></EditText>
+        />
 
 
     <EditText
-        android:id="@+id/contrasena"
+        android:id="@+id/contraseña"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/nombre_usuario"
-        android:hint="Contraseña"
+        android:hint="@string/password_register_title"
+        android:fontFamily="@font/sf_pro_bold"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></EditText>
+        />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/contrasena"
-        android:hint="Email"
+        app:layout_constraintTop_toBottomOf="@+id/contraseña"
+        android:hint="@string/email_register_title"
+        android:fontFamily="@font/sf_pro_bold"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></EditText>
+        />
 
     <EditText
         android:id="@+id/Nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/email"
-        android:hint="Nombre"
+        android:hint="@string/nombre_register_text"
+        android:fontFamily="@font/sf_pro_bold"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></EditText>
+      />
 
     <EditText
         android:id="@+id/celular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/Nombre"
-        android:hint="Celular"
+        android:hint="@string/celular_register_text"
+        android:fontFamily="@font/sf_pro_bold"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></EditText>
+       />
 
     <EditText
         android:id="@+id/pais"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/celular"
-        android:hint="Pais"
+        android:hint="@string/pais_register_text"
+        android:fontFamily="@font/sf_pro_bold"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></EditText>
+      />
 
 
     <Button
@@ -100,11 +107,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/pais"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Crear"
-        android:textSize="30dp"
-        android:layout_margin="20dp"
-        android:textColor="@color/white"
-        android:background="@android:color/holo_blue_dark"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/crear_register_text"
+        android:fontFamily="@font/sf_pro_bold"
+        android:textSize="30sp"
+        android:textColor="@color/grayBlue"
+        android:backgroundTint="@color/grayWhite"
         ></Button>
 
     <Button

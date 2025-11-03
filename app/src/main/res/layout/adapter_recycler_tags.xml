@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <Button
-        android:id="@+id/recycler_tag_button"
+        android:id="@+id/recycler_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -14,9 +14,10 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:backgroundTint="@color/grayWhite"
-        android:text="Souls-Like"
+        android:text="@string/taginfo_text_recycler"
         android:textSize="18sp"
         android:textColor="@color/grayBlue"
+        android:fontFamily="@font/sf_pro_bold"
         android:padding = "5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

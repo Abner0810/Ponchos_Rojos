@@ -10,9 +10,10 @@
         android:id="@+id/game_title_library"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="juego"
+        android:text="@string/juego_library_title_card"
         android:fontFamily="@font/sf_pro_bold"
         android:textColor="@color/grayWhite"
+        android:layout_marginTop="15dp"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -31,22 +32,15 @@
             android:id="@+id/card_library_game"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Juego"
-                android:fontFamily="@font/sf_pro_bold"
-                android:textColor="@color/grayWhite"
-                android:textSize="20sp"
-                app:layout_constraintTop_toTopOf="@id/card_library_game"
-                app:layout_constraintStart_toStartOf="@id/card_library_game"/>
 
 
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/imageSample"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ponchos_rojos.adapters.AdapterRecyclerCart
@@ -31,7 +32,7 @@ class activity_cart : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContentView(binding.root)
-        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("JuegosCarrito", Context.MODE_PRIVATE)
 
         //setContentView(R.layout.activity_cart)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -41,10 +42,14 @@ class activity_cart : AppCompatActivity() {
         }
 
 //////////IMPLEMENTACION DEL RECYCLER PARA LAS TARJETAS DE CARRITO Y DE SHARED PREFERENCES PARA LA PERDURACION DE DATOS
+        binding.payButton.visibility = View.GONE
+        binding.priceText.text = "$0.0"
 
         binding.recyclerCartGames.layoutManager = LinearLayoutManager(this)
 
         val gameEntireList = loadGamesFromJson()
+
+
 
         ////CREAMOS OTRA LISTA PARA PONER LOS JUEGOS QUE SE INGRESARON EN SHARED PREFERENCES DESDE LA PANTALLA DE INFO GAMES CON EL BOTON ADDTOCART
         val selectedListGames: MutableList<GameInfo> = mutableListOf()
@@ -61,21 +66,26 @@ class activity_cart : AppCompatActivity() {
             binding.recyclerCartGames.adapter = AdapterRecyclerCart
 
             var suma:Double = 0.0
+            var decimal:String =""
             if(!selectedListGames.isEmpty()){
                 // suma de precio total
                 for(i in 0 until  selectedListGames.size){
                     suma += selectedListGames[i].price.toDouble()
                 }
+                decimal = String.format("%.2f", suma)
 
                 //si la lista no esta vacia puedes comprar
-                binding.payButton.visibility = View.VISIBLE
+
+                    binding.payButton.visibility = View.VISIBLE
+
+
 
             }else{
                 //si no hay nada en la lista no puedes comprar nada
                 binding.payButton.visibility = View.GONE
             }
 
-            val totalString: String = suma.toString()
+            val totalString: String = decimal
             binding.priceText.text = "$$totalString"
 
             ///
@@ -84,6 +94,7 @@ class activity_cart : AppCompatActivity() {
 
         }else{
             binding.yourcartIsemptyTitle.visibility = View.VISIBLE
+
         }
 
 
@@ -102,6 +113,18 @@ class activity_cart : AppCompatActivity() {
             val intent = Intent(context, activity_library::class.java)
             // intent.putExtra("gameData", game) // enviamos el objeto completo
             context.startActivity(intent)
+        }
+
+        binding.payButton.setOnClickListener {
+            val intent = Intent(context, PagarActivity::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
+        }
+
+
+        // INTENT PERFIL USUARIO
+        binding.imageProfile.setOnClickListener {
+            startActivity(Intent(context, MainPerfilActivity::class.java))
         }
     }
 

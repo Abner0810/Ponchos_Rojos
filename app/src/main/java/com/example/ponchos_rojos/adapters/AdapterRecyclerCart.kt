@@ -1,6 +1,7 @@
 package com.example.ponchos_rojos.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ponchos_rojos.GameInfo
+import com.example.ponchos_rojos.activity_gameInfo
 import com.example.ponchos_rojos.adapters.AdapterRecyclerCart.CardCartViewHolder
 import com.example.ponchos_rojos.databinding.AdapterRecyclerCartBinding
 import com.example.ponchos_rojos.databinding.AdapterRecyclerLibraryBinding
@@ -22,16 +24,23 @@ class AdapterRecyclerCart(private val context: Context,
 ) : RecyclerView.Adapter<AdapterRecyclerCart.CardCartViewHolder>() {
 
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesButton: SharedPreferences
+
 
 
     // ViewHolder
     inner class CardCartViewHolder(private val binding: AdapterRecyclerCartBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: GameInfo) {
-            sharedPreferences = binding.root.context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            sharedPreferences = binding.root.context.getSharedPreferences("JuegosCarrito", Context.MODE_PRIVATE)
+            sharedPreferencesButton = binding.root.context.getSharedPreferences("logicButton", Context.MODE_PRIVATE)
 
-            if(sharedPreferences.contains("idGame_${item.name}")) {
+//if(sharedPreferences.all.isEmpty()){
+//    cartList.clear()
+//}
+
                 binding.titleGameCartSection.text = item.name
+
                 binding.priceGameCartSection.text = "$" + item.price
 
                 val imageId = binding.root.context.resources.getIdentifier(
@@ -40,7 +49,18 @@ class AdapterRecyclerCart(private val context: Context,
                 if (imageId != 0) {
                     binding.imageGameCart.setImageResource(imageId)
                 }
-            }
+
+
+//            if(cartList.isEmpty()){
+//                yourCartIsEmpty.visibility = View.VISIBLE
+//
+//                payButton.visibility = View.GONE
+//
+//            }else{
+//                yourCartIsEmpty.visibility = View.GONE
+//
+//                payButton.visibility = View.VISIBLE
+//            }
 
 
 
@@ -54,26 +74,47 @@ class AdapterRecyclerCart(private val context: Context,
                     val totalPrice: Double = sumaPrecios(cartList)
                     val totalString: String = totalPrice.toString()
                     pricesUpdate.text = "$$totalString"
+
+                    //SHARED REFERENCES
+                    val editor = sharedPreferences.edit()
+                    val editorButton = sharedPreferencesButton.edit()
+                    editor.remove("idGame_${item.name}")
+                    editorButton.putBoolean("boton_presionado_${item.name}", false)
+                    editor.apply()
+                    editorButton.apply()
                 }
                 if(cartList.isEmpty()){
                     yourCartIsEmpty.visibility = View.VISIBLE
+
                     payButton.visibility = View.GONE
                 }else{
                     yourCartIsEmpty.visibility = View.GONE
+
                     payButton.visibility = View.VISIBLE
                 }
 
             }
+
+//            binding.imageGameCart.setOnClickListener {
+//                val intent = Intent(context, activity_gameInfo::class.java)
+//                intent.putExtra("gameData", item) // enviamos el objeto completo
+//                context.startActivity(intent)
+//            }
         }
 
         fun sumaPrecios(cartList: MutableList<GameInfo>):Double{
             var suma:Double = 0.0
+            var decimal:Double = 0.0
             if(!cartList.isEmpty()){
                 for(i in 0 until  cartList.size){
                     suma += cartList[i].price.toDouble()
                 }
+                decimal = String.format("%.2f", suma).toDouble()
+            }else{
+                pricesUpdate.text = "$"+decimal.toString()
             }
-            return suma
+
+            return decimal
 
         }
     }

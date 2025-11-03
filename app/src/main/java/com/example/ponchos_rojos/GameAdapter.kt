@@ -10,7 +10,27 @@ import com.example.ponchos_rojos.databinding.ItemGameCardBinding
 class GameAdapter(private val context: Context, private var gameList: List<GameInfo>) :
     RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
 
-    class GameViewHolder(val binding: ItemGameCardBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class GameViewHolder(private val binding: ItemGameCardBinding) : RecyclerView.ViewHolder(binding.root){
+
+        fun bind(game:GameInfo){
+            binding.gameName.text = game.name
+            binding.gamePrice.text = "$${game.price}"
+            binding.gameTags.text = game.tags.joinToString(", ")
+
+            val imageId = context.resources.getIdentifier(
+                game.imageName, "drawable", context.packageName
+            )
+            if (imageId != 0) {
+                binding.gameImage.setImageResource(imageId)
+            }
+
+            binding.gameImage.setOnClickListener {
+                val intent = Intent(context, activity_gameInfo::class.java)
+                intent.putExtra("gameData", game) // enviamos el objeto completo
+                context.startActivity(intent)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -19,24 +39,11 @@ class GameAdapter(private val context: Context, private var gameList: List<GameI
     }
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
-        val game = gameList[position]
+        holder.bind(gameList[position])
 
-        holder.binding.gameName.text = game.name
-        holder.binding.gamePrice.text = "$${game.price}"
-        holder.binding.gameTags.text = game.tags.joinToString(", ")
 
-        val imageId = context.resources.getIdentifier(
-            game.imageName, "drawable", context.packageName
-        )
-        if (imageId != 0) {
-            holder.binding.gameImage.setImageResource(imageId)
-        }
 
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context, activity_gameInfo::class.java)
-            intent.putExtra("gameData", game) // enviamos el objeto completo
-            context.startActivity(intent)
-        }
+
     }
 
     override fun getItemCount(): Int {
