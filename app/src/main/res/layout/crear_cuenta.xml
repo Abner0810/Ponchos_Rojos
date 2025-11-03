@@ -32,7 +32,7 @@
         android:textSize="30dp"
         ></TextView>
 
-    <TextView
+    <EditText
         android:id="@+id/nombre_usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,30 +40,30 @@
         android:hint="Nombre de Usuario"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></TextView>
+        ></EditText>
 
 
-    <TextView
-        android:id="@+id/contraseña"
+    <EditText
+        android:id="@+id/contrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/nombre_usuario"
         android:hint="Contraseña"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></TextView>
+        ></EditText>
 
-    <TextView
+    <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/contraseña"
+        app:layout_constraintTop_toBottomOf="@+id/contrasena"
         android:hint="Email"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></TextView>
+        ></EditText>
 
-    <TextView
+    <EditText
         android:id="@+id/Nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,9 +71,9 @@
         android:hint="Nombre"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></TextView>
+        ></EditText>
 
-    <TextView
+    <EditText
         android:id="@+id/celular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,9 +81,9 @@
         android:hint="Celular"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></TextView>
+        ></EditText>
 
-    <TextView
+    <EditText
         android:id="@+id/pais"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,11 +91,11 @@
         android:hint="Pais"
         android:textColorHint="@color/grayWhite"
         android:layout_margin="20dp"
-        ></TextView>
+        ></EditText>
 
 
     <Button
-        android:id="@+id/boton"
+        android:id="@+id/botoncrear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/pais"
@@ -106,4 +106,18 @@
         android:textColor="@color/white"
         android:background="@android:color/holo_blue_dark"
         ></Button>
+
+    <Button
+        android:id="@+id/volverlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pais"
+        app:layout_constraintStart_toEndOf="@id/botoncrear"
+        android:text="Volver"
+        android:textSize="30dp"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:background="@android:color/holo_blue_dark"
+        ></Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

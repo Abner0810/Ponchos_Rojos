@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        startActivity(Intent(this@MainActivity, PagarActivity::class.java))
+        startActivity(Intent(this@MainActivity, activity_login::class.java))
     }
 }
 

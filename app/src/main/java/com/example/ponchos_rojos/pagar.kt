@@ -1,5 +1,6 @@
 package com.example.ponchos_rojos
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -79,6 +80,11 @@ class PagarActivity : AppCompatActivity() {
             if (!areAllFieldsFilled()) {
                 return@setOnClickListener
             }
+            val prefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val editor = prefs.edit()
+            val keysToRemove = prefs.all.keys.filter { it.startsWith("idGame_") }
+            for (k in keysToRemove) editor.remove(k)
+            editor.apply()
             Toast.makeText(
                 this@PagarActivity, "Pago realizado correctamente", Toast.LENGTH_SHORT
             ).show()
