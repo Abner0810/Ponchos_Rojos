@@ -290,7 +290,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:text="@string/processor_title"
                     app:layout_constraintTop_toBottomOf="@id/so_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
@@ -303,7 +303,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:text="@string/memory_title"
                     app:layout_constraintTop_toBottomOf="@id/processor_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
@@ -316,7 +316,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:text="@string/graphics_title"
                     app:layout_constraintTop_toBottomOf="@id/memory_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
@@ -330,7 +330,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:text="@string/storage_title"
                     app:layout_constraintTop_toBottomOf="@id/graphics_title_text"
                     app:layout_constraintStart_toStartOf="@id/minimum_requirements_card"
@@ -346,7 +346,7 @@
 
                 <TextView
                     android:id="@+id/so_info_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_pro_bold"
                     android:textColor="@color/grayWhite"
@@ -354,6 +354,7 @@
                     android:text="@string/so_info"
                     app:layout_constraintTop_toTopOf="@id/minimum_requirements_card"
                     app:layout_constraintStart_toEndOf="@id/so_title_text"
+                    app:layout_constraintEnd_toEndOf="@id/minimum_requirements_card"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"/>
                 <TextView
