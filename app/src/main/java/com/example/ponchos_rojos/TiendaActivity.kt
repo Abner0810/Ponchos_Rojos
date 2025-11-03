@@ -176,11 +176,16 @@ class TiendaActivity : AppCompatActivity() {
             // intent.putExtra("gameData", game) // enviamos el objeto completo
             context.startActivity(intent)
         }
+        // INTENT LIBRERIA
+       binding.buttonimageLibrary.setOnClickListener {
+           val intent = Intent(context, activity_library::class.java)
+           // intent.putExtra("gameData", game) // enviamos el objeto completo
+           context.startActivity(intent)
+       }
 
-        binding.buttonimageLibrary.setOnClickListener {
-            val intent = Intent(context, activity_library::class.java)
-            // intent.putExtra("gameData", game) // enviamos el objeto completo
-            context.startActivity(intent)
+        // INTENT PERFIL USUARIO
+        binding.imageview2.setOnClickListener {
+            startActivity(Intent(context, MainPerfilActivity::class.java))
         }
     }
 
@@ -218,7 +223,7 @@ class TiendaActivity : AppCompatActivity() {
 
 
 
-            )
+                )
             gameList.add(game)
         }
         return gameList

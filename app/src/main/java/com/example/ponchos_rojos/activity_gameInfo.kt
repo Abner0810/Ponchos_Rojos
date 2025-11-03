@@ -6,21 +6,15 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebChromeClient
-import android.webkit.WebView
 import android.widget.ImageButton
-import android.widget.MediaController
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ponchos_rojos.adapters.AdapterRecyclerCart
-import com.example.ponchos_rojos.adapters.AdapterRecyclerTagsButton
+import com.example.ponchos_rojos.adapters.AdapterRecyclerTags
 import com.example.ponchos_rojos.databinding.ActivityGameInfoBinding
-import com.example.ponchos_rojos.databinding.ActivityLoginBinding
 import kotlinx.serialization.json.Json
 import org.json.JSONArray
 
@@ -170,7 +164,7 @@ class activity_gameInfo : AppCompatActivity() {
         if (gameList.isNotEmpty()) {
             val listaTags: List<String> = game?.tags ?: emptyList()
             //  val listaTags = listOf("Action", "Adventure", "Fantasy", "Open World")
-            val adapterRecyclerTags = AdapterRecyclerTagsButton(this, listaTags)
+            val adapterRecyclerTags = AdapterRecyclerTags(this, listaTags)
             binding.recyclerTagsButton.adapter = adapterRecyclerTags
         }
 
