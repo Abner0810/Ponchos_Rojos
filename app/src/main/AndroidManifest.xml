@@ -23,7 +23,7 @@
 
 
         <activity
-            android:name=".activity_login"
+            android:name=".TiendaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +43,7 @@
 
         </activity>
         <activity
-            android:name=".TiendaActivity"
+            android:name=".activity_login"
             android:exported="false">
 
         </activity>

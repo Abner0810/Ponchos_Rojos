@@ -28,6 +28,7 @@ class TiendaActivity : AppCompatActivity() {
 
 
     //private lateinit var binding: ActivityTiendaBinding
+    private var currentSearchQuery = ""
     private lateinit var gameAdapter: GameAdapter
     private var gameList: List<GameInfo> = listOf()
     private val FEATURED_TAG = "Featured"
@@ -41,7 +42,7 @@ class TiendaActivity : AppCompatActivity() {
 
 
         //setContentView(R.layout.activity_tienda)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -57,6 +58,8 @@ class TiendaActivity : AppCompatActivity() {
         setupTagSpinner()
         // FUNCION PARA BUSCAR CON NOMBRE DE JUEGO TOMANDO EN CUENTA LOS TAGS
         setupSearchByText()
+        // FUNCION PARA LOS INTENTS
+        setUpIntents()
     }
 
     private fun setupSearchIconVisibility() {
@@ -81,21 +84,33 @@ class TiendaActivity : AppCompatActivity() {
     private fun setupSearchByText() {
         binding.edittext1.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
-                val searchQuery = v.text.toString()
+                currentSearchQuery = v.text.toString()
+                val selectedTag = binding.tagSpinner.selectedItem.toString()
 
-                val filteredList = if (searchQuery.isBlank()) {
+                val baseList = if (selectedTag == FEATURED_TAG) {
                     gameList
                 } else {
-                    gameList.filter { game ->
-                        game.name.startsWith(searchQuery, ignoreCase = true)
+                    gameList.filter { it.tags.contains(selectedTag) } // Start with games of the selected tag.
+                }
+
+                val finalList = if (currentSearchQuery.isBlank()) {
+                    baseList
+                } else {
+                    baseList.filter { game ->
+                        game.name.contains(currentSearchQuery, ignoreCase = true)
                     }
                 }
-                gameAdapter.updateList(filteredList)
 
-                if (searchQuery.isNotEmpty()) {
-                    binding.FeaturedNestedText.text = "RESULTS FOR: ${searchQuery.uppercase()}"
+                gameAdapter.updateList(finalList)
+
+                if (currentSearchQuery.isNotBlank() && selectedTag != FEATURED_TAG) {
+                    binding.FeaturedNestedText.text = "RESULTS FOR: ${currentSearchQuery.uppercase()} // FILTER: ${selectedTag.uppercase()}"
+                } else if (currentSearchQuery.isNotBlank()) {
+                    binding.FeaturedNestedText.text = "RESULTS FOR: ${currentSearchQuery.uppercase()}"
+                } else if (selectedTag != FEATURED_TAG) {
+                    binding.FeaturedNestedText.text = "FILTERED BY: ${selectedTag.uppercase()}"
                 } else {
-                    binding.FeaturedNestedText.text = FEATURED_TAG.uppercase()
+                    binding.FeaturedNestedText.text = "FEATURED"
                 }
 
                 val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -121,29 +136,39 @@ class TiendaActivity : AppCompatActivity() {
         binding.tagSpinner.adapter = spinnerAdapter
 
         binding.tagSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedTag = parent?.getItemAtPosition(position).toString()
 
-                filterGamesByTag(selectedTag)
-
-                if (selectedTag == FEATURED_TAG) {
-                    binding.FeaturedNestedText.text = "FEATURED"
-                    return
+                val baseList = if (selectedTag == FEATURED_TAG) {
+                    gameList
                 } else {
+                    gameList.filter { it.tags.contains(selectedTag) }
+                }
+                val finalList = if (currentSearchQuery.isBlank()) {
+                    baseList
+                } else {
+                    baseList.filter { game ->
+                        game.name.contains(currentSearchQuery, ignoreCase = true)
+                    }
+                }
+
+                gameAdapter.updateList(finalList)
+
+                if (currentSearchQuery.isNotBlank() && selectedTag != FEATURED_TAG) {
+                    binding.FeaturedNestedText.text = "RESULTS FOR: ${currentSearchQuery.uppercase()} // FILTER: ${selectedTag.uppercase()}"
+                } else if (currentSearchQuery.isNotBlank()) {
+                    binding.FeaturedNestedText.text = "RESULTS FOR: ${currentSearchQuery.uppercase()}"
+                } else if (selectedTag != FEATURED_TAG) {
                     binding.FeaturedNestedText.text = "FILTERED BY: ${selectedTag.uppercase()}"
+                } else {
+                    binding.FeaturedNestedText.text = "FEATURED"
                 }
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-
+    }
+    private fun setUpIntents(){
         //intent pantalla a carrito
         binding.buttonimageCart.setOnClickListener {
 
@@ -152,30 +177,11 @@ class TiendaActivity : AppCompatActivity() {
             context.startActivity(intent)
         }
 
-       binding.buttonimageLibrary.setOnClickListener {
-           val intent = Intent(context, activity_library::class.java)
-           // intent.putExtra("gameData", game) // enviamos el objeto completo
-           context.startActivity(intent)
-       }
-
-        // INTENT PERFIL USUARIO
-        binding.imageview2.setOnClickListener {
-            startActivity(Intent(context, MainPerfilActivity::class.java))
+        binding.buttonimageLibrary.setOnClickListener {
+            val intent = Intent(context, activity_library::class.java)
+            // intent.putExtra("gameData", game) // enviamos el objeto completo
+            context.startActivity(intent)
         }
-
-
-
-    }
-
-    private fun filterGamesByTag(tag: String) {
-        val filteredList = if (tag == FEATURED_TAG) {
-            gameList
-        } else {
-            gameList.filter { game ->
-                game.tags.contains(tag)
-            }
-        }
-        gameAdapter.updateList(filteredList)
     }
 
     private fun loadGamesFromJson(): List<GameInfo> {
@@ -212,7 +218,7 @@ class TiendaActivity : AppCompatActivity() {
 
 
 
-                )
+            )
             gameList.add(game)
         }
         return gameList
