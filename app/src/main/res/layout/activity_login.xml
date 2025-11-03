@@ -107,7 +107,7 @@
         android:fontFamily="@font/nunito_bold"
         android:textSize="17sp"/>
 
-    <TextView
+    <Button
         android:id="@+id/register_button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

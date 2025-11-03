@@ -128,6 +128,35 @@ class activity_cart : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        // Volver a leer SharedPreferences y reconstruir la lista seleccionada
+        val gameEntireList = loadGamesFromJson()
+        val selectedListGames: MutableList<GameInfo> = mutableListOf()
+        for (i in 0 until gameEntireList.size) {
+            if (sharedPreferences.contains("idGame_${gameEntireList[i].name}")) {
+                selectedListGames.add(gameEntireList[i])
+            }
+        }
+
+        if (selectedListGames.isNotEmpty()) {
+            val adapter = AdapterRecyclerCart(this, selectedListGames, binding.yourcartIsemptyTitle, binding.priceText, binding.payButton)
+            binding.recyclerCartGames.layoutManager = LinearLayoutManager(this)
+            binding.recyclerCartGames.adapter = adapter
+
+            var suma = 0.0
+            for (g in selectedListGames) suma += g.price.toDoubleOrNull() ?: 0.0
+            binding.priceText.text = "$$suma"
+            binding.payButton.visibility = View.VISIBLE
+            binding.yourcartIsemptyTitle.visibility = View.GONE
+        } else {
+            binding.recyclerCartGames.adapter = null
+            binding.priceText.text = "$0.0"
+            binding.payButton.visibility = View.GONE
+            binding.yourcartIsemptyTitle.visibility = View.VISIBLE
+        }
+    }
 
     private fun guardarDataClass(proyecto: GameInfo) {
         val asdfgh: String = Json.encodeToString(proyecto)
@@ -138,7 +167,7 @@ class activity_cart : AppCompatActivity() {
 
     private fun obtenerDataClass(): GameInfo? {
         val datoGuardado: String = sharedPreferences.getString("datosProyecto", null) ?: ""
-       // binding.textViewDatosSharedPrefs.text = datoGuardado
+        // binding.textViewDatosSharedPrefs.text = datoGuardado
         if (!datoGuardado.isEmpty()) {
             val objetoGuardado = Json.decodeFromString<GameInfo>(datoGuardado)
             return objetoGuardado
@@ -149,7 +178,7 @@ class activity_cart : AppCompatActivity() {
     private fun obtenerDataDeFile(): GameInfo? {
         val fileString: String =
             applicationContext.assets.open("games.json").bufferedReader().use { it.readText() }
-       // binding.textViewDatosLocalFile.text = fileString
+        // binding.textViewDatosLocalFile.text = fileString
         val objetoGuardado = Json.decodeFromString<GameInfo>(fileString)
         return objetoGuardado
     }

@@ -1,10 +1,7 @@
 package com.example.ponchos_rojos
-
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
+import android.os.Bundle import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +22,7 @@ class activity_login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
 
-
         enableEdgeToEdge()
-        //setContentView(R.layout.activity_login)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -36,15 +31,17 @@ class activity_login : AppCompatActivity() {
         }
         // Initialize Firebase Auth
         auth = Firebase.auth
-
+        binding.registerButtonText.setOnClickListener {
+            val intent = Intent(context, RegisterActivity::class.java)
+            startActivity(intent)
+        }
         binding.loginButton.setOnClickListener{
             val correo = binding.enterEmail.text.toString()
             val pass = binding.enterPassword.text.toString()
 
-            if(correo!= "" && pass != ""){
-                //crearUsuario(correo,pass)
+            if(correo!= "" && pass != "") {
                 loginValidation(correo,pass)
-            }else{
+            } else {
                 Toast.makeText(
                     baseContext,
                     "debe ingresar un correo y contraseña",
@@ -59,79 +56,61 @@ class activity_login : AppCompatActivity() {
                 ).show()
             }
         }
-
-
-
-
     }
+
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
-        val intentPantallaPrincipal = Intent(context, TiendaActivity::class.java)
-        startActivity(intentPantallaPrincipal)
-        //reload()
+            val intentPantallaPrincipal = Intent(context, TiendaActivity::class.java)
+            startActivity(intentPantallaPrincipal)
         }
     }
 
-    fun crearUsuario(
-        correo: String,
-        pass:String
-    ){
-        auth.createUserWithEmailAndPassword(correo, pass)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
-//                    Log.d(TAG, "createUserWithEmail:success")
-//                    val user = auth.currentUser
-//                    updateUI(user)
-
-                    //almacenar los datos
-                    val intentLogin = Intent(context, TiendaActivity::class.java)
-                    startActivity(intentLogin)
-                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-//                    //mensaje temporal
-//                    Toast.makeText(
-//                        baseContext,
-//                        "Authentication failed.",
-//                        Toast.LENGTH_SHORT,
-//                    ).show()
-//                    updateUI(null)
-
-
-
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                }
-            }
-
-    }
     fun loginValidation(
         correo: String,
         pass:String
     ){
         auth.signInWithEmailAndPassword(correo,pass).addOnCompleteListener{ task->
             if(task.isSuccessful){
-                //usuario logeado correctamente
-                val intentLogin = Intent(context, TiendaActivity::class.java)
-                startActivity(intentLogin)
+                // Cargar perfil y continuar
+                loadProfileAndProceed(correo)
             }else{
-                //el usuario no se pudo logear
+                // el usuario no se pudo logear
                 Toast.makeText(
                     baseContext,
                     "No se pudo logear al usuario",
-                    //control de tiempo en pantalla
-                    //Toast.LENGTH_SHORT,
                     Toast.LENGTH_LONG,
                 ).show()
             }
-
         }
+    }
+
+    // Carga el perfil desde PrefAllUsers y guarda en ProfileStorage (incluye username)
+    private fun loadProfileAndProceed(email: String) {
+        val localUser = PrefAllUsers.loadUserByEmail(this, email)
+        val perfil = if (localUser != null) {
+            UserProfile(
+                username = localUser.username,
+                nombre = localUser.nombre,
+                email = localUser.email,
+                contraseña = localUser.contraseña,
+                celular = localUser.celular,
+                pais = localUser.pais
+            )
+        } else {
+            UserProfile(
+                username = "",
+                nombre = "",
+                email = email,
+                contraseña = "",
+                celular = "",
+                pais = ""
+            )
+        }
+        ProfileStorage(this).save(perfil)
+        val intentLogin = Intent(context, TiendaActivity::class.java)
+        startActivity(intentLogin)
     }
 }

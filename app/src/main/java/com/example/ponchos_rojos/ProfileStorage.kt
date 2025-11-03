@@ -3,7 +3,9 @@ package com.example.ponchos_rojos
 import android.content.Context
 import android.content.SharedPreferences
 
+// guarda usuario localmente (solo 1)
 data class UserProfile(
+    val username: String = "",
     val nombre: String = "",
     val email: String = "",
     val contraseña: String = "",
@@ -17,6 +19,7 @@ class ProfileStorage(context: Context) {
 
     fun save(profile: UserProfile) {
         prefs.edit().apply {
+            putString(KEY_USERNAME, profile.username)
             putString(KEY_NOMBRE, profile.nombre)
             putString(KEY_EMAIL, profile.email)
             putString(KEY_CONTRASENA, profile.contraseña)
@@ -28,6 +31,7 @@ class ProfileStorage(context: Context) {
 
     fun load(): UserProfile {
         return UserProfile(
+            username = prefs.getString(KEY_USERNAME, "") ?: "",
             nombre = prefs.getString(KEY_NOMBRE, "") ?: "",
             email = prefs.getString(KEY_EMAIL, "") ?: "",
             contraseña = prefs.getString(KEY_CONTRASENA, "") ?: "",
@@ -42,6 +46,7 @@ class ProfileStorage(context: Context) {
 
     companion object {
         private const val PREFS_NAME = "user_profile_prefs"
+        private const val KEY_USERNAME = "username"
         private const val KEY_NOMBRE = "nombre"
         private const val KEY_EMAIL = "email"
         private const val KEY_CONTRASENA = "contrasena"

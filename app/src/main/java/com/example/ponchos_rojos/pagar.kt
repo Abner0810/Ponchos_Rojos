@@ -132,23 +132,20 @@ class PagarActivity : AppCompatActivity() {
 
 
 
-            Toast.makeText(
-                this@PagarActivity, "Pago realizado correctamente", Toast.LENGTH_SHORT
-            ).show()
-
-
-
-
-
-
+           // val prefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+           // val editor = prefs.edit()
+           // val keysToRemove = prefs.all.keys.filter { it.startsWith("idGame_") }
+           // for (k in keysToRemove) editor.remove(k)
+           // editor.apply()
+           // Toast.makeText(
+           //     this@PagarActivity, "Pago realizado correctamente", Toast.LENGTH_SHORT
+           // ).show()
+           // finish()
 
         }
         binding.avatarBtn.setOnClickListener {
             startActivity(Intent(context, MainPerfilActivity::class.java))
         }
-
-
-
 
 
     }

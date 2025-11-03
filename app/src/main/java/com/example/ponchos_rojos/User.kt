@@ -1,10 +1,14 @@
 package com.example.ponchos_rojos
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class User(
-    val id: String = "",
-    val nombre: String,
-    val email: String,
-    val contraseña: String,
+    val username: String = "",
+    val nombre: String = "",
+    val email: String = "",
+    val contraseña: String = "",
     val celular: String = "",
     val pais: String = ""
 )
+

@@ -59,7 +59,7 @@
             android:layout_margin="10dp"
             android:src="@drawable/generic_avatar" />
 
-        <TextView
+        <EditText
             android:id="@+id/id_usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
         android:fontFamily="@font/sf_pro_bold"
         android:layout_margin="10dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/Email1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

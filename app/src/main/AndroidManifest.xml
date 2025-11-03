@@ -50,6 +50,7 @@
         <activity android:name=".PagarActivity" />
         <activity android:name=".MainPerfilActivity" />
         <activity android:name=".EditarPerfilActivity" />
+        <activity android:name=".RegisterActivity" />
     </application>
 
 </manifest>

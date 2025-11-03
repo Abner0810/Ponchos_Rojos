@@ -102,7 +102,7 @@
 
 
     <Button
-        android:id="@+id/boton"
+        android:id="@+id/botoncrear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/pais"
@@ -114,5 +114,19 @@
         android:textSize="30sp"
         android:textColor="@color/grayBlue"
         android:backgroundTint="@color/grayWhite"
-     />
+        ></Button>
+
+    <Button
+        android:id="@+id/volverlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pais"
+        app:layout_constraintStart_toEndOf="@id/botoncrear"
+        android:text="Volver"
+        android:textSize="30dp"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:background="@android:color/holo_blue_dark"
+        ></Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
