@@ -31,7 +31,7 @@ class TiendaActivity : AppCompatActivity() {
     private var currentSearchQuery = ""
     private lateinit var gameAdapter: GameAdapter
     private var gameList: List<GameInfo> = listOf()
-    private val FEATURED_TAG = "Featured"
+    private val FEATURED_TAG = "- - - - -"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -184,7 +184,7 @@ class TiendaActivity : AppCompatActivity() {
        }
 
         // INTENT PERFIL USUARIO
-        binding.imageview2.setOnClickListener {
+        binding.imageProfile.setOnClickListener {
             startActivity(Intent(context, MainPerfilActivity::class.java))
         }
     }

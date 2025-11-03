@@ -4,16 +4,20 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ponchos_rojos.adapters.AdapterRecyclerCart
 import com.example.ponchos_rojos.adapters.AdapterRecyclerLibrary
-import com.example.ponchos_rojos.databinding.ActivityGameInfoBinding
 import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
 import org.json.JSONArray
 
@@ -23,7 +27,13 @@ class activity_library : AppCompatActivity() {
     private val context: Context = this
     private lateinit var sharedPreferencesLibrary: SharedPreferences
     private lateinit var sharedPreferencesButton: SharedPreferences
-
+    private var ownedGamesList: MutableList<GameInfo> = mutableListOf()
+    private lateinit var libraryAdapter: AdapterRecyclerLibrary
+    private var currentSearchQuery = ""
+    // OPCIONES DEL SPINNER
+    private val SORT_BY_NAME = "Name"
+    private val SORT_BY_RECENTLY_PLAYED = "Date"
+    private val SORT_BY_TIME_PLAYED = "Time Played"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,14 +46,12 @@ class activity_library : AppCompatActivity() {
         sharedPreferencesLibrary = getSharedPreferences("JuegosLibrary", Context.MODE_PRIVATE)
         sharedPreferencesButton = getSharedPreferences("logicButton", Context.MODE_PRIVATE)
 
-
         //setContentView(R.layout.activity_library)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
 //        val images = listOf(
 //            R.drawable.beyond_two_souls_image,
 //            R.drawable.heavy_rain_image,
@@ -57,12 +65,6 @@ class activity_library : AppCompatActivity() {
 //            R.drawable.cyberpunk_image,
 //            R.drawable.eldenring,
 //            R.drawable.witcher_image
-//
-//
-//
-//
-//
-//
 //            )
 
 //        val listImages = loadGamesFromJson()
@@ -71,8 +73,6 @@ class activity_library : AppCompatActivity() {
 //        binding.recyclerGames.adapter = adapter
 
         val gameEntireList = loadGamesFromJson()
-
-
 
         ////CREAMOS OTRA LISTA PARA PONER LOS JUEGOS QUE SE INGRESARON EN SHARED PREFERENCES DESDE LA PANTALLA DE INFO GAMES CON EL BOTON ADDTOCART
         val selectedListGames: MutableList<GameInfo> = mutableListOf()
@@ -93,13 +93,13 @@ class activity_library : AppCompatActivity() {
             binding.yourLibraryIsemptyTitle.visibility = View.VISIBLE
         }
 
-
-
-
-
-
         //intents
+        setupIntents()
 
+        // OCULTAR LUPA DESPUES DE ESCRIBIR EN EL EDITTEXT COMO EN TIENDA_ACTIVITY
+        setupSearchIconVisibility()
+    }
+    private fun setupIntents(){
         binding.buttonimageTag.setOnClickListener {
 
             val intent = Intent(context, TiendaActivity::class.java)
@@ -118,10 +118,24 @@ class activity_library : AppCompatActivity() {
             startActivity(Intent(context, MainPerfilActivity::class.java))
         }
     }
+    private fun setupSearchIconVisibility() {
+        binding.searchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
+                if (s.isNullOrEmpty()) {
+                    binding.imageview1.isVisible = true
+                } else {
+                    binding.imageview1.isVisible = false
+                }
+            }
 
-
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+    }
 
     private fun loadGamesFromJson(): MutableList<GameInfo> {
         val gameList = mutableListOf<GameInfo>()
