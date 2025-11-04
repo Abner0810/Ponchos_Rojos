@@ -112,6 +112,8 @@ class EditarPerfilActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+
+
             // Intentar actualizar la contraseña directamente en Firebase
             currentUser.updatePassword(perfilNuevo.contraseña).addOnCompleteListener { passTask ->
                 if (passTask.isSuccessful) {
@@ -135,6 +137,8 @@ class EditarPerfilActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
     private fun areAllFieldsFilled(): Boolean {
         // Revisamos username y los demás campos obligatorios (email no es editable pero username sí)

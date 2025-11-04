@@ -29,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
             if (!areAllFieldsFilled()) return@setOnClickListener
 
             val username = binding.nombreUsuario.text.toString().trim()
-            val password = binding.contrasena.text.toString()
+            val password = binding.contraseA.text.toString()
             val email = binding.email.text.toString().trim()
             val nombre = binding.Nombre.text.toString().trim()
             val celular = binding.celular.text.toString().trim()
@@ -109,7 +109,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun areAllFieldsFilled(): Boolean {
         val fields = listOf<EditText>(
             binding.nombreUsuario,
-            binding.contrasena,
+            binding.contraseA,
             binding.email,
             binding.Nombre,
             binding.celular,

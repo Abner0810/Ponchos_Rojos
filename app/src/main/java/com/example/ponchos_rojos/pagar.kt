@@ -90,14 +90,53 @@ class PagarActivity : AppCompatActivity() {
             finish()
         }
 
+
+
+
         binding.btnPagar.setOnClickListener {
 
             val editorLibrary = sharedPreferencesLibrary.edit()
             val editorCarrito = sharedPreferencesCarrito.edit()
             val editorButton = sharedPreferencesButton.edit()
+
+            var isValid = true
+
             if (!areAllFieldsFilled()) {
+                isValid = false
+            }
+
+            if (!telephoneVerification()) {
+                binding.rellenarCelular.error = "invalid phone number"
+                isValid = false
+            }
+
+            if (!cardVerification()) {
+                binding.rellenarTarjeta.error = "invalid card number"
+
+                isValid = false
+            }
+
+            if (!securityCodeVerification()) {
+                binding.codigoSegRellenar.error = "invalid security code"
+
+                isValid = false
+            }
+
+            if (!postalCodeVerification()) {
+                binding.rellenarCodigoPostal.error = "invalid postal code"
+
+
+                isValid = false
+            }
+
+
+                // si alguna validación falló, detenemos la ejecución
+            if (!isValid) {
+                Toast.makeText(context, "Please fill all the fields correctly", Toast.LENGTH_SHORT).show()
+
                 return@setOnClickListener
             }
+
 
 
 
@@ -148,7 +187,62 @@ class PagarActivity : AppCompatActivity() {
         }
 
 
+
+
+
+
+
     }
+
+    private fun telephoneVerification():Boolean{
+       var numPhone = binding.rellenarCelular.text.toString()
+
+        if(numPhone.length < 8){
+
+            return false
+
+        }
+        return true
+
+    }
+    private fun cardVerification():Boolean{
+        var cardNumber = binding.rellenarTarjeta.text.toString()
+
+        if(cardNumber.length < 16){
+
+            return false
+
+        }
+        return true
+
+    }
+
+    private fun securityCodeVerification():Boolean{
+        var securityNumber = binding.codigoSegRellenar.text.toString()
+
+        if(securityNumber.length != 3){
+
+            return false
+
+        }
+        return true
+
+    }
+    private fun postalCodeVerification():Boolean{
+        var postalNumber = binding.rellenarCodigoPostal.text.toString()
+
+        if(postalNumber.length < 5){
+
+            return false
+
+        }
+        return true
+
+    }
+
+
+
+
 
     private fun areAllFieldsFilled(): Boolean {
         val fields = listOf<EditText>(
