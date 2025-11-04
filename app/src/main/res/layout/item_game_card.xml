@@ -70,7 +70,6 @@
             android:textColor="@android:color/white"
             android:textSize="25sp"
             app:layout_constraintTop_toTopOf="@id/gradient"
-            app:layout_constraintBottom_toBottomOf="@id/gradient"
             app:layout_constraintEnd_toEndOf="@id/gradient"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,19 +6,16 @@
     "releasedDate": "9 DIC 2020",
     "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.",
     "url": "https://youtu.be/qIcTM8WXFjk?si=08dV4REHvBwVR6S1",
-    "tags": [
-      "RPG",
-      "Action",
-      "Sci-Fi"
-    ],
+    "tags": ["RPG", "Action", "Sci-Fi"],
     "imageName": "cyberpunk_image",
     "price": "44.99",
     "so": "Windows 10 64-bit",
     "processor": "Intel Core i5-8400 or AMD Ryzen 3 3300X",
     "memory": "12 GB RAM",
     "graphics": "NVIDIA GeForce GTX 1060 3 GB or AMD Radeon RX 580 4 GB",
-    "storage": "60 GB available space"
-
+    "storage": "60 GB available space",
+    "timePlayed": 206,
+    "lastPlayedDate": 1643827799258
   },
   {
     "id": 2,
@@ -27,19 +24,16 @@
     "releasedDate": "18 May, 2015",
     "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will. Your current contract? Tracking down Ciri — the Child of Prophecy, a living weapon that can alter the shape of the world.",
     "url": "https://youtu.be/c0i88t0Kacs?si=Zwe9s92yHDuTbU9S",
-    "tags": [
-      "RPG",
-      "Fantasy",
-      "Open World"
-    ],
+    "tags": ["RPG", "Fantasy", "Open World"],
     "imageName": "witcher_image",
     "price": "29.99",
     "so": "Windows 7/8/10 64-bit",
     "processor": "Intel Core i5-2500K 3.3GHz or AMD Phenom II X4 940",
     "memory": "6 GB RAM",
     "graphics": "NVIDIA GeForce GTX 660 or AMD Radeon HD 7870 (2 GB VRAM)",
-    "storage": "35 GB available space"
-
+    "storage": "35 GB available space",
+    "timePlayed": 183,
+    "lastPlayedDate": 1468403892519
   },
   {
     "id": 3,
@@ -48,21 +42,17 @@
     "releasedDate": "24 FEB 2022",
     "description": "THE NEW FANTASY ACTION RPG. Rise, Lightless One, and may grace guide you to embrace the power of the Elden Circle and rise as Circle Lord in the Lands Between.",
     "url": "https://youtu.be/E3Huy2cdih0?si=Qc0TBNH9h0PFDsI8",
-    "tags": [
-      "Action",
-      "Souls-like",
-      "Fantasy"
-    ],
+    "tags": ["Action", "Souls-like", "Fantasy"],
     "imageName": "eldenring",
     "price": "47.99",
     "so": "Windows 10 64-bit",
     "processor": "Intel Core i5-8400 or AMD Ryzen 3 3300X",
     "memory": "12 GB RAM",
     "graphics": "NVIDIA GeForce GTX 1060 3 GB or AMD Radeon RX 580 4 GB",
-    "storage": "60 GB available space"
-
+    "storage": "60 GB available space",
+    "timePlayed": 68,
+    "lastPlayedDate": 1722865015060
   },
-
   {
     "id": 4,
     "name": "Beyond: Two Souls",
@@ -77,7 +67,9 @@
     "processor": "Intel Core i5-4430 @ 3.0 GHz or AMD FX-6300 @ 3.5 GHz",
     "memory": "4 GB RAM",
     "graphics": "NVIDIA GeForce GTX 660 with 2GB VRAM or AMD Radeon HD 7870 with 2GB VRAM",
-    "storage": "49 GB available space"
+    "storage": "49 GB available space",
+    "timePlayed": 257,
+    "lastPlayedDate": 1698119009141
   },
   {
     "id": 5,
@@ -93,10 +85,10 @@
     "processor": "AMD Athlon X4 | Intel Core i5-4460",
     "memory": "8 GB RAM",
     "graphics": "NVIDIA GTX 950 | AMD R7 370",
-    "storage": "15 GB available space"
+    "storage": "15 GB available space",
+    "timePlayed": 135,
+    "lastPlayedDate": 1742569292042
   },
-
-
   {
     "id": 6,
     "name": "Heavy Rain",
@@ -111,7 +103,9 @@
     "processor": "Intel Core i5-4430 @ 3.0 GHz or AMD FX-6300 @ 3.5 GHz",
     "memory": "4 GB RAM",
     "graphics": "Nvidia GeForce GTX 660 with 2GB VRAM or AMD Radeon HD 7870 with 2GB VRAM",
-    "storage": "35 GB available space"
+    "storage": "35 GB available space",
+    "timePlayed": 551,
+    "lastPlayedDate": 1597009851033
   },
   {
     "id": 7,
@@ -127,7 +121,9 @@
     "processor": "Intel Core i5-2300 @ 2.8 GHz or AMD Ryzen 3 1200 @ 3.1GHz or AMD FX-8350 @ 4.2GHz",
     "memory": "8 GB RAM",
     "graphics": "Nvidia GeForce GTX 780 or AMD HD 7950 with 3GB VRAM (Vulkan 1.1 support required)",
-    "storage": "55 GB available space"
+    "storage": "55 GB available space",
+    "timePlayed": 501,
+    "lastPlayedDate": 1607563092354
   },
   {
     "id": 8,
@@ -143,7 +139,9 @@
     "processor": "Intel Core i3 M380",
     "memory": "2 GB RAM",
     "graphics": "Intel HD 4000",
-    "storage": "1.2 GB available space"
+    "storage": "1.2 GB available space",
+    "timePlayed": 221,
+    "lastPlayedDate": 1689989278514
   },
   {
     "id": 9,
@@ -159,7 +157,9 @@
     "processor": "Intel Core 2 Duo E5200",
     "memory": "4 GB RAM",
     "graphics": "GeForce 9800GTX+ (1 GB VRAM)",
-    "storage": "9 GB available space"
+    "storage": "9 GB available space",
+    "timePlayed": 382,
+    "lastPlayedDate": 1692455496455
   },
   {
     "id": 10,
@@ -175,7 +175,9 @@
     "processor": "Intel Core i5-4690K / AMD FX-8300",
     "memory": "16 GB RAM",
     "graphics": "GeForce GTX 970 / Radeon RX 590 (4 GB VRAM)",
-    "storage": "55 GB available space"
+    "storage": "55 GB available space",
+    "timePlayed": 349,
+    "lastPlayedDate": 1675399233125
   },
   {
     "id": 11,
@@ -191,7 +193,9 @@
     "processor": "Intel Core i5-4690 / AMD FX-4350",
     "memory": "8 GB RAM",
     "graphics": "NVIDIA GeForce GTX 780 / AMD Radeon R9 280X",
-    "storage": "42 GB available space"
+    "storage": "42 GB available space",
+    "timePlayed": 472,
+    "lastPlayedDate": 1671743473100
   },
   {
     "id": 12,
@@ -207,7 +211,9 @@
     "processor": "Intel Core i3-3240 / AMD FX-4300",
     "memory": "4 GB RAM",
     "graphics": "GeForce GTX 560 Ti (1 GB) / Radeon HD 7750 (1 GB)",
-    "storage": "8 GB available space"
+    "storage": "8 GB available space",
+    "timePlayed": 217,
+    "lastPlayedDate": 1759193678337
   },
   {
     "id": 13,
@@ -223,9 +229,10 @@
     "processor": "Intel Core2 Duo E8400 / AMD Athlon 64 X2 6000+ (3.0 GHz)",
     "memory": "2–3 GB RAM",
     "graphics": "GeForce 9600 GT / AMD HD 3870 (512-MB VRAM)",
-    "storage": "4 GB available space"
+    "storage": "4 GB available space",
+    "timePlayed": 84,
+    "lastPlayedDate": 1742115553165
   },
-
   {
     "id": 14,
     "name": "Neva",
@@ -240,7 +247,9 @@
     "processor": "Intel Core i5-4570T / AMD FX-4350",
     "memory": "8 GB RAM",
     "graphics": "GeForce GTX 650 / Radeon HD 7750 (1 GB VRAM)",
-    "storage": "15 GB available space"
+    "storage": "15 GB available space",
+    "timePlayed": 135,
+    "lastPlayedDate": 1747495134873
   },
   {
     "id": 15,
@@ -450,5 +459,4 @@
     "graphics": "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870 (2 GB VRAM)",
     "storage": "50 GB available space"
   }
-
 ]

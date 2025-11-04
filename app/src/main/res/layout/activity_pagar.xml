@@ -169,8 +169,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/grayBlue"
-                android:background="@color/gris_claro"
-                android:hint="@string/hint_rellenar"
+                android:background="@android:color/darker_gray"                android:hint="@string/hint_rellenar"
                 android:inputType="number"
                 app:layout_constraintStart_toEndOf="@id/fechaAnio"
                 app:layout_constraintTop_toBottomOf="@id/Cdg_seguridad" />

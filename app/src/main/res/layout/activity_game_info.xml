@@ -9,7 +9,6 @@
     android:background="@color/grayBlue">
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top_gameInfo"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -20,7 +19,6 @@
         android:id="@+id/image_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginEnd="20dp"
         android:src="@drawable/generic_avatar"
         android:background="@android:color/transparent"
@@ -32,33 +30,33 @@
         android:id="@+id/search_bar"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:background="@color/gray"
-
-
-        android:hint="@string/hint_search"
-        android:textColorHint="@color/deepBlue"
+        android:layout_marginEnd="20dp"
+        android:background="@color/grayWhite"
         android:fontFamily="@font/sf_pro_bold"
+        android:hint="@string/hint_search"
+        android:inputType="text"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-
-
-        app:layout_constraintEnd_toStartOf="@id/image_profile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline_top_gameInfo"/>
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/lupa_vector"
-        android:background="@android:color/transparent"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/image_profile"
+        android:textColorHint="@color/deepBlue"
         app:layout_constraintBottom_toTopOf="@id/guideline_top_gameInfo"
+        app:layout_constraintEnd_toStartOf="@id/image_profile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_marginEnd="30dp"/>
+    <ImageView
+        android:id="@+id/search_icon"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:src="@drawable/search"
+        android:background="@android:color/transparent"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/search_bar"
+        app:layout_constraintEnd_toEndOf="@id/search_bar"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar"
+        />
 
 
     <androidx.core.widget.NestedScrollView

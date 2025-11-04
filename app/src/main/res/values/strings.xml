@@ -154,4 +154,6 @@
     <string name="crear_register_text">Create</string>
     <string name="nombre_de_usuario_register_hint">User Name</string>
     <string name="your_library_is_empty_title">Your library is empty!</string>
+    <string name="search">Search</string>
+    <string name="library">Library</string>
 </resources>
