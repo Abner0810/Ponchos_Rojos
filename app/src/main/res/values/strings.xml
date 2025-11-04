@@ -51,20 +51,20 @@
     <string name="empty_space">  </string>
 
 <!--    string resources editar perfil-->
-    <string name="profile_edit_title">Editar Perfil de Usuario</string>
-    <string name="profile_user_id">ID_Usuario</string>
+    <string name="profile_edit_title">Edit user profile</string>
+    <string name="profile_user_id">ID_User</string>
     <string name="profile_email_example">useraccount@gmail.com</string>
-    <string name="profile_name_label">Nombre</string>
+    <string name="profile_name_label">Name</string>
     <string name="profile_name_hint">User name</string>
     <string name="profile_email_label">Email</string>
     <string name="profile_email_hint">UserAccount@gmail.com</string>
-    <string name="profile_password_label">Contraseña</string>
+    <string name="profile_password_label">Password</string>
     <string name="profile_password_hint">******</string>
-    <string name="profile_phone_label">Celular</string>
+    <string name="profile_phone_label">Phone number</string>
     <string name="profile_phone_hint">74583493</string>
-    <string name="profile_country_label">Pais</string>
-    <string name="profile_country_hint">Pakestan</string>
-    <string name="profile_save_button">Guardar</string>
+    <string name="profile_country_label">Country</string>
+    <string name="profile_country_hint">Your country</string>
+    <string name="profile_save_button">Save</string>
 
 <!--    string resources activity games info-->
 
@@ -105,39 +105,39 @@
 
 <!--    main perfil resources-->
 
-    <string name="user_profile_title">Perfil de Usuario</string>
-    <string name="user_id_label">ID_Usuario</string>
+    <string name="user_profile_title">User Profile</string>
+    <string name="user_id_label">ID_User</string>
     <string name="user_email_sample">useraccount@gmail.com</string>
-    <string name="label_name">Nombre</string>
+    <string name="label_name">Name</string>
     <string name="user_name_sample">User Name </string>
     <string name="label_email">Email</string>
-    <string name="label_password">Contraseña</string>
+    <string name="label_password">Password</string>
     <string name="user_password_sample">******</string>
-    <string name="label_phone">Celular</string>
+    <string name="label_phone">Phone Number</string>
     <string name="user_phone_sample">74583493</string>
-    <string name="label_country">País</string>
-    <string name="user_country_sample">Pakistan</string>
-    <string name="button_change_info">Cambiar Información</string>
-    <string name="button_logout">Cerrar Sesión</string>
+    <string name="label_country">Country</string>
+    <string name="user_country_sample">Your country</string>
+    <string name="button_change_info">Change information</string>
+    <string name="button_logout">Log out</string>
 
 
     <!--    perfil de usuario resource-->
     <string name="payment_title">Payment</string>
-    <string name="seleccionar_metodo_de_pago_title">Seleccionar metodo de pago</string>
-    <string name="numero_de_tarjeta_title">Numero de tarjeta</string>
-    <string name="hint_rellenar">rellenar</string>
-    <string name="fecha_de_expiracion_title">Fecha de expiración</string>
-    <string name="codigo_de_seguridad_title">Codigo de Seguridad</string>
-    <string name="informacion_factura">Informacion factura</string>
-    <string name="nombre_payment_title">Nombre</string>
-    <string name="apellido_title">Apellido</string>
-    <string name="direccion_de_la_cuenta_title">Direccion de la cuenta</string>
+    <string name="seleccionar_metodo_de_pago_title">Select method payment</string>
+    <string name="numero_de_tarjeta_title">Card number</string>
+    <string name="hint_rellenar">Fill</string>
+    <string name="fecha_de_expiracion_title">Expiration date</string>
+    <string name="codigo_de_seguridad_title">Security code</string>
+    <string name="informacion_factura">Billing information</string>
+    <string name="nombre_payment_title">Name</string>
+    <string name="apellido_title">Last Name</string>
+    <string name="direccion_de_la_cuenta_title">Account address</string>
     <string name="ciudad_payment_title">Ciudad</string>
-    <string name="codigo_postal_title">Codigo Postal</string>
+    <string name="codigo_postal_title">Postal Code</string>
     <string name="pais_title">Pais</string>
-    <string name="celular_title">Celular</string>
-    <string name="metodo_de_pago_title">Metodo de pago</string>
-    <string name="pagar_button_title">Pagar</string>
+    <string name="celular_title">Phone number</string>
+    <string name="metodo_de_pago_title">Method payment</string>
+    <string name="pagar_button_title">Pay</string>
 
 <!--    cartCard layout resource-->
     <string name="name_game_title_forCart">Name game</string>
@@ -145,14 +145,14 @@
     <string name="remove_text_button_forCart">Remove</string>
     <string name="juego_library_title_card">juego</string>
     <string name="taginfo_text_recycler">tagInfo</string>
-    <string name="crear_cuenta_register_title">Crear Cuenta</string>
+    <string name="crear_cuenta_register_title">Create account</string>
     <string name="email_register_title">Email</string>
-    <string name="password_register_title">Contraseña</string>
-    <string name="nombre_register_text">Nombre</string>
-    <string name="celular_register_text">Celular</string>
-    <string name="pais_register_text">Pais</string>
-    <string name="crear_register_text">Crear</string>
-    <string name="nombre_de_usuario_register_hint">Nombre de Usuario</string>
+    <string name="password_register_title">Password</string>
+    <string name="nombre_register_text">Name</string>
+    <string name="celular_register_text">Phone number</string>
+    <string name="pais_register_text">Country</string>
+    <string name="crear_register_text">Create</string>
+    <string name="nombre_de_usuario_register_hint">User Name</string>
     <string name="your_library_is_empty_title">Your library is empty!</string>
     <string name="search">Search</string>
     <string name="library">Library</string>

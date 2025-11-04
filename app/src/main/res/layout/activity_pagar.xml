@@ -115,6 +115,7 @@
                 android:minWidth="150dp"
                 android:textColor="@color/grayBlue"
                 android:background="@color/gris_claro"
+                android:inputType="number"
                 android:hint="@string/hint_rellenar"
                 app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/Nro_tarjeta" />
@@ -170,6 +171,7 @@
                 android:textColor="@color/grayBlue"
                 android:background="@color/gris_claro"
                 android:hint="@string/hint_rellenar"
+                android:inputType="number"
                 app:layout_constraintStart_toEndOf="@id/fechaAnio"
                 app:layout_constraintTop_toBottomOf="@id/Cdg_seguridad" />
 
@@ -208,6 +210,7 @@
                 android:minWidth="150dp"
                 android:maxWidth="150dp"
                 android:hint="@string/hint_rellenar"
+                android:inputType="textPersonName|textCapWords"
                 app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/nombre" />
 
@@ -234,6 +237,7 @@
                 android:background="@color/gris_claro"
                 android:textColor="@color/grayBlue"
                 android:hint="@string/hint_rellenar"
+                android:inputType="textPersonName|textCapWords"
                 app:layout_constraintStart_toEndOf="@id/rellenar_nombre"
                 app:layout_constraintTop_toBottomOf="@id/nombre"
                 />
@@ -258,6 +262,7 @@
                 android:background="@color/gris_claro"
                 android:minWidth="150dp"
                 android:hint="@string/hint_rellenar"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/grayBlue"
                 app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/direccion" />
@@ -282,6 +287,7 @@
                 android:background="@color/gris_claro"
                 android:minWidth="150dp"
                 android:hint="@string/hint_rellenar"
+                android:inputType="textPersonName"
                 android:textColor="@color/grayBlue"
                 app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/ciudad" />
@@ -305,6 +311,7 @@
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
                 android:hint="@string/hint_rellenar"
+                android:inputType="number"
                 android:textColor="@color/grayBlue"
                 app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/codigo_postal" />
@@ -328,6 +335,7 @@
                 android:layout_margin="10dp"
                 android:background="@color/gris_claro"
                 android:hint="@string/hint_rellenar"
+                android:inputType="textCapWords"
                 android:textColor="@color/grayBlue"
                 app:layout_constraintStart_toStartOf="@id/info_payment_container"
                 app:layout_constraintTop_toBottomOf="@id/Pais_text" />

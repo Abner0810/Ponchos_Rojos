@@ -66,6 +66,7 @@
             app:layout_constraintTop_toTopOf="@id/fondo"
             app:layout_constraintStart_toEndOf="@id/perfil"
             android:text="@string/profile_user_id"
+            android:inputType="textPersonName"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:fontFamily="@font/sf_pro_bold"
@@ -100,6 +101,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Nombre"
         android:hint="@string/profile_name_hint"
+        android:inputType="textPersonName"
         android:textColor="@color/grayBlue"
         android:background="@android:color/darker_gray"
         android:layout_margin="10dp" />
@@ -120,6 +122,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Email"
         android:hint="@string/profile_email_hint"
+        android:inputType="textEmailAddress"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
 
@@ -139,6 +142,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Password"
         android:hint="@string/profile_password_hint"
+        android:inputType="textPassword"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
 
@@ -158,6 +162,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Celular"
         android:hint="@string/profile_phone_hint"
+        android:inputType="number"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
 
@@ -177,6 +182,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Pais"
         android:hint="@string/profile_country_hint"
+        android:inputType="textPersonName"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
 
