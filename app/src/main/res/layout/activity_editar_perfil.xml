@@ -101,7 +101,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Nombre"
         android:hint="@string/profile_name_hint"
-        android:inputType="textPersonName"
+        android:textColorHint="@color/gray"
+
+        android:fontFamily="@font/sf_pro_bold"
+        android:inputType="textPersonName|textCapWords"
         android:textColor="@color/grayBlue"
         android:background="@android:color/darker_gray"
         android:layout_margin="10dp" />
@@ -112,6 +115,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Nombre1"
         android:text="@string/profile_email_label"
+
         android:textColor="@color/white"
         android:fontFamily="@font/sf_pro_bold"
         android:layout_margin="10dp" />
@@ -122,6 +126,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Email"
         android:hint="@string/profile_email_hint"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/grayBlue"
+        android:fontFamily="@font/sf_pro_bold"
         android:inputType="textEmailAddress"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
@@ -142,6 +149,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Password"
         android:hint="@string/profile_password_hint"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/grayBlue"
+        android:fontFamily="@font/sf_pro_bold"
         android:inputType="textPassword"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
@@ -162,6 +172,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Celular"
         android:hint="@string/profile_phone_hint"
+        android:fontFamily="@font/sf_pro_bold"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/grayBlue"
         android:inputType="number"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
@@ -182,7 +195,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Pais"
         android:hint="@string/profile_country_hint"
-        android:inputType="textPersonName"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/grayBlue"
+        android:fontFamily="@font/sf_pro_bold"
+        android:inputType="textCapWords"
         android:layout_margin="10dp"
         android:background="@android:color/darker_gray" />
 

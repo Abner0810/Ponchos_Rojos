@@ -24,12 +24,8 @@
 
         <activity
             android:name=".TiendaActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
@@ -44,13 +40,23 @@
         </activity>
         <activity
             android:name=".activity_login"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".PagarActivity" />
         <activity android:name=".MainPerfilActivity" />
         <activity android:name=".EditarPerfilActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            >
+
+        </activity>
     </application>
 
 </manifest>

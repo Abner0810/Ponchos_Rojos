@@ -126,6 +126,7 @@
     <string name="seleccionar_metodo_de_pago_title">Select method payment</string>
     <string name="numero_de_tarjeta_title">Card number</string>
     <string name="hint_rellenar">Fill</string>
+    <string name="code_security_hint">123</string>
     <string name="fecha_de_expiracion_title">Expiration date</string>
     <string name="codigo_de_seguridad_title">Security code</string>
     <string name="informacion_factura">Billing information</string>

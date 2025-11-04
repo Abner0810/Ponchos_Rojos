@@ -85,122 +85,137 @@
             android:fontFamily="@font/sf_pro_bold" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/nombre_label"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/info_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/fondo"
+        app:layout_constraintTop_toBottomOf="@id/fondo"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/label_name"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fondo1"
+        android:background="@color/grayBlue">
 
-    <TextView
-        android:id="@+id/nombre1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/nombre_label"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/user_name_sample"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp" />
+        <TextView
+            android:id="@+id/nombre_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/info_container"
+            app:layout_constraintStart_toStartOf="@id/info_container"
+            android:text="@string/label_name"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"/>
 
-    <TextView
-        android:id="@+id/email_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/nombre1"
-        android:text="@string/label_email"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_margin="10dp" />
+        <TextView
+            android:id="@+id/nombre1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/nombre_label"
+            app:layout_constraintStart_toStartOf="@id/info_container"
+            android:text="@string/user_name_sample"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp" />
 
-    <TextView
-        android:id="@+id/email1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/email_label"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/user_email_sample"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp" />
+        <TextView
+            android:id="@+id/email_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/nombre1"
+            android:text="@string/label_email"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_margin="10dp" />
 
-    <TextView
-        android:id="@+id/password_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/email1"
-        android:text="@string/label_password"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_margin="10dp" />
+        <TextView
+            android:id="@+id/email1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/email_label"
+            app:layout_constraintStart_toStartOf="@id/info_container"
+            android:text="@string/user_email_sample"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp" />
 
-    <TextView
-        android:id="@+id/password1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/password_label"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/user_password_sample"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp" />
+        <TextView
+            android:id="@+id/password_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/email1"
+            android:text="@string/label_password"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_margin="10dp" />
 
-    <TextView
-        android:id="@+id/celular_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/password1"
-        android:text="@string/label_phone"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_margin="10dp" />
+        <TextView
+            android:id="@+id/password1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/password_label"
+            app:layout_constraintStart_toStartOf="@id/info_container"
+            android:text="@string/user_password_sample"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp" />
 
-    <TextView
-        android:id="@+id/celular1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/celular_label"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/user_phone_sample"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp" />
+        <TextView
+            android:id="@+id/celular_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/password1"
+            android:text="@string/label_phone"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_margin="10dp" />
 
-    <TextView
-        android:id="@+id/pais_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/celular1"
-        android:text="@string/label_country"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_margin="10dp" />
+        <TextView
+            android:id="@+id/celular1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/celular_label"
+            app:layout_constraintStart_toStartOf="@id/info_container"
+            android:text="@string/user_phone_sample"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp" />
 
-    <TextView
-        android:id="@+id/pais1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/pais_label"
-        android:text="@string/user_country_sample"
-        android:textColor="@color/grayWhite"
-        android:fontFamily="@font/sf_pro_bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"/>
+        <TextView
+            android:id="@+id/pais_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/celular1"
+            android:text="@string/label_country"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/pais1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/pais_label"
+            app:layout_constraintBottom_toBottomOf="@id/info_container"
+            android:text="@string/user_country_sample"
+            android:textColor="@color/grayWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="15dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fondo1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/pais1"
+        app:layout_constraintTop_toBottomOf="@id/info_container"
         android:background="@color/azul_oscuro">
 
         <Button
