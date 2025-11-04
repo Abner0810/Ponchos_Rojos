@@ -1,4 +1,7 @@
-package com.example.ponchos_rojos
+package com.example.ponchos_rojos.adapters
+
+import com.example.ponchos_rojos.activity_gameInfo
+
 
 import android.content.Context
 import android.content.Intent

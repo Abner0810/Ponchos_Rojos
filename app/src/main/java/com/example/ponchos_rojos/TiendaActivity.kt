@@ -16,6 +16,7 @@ import androidx.core.view.isVisible
 import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ponchos_rojos.DataClass.GameInfo
+import com.example.ponchos_rojos.adapters.GameAdapter
 import com.example.ponchos_rojos.databinding.ActivityTiendaBinding
 //import com.example.ponchos_rojos.databinding.ActivityTiendaBinding
 import org.json.JSONArray
