@@ -110,7 +110,6 @@
             android:textSize="15sp"
             app:layout_constraintTop_toTopOf="@id/total_price_card"
             app:layout_constraintEnd_toEndOf="@id/total_price_card"
-            app:layout_constraintStart_toStartOf="@id/total_price_card"
             app:layout_constraintBottom_toTopOf="@id/pay_button"
             app:layout_goneMarginBottom="15dp"
             android:gravity="end"
