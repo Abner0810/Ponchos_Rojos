@@ -59,7 +59,6 @@ class PagarActivity : AppCompatActivity() {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
-                val seleccionado = pagos[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -69,7 +68,6 @@ class PagarActivity : AppCompatActivity() {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
-                val seleccionado_mes = meses[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -79,7 +77,6 @@ class PagarActivity : AppCompatActivity() {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
-                val seleccionado_año = anios[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -208,7 +205,7 @@ class PagarActivity : AppCompatActivity() {
     private fun cardVerification():Boolean{
         var cardNumber = binding.rellenarTarjeta.text.toString()
 
-        if(cardNumber.length < 16){
+        if(cardNumber.length != 16){
 
             return false
 

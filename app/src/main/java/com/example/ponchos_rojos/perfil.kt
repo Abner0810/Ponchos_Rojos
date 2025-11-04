@@ -1,7 +1,9 @@
 package com.example.ponchos_rojos
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,6 +14,11 @@ import com.google.firebase.auth.FirebaseAuth
 class MainPerfilActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainPerfilBinding
     private lateinit var storage: ProfileStorage
+    private lateinit var sharedPreferencesCart: SharedPreferences
+    private lateinit var sharedPreferencesLibrary: SharedPreferences
+    private lateinit var sharedPreferencesButton: SharedPreferences
+
+
 
     private val editLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -58,6 +65,11 @@ class MainPerfilActivity : AppCompatActivity() {
 
         storage = ProfileStorage(this)
 
+        sharedPreferencesCart = getSharedPreferences("JuegosCarrito", Context.MODE_PRIVATE)
+        sharedPreferencesLibrary = getSharedPreferences("JuegosLibrary", Context.MODE_PRIVATE)
+        sharedPreferencesButton = getSharedPreferences("logicButton", Context.MODE_PRIVATE)
+
+
         // Cargar perfil desde storage (incluye username ahora)
         val perfil = storage.load()
         binding.idUsuario.text = perfil.username         // <-- mostrar username junto al avatar
@@ -84,12 +96,21 @@ class MainPerfilActivity : AppCompatActivity() {
         }
 
         binding.botoncerrar.setOnClickListener {
+            val editorLibrary = sharedPreferencesLibrary.edit()
+            val editorCart = sharedPreferencesCart.edit()
+            val editorButton = sharedPreferencesButton.edit()
+            editorLibrary.clear().apply()
+            editorCart.clear().apply()
+            editorButton.clear().apply()
+
+
             FirebaseAuth.getInstance().signOut()
             storage.clear() // limpia el perfil local
             val intent = Intent(this, activity_login::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
             startActivity(intent)
+
         }
     }
 }

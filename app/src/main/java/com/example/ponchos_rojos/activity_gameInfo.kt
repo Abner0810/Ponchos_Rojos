@@ -28,7 +28,6 @@ class activity_gameInfo : AppCompatActivity() {
     private val context: Context = this
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var sharedPreferencesButton: SharedPreferences
-    private lateinit var sharedPreferencesLibrary: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +40,6 @@ class activity_gameInfo : AppCompatActivity() {
         ////SI NO LA APP CRASHEA
         sharedPreferences = getSharedPreferences("JuegosCarrito", Context.MODE_PRIVATE)
         sharedPreferencesButton = getSharedPreferences("logicButton", Context.MODE_PRIVATE)
-        sharedPreferencesLibrary = getSharedPreferences("JuegosLibrary", Context.MODE_PRIVATE)
 
 
         //setContentView(R.layout.activity_game_info)
@@ -51,62 +49,6 @@ class activity_gameInfo : AppCompatActivity() {
             insets
         }
 
-//        val mediaController = MediaController(this)
-//        mediaController.setAnchorView(binding.eldenringVideo)
-
-
-        val hideDelay = 3000L
-
-        fun showButtonTemporarily(buttonToShow: ImageButton) {
-            buttonToShow.visibility = View.VISIBLE
-
-            buttonToShow.postDelayed({
-                buttonToShow.visibility = View.GONE
-            }, hideDelay)
-        }
-
-//        val uri = Uri.parse("android.resource://" + "com.example.ponchos_rojos" + "/" + R.raw.elden_ring_compressed)
-//        binding.gameVideo.setVideoURI(uri)
-//        //binding.eldenringVideo.setMediaController(mediaController)
-//        // Play button
-//                binding.playButton.setOnClickListener {
-//                    binding.gameVideo.start()
-//                    binding.playButton.visibility = View.GONE      // se oculta inmediatamente
-//                    binding.pauseButton.visibility = View.VISIBLE  // aparece pause
-//                    showButtonTemporarily(binding.pauseButton)     // desaparece después de hideDelay
-//                }
-
-
-//// Pause button
-//        binding.pauseButton.setOnClickListener {
-//            binding.gameVideo.pause()
-//            binding.pauseButton.visibility = View.GONE     // se oculta inmediatamente
-//            binding.playButton.visibility = View.VISIBLE   // aparece play
-//            showButtonTemporarily(binding.playButton)      // desaparece después de hideDelay
-//        }
-//
-//        binding.gameVideo.setOnTouchListener { v, _ ->
-//            v.performClick()
-//            if (binding.gameVideo.isPlaying) {
-//                // Si está reproduciendo, mostramos el botón de pausa
-//                binding.pauseButton.visibility = View.VISIBLE
-//                binding.playButton.visibility = View.GONE
-//                showButtonTemporarily(binding.pauseButton)
-//            } else {
-//                // Si está pausado, mostramos el botón de play
-//                binding.playButton.visibility = View.VISIBLE
-//                binding.pauseButton.visibility = View.GONE
-//                showButtonTemporarily(binding.playButton)
-//            }
-//            true
-//        }
-
-//        binding.addToCartButton.setOnClickListener {
-//            var ver = false
-
-
-
-        // }
 
 
         // recibir informacion de la TIENDAACTIVITY
@@ -265,6 +207,8 @@ class activity_gameInfo : AppCompatActivity() {
         setupSearchIconVisibility()
         setupSearchRedirect()
     }
+
+    // Ocultar Lupa
     private fun setupSearchIconVisibility() {
         binding.searchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -283,6 +227,8 @@ class activity_gameInfo : AppCompatActivity() {
             }
         })
     }
+
+    // Manda el texto de search bar
 
     private fun setupSearchRedirect() {
         binding.searchBar.setOnEditorActionListener { v, actionId, event ->
@@ -305,31 +251,6 @@ class activity_gameInfo : AppCompatActivity() {
         }
     }
 
-
-    private fun guardarDataClass(proyecto: GameInfo) {
-        val asdfgh: String = Json.encodeToString(proyecto)
-        val editor = sharedPreferences.edit()
-        editor.putString("datosProyecto", asdfgh)
-        editor.apply()
-    }
-
-    private fun obtenerDataClass(): GameInfo? {
-        val datoGuardado: String = sharedPreferences.getString("datosProyecto", null) ?: ""
-        // binding.textViewDatosSharedPrefs.text = datoGuardado
-        if (!datoGuardado.isEmpty()) {
-            val objetoGuardado = Json.decodeFromString<GameInfo>(datoGuardado)
-            return objetoGuardado
-        }
-        return null
-    }
-
-    private fun obtenerDataDeFile(): GameInfo? {
-        val fileString: String =
-            applicationContext.assets.open("games.json").bufferedReader().use { it.readText() }
-        // binding.textViewDatosLocalFile.text = fileString
-        val objetoGuardado = Json.decodeFromString<GameInfo>(fileString)
-        return objetoGuardado
-    }
 
 
     private fun loadGamesFromJson(): MutableList<GameInfo> {

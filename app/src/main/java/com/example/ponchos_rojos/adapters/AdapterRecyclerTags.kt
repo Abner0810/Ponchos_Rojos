@@ -17,6 +17,14 @@ class AdapterRecyclerTags(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(tag: String) {
             binding.recyclerTag.text = tag
+            binding.recyclerTag.setOnClickListener {
+                // Mandamos el tag si le hacen click a la tiendaactivity
+                val intent = Intent(context, TiendaActivity::class.java)
+
+                intent.putExtra("TAG_FILTER", tag)
+
+                context.startActivity(intent)
+            }
         }
     }
 
@@ -32,13 +40,6 @@ class AdapterRecyclerTags(
     override fun onBindViewHolder(holder: TagsButtonViewHolder, position: Int) {
         val tagName = tagsList[position]
         holder.bind(tagName)
-        holder.binding.recyclerTag.setOnClickListener {
-            // Mandamos el tag si le hacen click a la tiendaactivity
-            val intent = Intent(context, TiendaActivity::class.java)
 
-            intent.putExtra("TAG_FILTER", tagName)
-
-            context.startActivity(intent)
-        }
     }
 }
