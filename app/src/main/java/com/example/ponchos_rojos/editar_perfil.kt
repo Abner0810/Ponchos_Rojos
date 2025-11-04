@@ -7,6 +7,8 @@ import android.text.InputType
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ponchos_rojos.DataClass.User
+import com.example.ponchos_rojos.DataClass.UserProfile
 import com.example.ponchos_rojos.databinding.ActivityEditarPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException

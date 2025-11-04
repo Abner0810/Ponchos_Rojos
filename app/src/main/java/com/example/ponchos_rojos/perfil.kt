@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ponchos_rojos.DataClass.UserProfile
 import com.example.ponchos_rojos.databinding.ActivityMainPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 

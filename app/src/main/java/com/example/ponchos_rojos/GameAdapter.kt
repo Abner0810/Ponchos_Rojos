@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ponchos_rojos.DataClass.GameInfo
 import com.example.ponchos_rojos.databinding.ItemGameCardBinding
 
 class GameAdapter(private val context: Context, private var gameList: List<GameInfo>) :
@@ -12,7 +13,7 @@ class GameAdapter(private val context: Context, private var gameList: List<GameI
 
     inner class GameViewHolder(private val binding: ItemGameCardBinding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind(game:GameInfo){
+        fun bind(game: GameInfo){
             binding.gameName.text = game.name
             binding.gamePrice.text = "$${game.price}"
             binding.gameTags.text = game.tags.joinToString(", ")

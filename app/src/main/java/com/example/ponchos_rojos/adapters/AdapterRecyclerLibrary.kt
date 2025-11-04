@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ponchos_rojos.GameInfo
+import com.example.ponchos_rojos.DataClass.GameInfo
 import com.example.ponchos_rojos.activity_gameInfo
 import com.example.ponchos_rojos.databinding.AdapterRecyclerLibraryBinding
 import java.text.SimpleDateFormat

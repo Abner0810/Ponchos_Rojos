@@ -9,7 +9,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,8 +18,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ponchos_rojos.adapters.AdapterRecyclerTags
 import com.example.ponchos_rojos.databinding.ActivityGameInfoBinding
-import kotlinx.serialization.json.Json
 import android.view.inputmethod.InputMethodManager
+import com.example.ponchos_rojos.DataClass.GameInfo
 import org.json.JSONArray
 
 class activity_gameInfo : AppCompatActivity() {

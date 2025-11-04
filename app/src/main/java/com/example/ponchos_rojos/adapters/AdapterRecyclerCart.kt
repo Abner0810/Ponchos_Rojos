@@ -1,20 +1,16 @@
 package com.example.ponchos_rojos.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ponchos_rojos.GameInfo
-import com.example.ponchos_rojos.activity_gameInfo
-import com.example.ponchos_rojos.adapters.AdapterRecyclerCart.CardCartViewHolder
+import com.example.ponchos_rojos.DataClass.GameInfo
 import com.example.ponchos_rojos.databinding.AdapterRecyclerCartBinding
-import com.example.ponchos_rojos.databinding.AdapterRecyclerLibraryBinding
+import java.util.Locale
 
 class AdapterRecyclerCart(private val context: Context,
                           private val cartList: MutableList<GameInfo>,
@@ -71,8 +67,9 @@ class AdapterRecyclerCart(private val context: Context,
 
                     notifyItemRemoved(position)
 
-                    val totalPrice: Double = sumaPrecios(cartList)
-                    val totalString: String = totalPrice.toString()
+                    //val totalPrice: Double = sumaPrecios(cartList)
+                   // val totalString: String = totalPrice.toString()
+                    val totalString:String = sumaPrecios(cartList)
                     pricesUpdate.text = "$$totalString"
 
                     //SHARED REFERENCES
@@ -102,19 +99,21 @@ class AdapterRecyclerCart(private val context: Context,
 //            }
         }
 
-        fun sumaPrecios(cartList: MutableList<GameInfo>):Double{
+        fun sumaPrecios(cartList: MutableList<GameInfo>):String{
             var suma:Double = 0.0
-            var decimal:Double = 0.0
+            //var decimal:Double = 0.0
             if(!cartList.isEmpty()){
                 for(i in 0 until  cartList.size){
                     suma += cartList[i].price.toDouble()
                 }
-                decimal = String.format("%.2f", suma).toDouble()
+               // decimal = String.format(Locale.US,"%.2f", suma).toDouble()
+                return String.format(Locale.US,"%.2f", suma)
             }else{
-                pricesUpdate.text = "$"+decimal.toString()
+                //pricesUpdate.text = "$"+decimal.toString()
+                return suma.toString()
             }
 
-            return decimal
+            //return decimal
 
         }
     }

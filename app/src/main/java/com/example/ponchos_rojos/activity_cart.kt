@@ -9,14 +9,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.ponchos_rojos.DataClass.GameInfo
 import com.example.ponchos_rojos.adapters.AdapterRecyclerCart
 import com.example.ponchos_rojos.databinding.ActivityCartBinding
-import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
 import kotlinx.serialization.json.Json
 import org.json.JSONArray
+import java.util.Locale
 
 class activity_cart : AppCompatActivity() {
 
@@ -72,7 +71,7 @@ class activity_cart : AppCompatActivity() {
                 for(i in 0 until  selectedListGames.size){
                     suma += selectedListGames[i].price.toDouble()
                 }
-                decimal = String.format("%.2f", suma)
+                decimal = String.format(Locale.US,"%.2f", suma)
 
                 //si la lista no esta vacia puedes comprar
 
@@ -128,35 +127,7 @@ class activity_cart : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
 
-        // Volver a leer SharedPreferences y reconstruir la lista seleccionada
-        val gameEntireList = loadGamesFromJson()
-        val selectedListGames: MutableList<GameInfo> = mutableListOf()
-        for (i in 0 until gameEntireList.size) {
-            if (sharedPreferences.contains("idGame_${gameEntireList[i].name}")) {
-                selectedListGames.add(gameEntireList[i])
-            }
-        }
-
-        if (selectedListGames.isNotEmpty()) {
-            val adapter = AdapterRecyclerCart(this, selectedListGames, binding.yourcartIsemptyTitle, binding.priceText, binding.payButton)
-            binding.recyclerCartGames.layoutManager = LinearLayoutManager(this)
-            binding.recyclerCartGames.adapter = adapter
-
-            var suma = 0.0
-            for (g in selectedListGames) suma += g.price.toDoubleOrNull() ?: 0.0
-            binding.priceText.text = "$$suma"
-            binding.payButton.visibility = View.VISIBLE
-            binding.yourcartIsemptyTitle.visibility = View.GONE
-        } else {
-            binding.recyclerCartGames.adapter = null
-            binding.priceText.text = "$0.0"
-            binding.payButton.visibility = View.GONE
-            binding.yourcartIsemptyTitle.visibility = View.VISIBLE
-        }
-    }
 
     private fun guardarDataClass(proyecto: GameInfo) {
         val asdfgh: String = Json.encodeToString(proyecto)

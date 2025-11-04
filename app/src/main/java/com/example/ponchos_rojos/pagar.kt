@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ponchos_rojos.DataClass.GameInfo
 import com.example.ponchos_rojos.databinding.ActivityPagarBinding
 import org.json.JSONArray
 

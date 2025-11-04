@@ -6,6 +6,8 @@ import android.util.Patterns
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ponchos_rojos.DataClass.User
+import com.example.ponchos_rojos.DataClass.UserProfile
 import com.example.ponchos_rojos.databinding.CrearCuentaBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException

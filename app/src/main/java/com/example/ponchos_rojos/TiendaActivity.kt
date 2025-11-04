@@ -15,8 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ponchos_rojos.databinding.ActivityCartBinding
+import com.example.ponchos_rojos.DataClass.GameInfo
 import com.example.ponchos_rojos.databinding.ActivityTiendaBinding
 //import com.example.ponchos_rojos.databinding.ActivityTiendaBinding
 import org.json.JSONArray
@@ -251,9 +250,7 @@ class TiendaActivity : AppCompatActivity() {
                 storage = jsonObject.getString("storage")
 
 
-
-
-                )
+            )
             gameList.add(game)
         }
         return gameList

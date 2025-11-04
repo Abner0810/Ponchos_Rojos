@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.ponchos_rojos.DataClass.UserProfile
 import com.example.ponchos_rojos.databinding.ActivityLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth

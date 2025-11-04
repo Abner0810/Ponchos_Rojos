@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ponchos_rojos.DataClass.GameInfo
 import com.example.ponchos_rojos.adapters.AdapterRecyclerLibrary
 import com.example.ponchos_rojos.databinding.ActivityLibraryBinding
 import org.json.JSONArray

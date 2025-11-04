@@ -1,8 +1,7 @@
 package com.example.ponchos_rojos
 
 import android.content.Context
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
+import com.example.ponchos_rojos.DataClass.User
 import kotlinx.serialization.json.Json
 
 // guarda todos los usuarios
